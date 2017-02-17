@@ -28,6 +28,7 @@ class Scraper
       #rarity: row.css(".rarity div")[0].text.split[0]
       #market_price: row.css(".marketPrice")[0].text.split[0].gsub!("$", "").to_f
       #wholesale_price: row.css(".buylistMarketPrice")[0].text.split[0].gsub!("$", "").to_f
+      #image: Nokogiri::HTML(open(row.css(".shop button").attribute("onclick").value.split(" ")[2].gsub!(/('|;)/, ""))).css(".detailImage img").attribute("src").value
       binding.pry
     end
   end

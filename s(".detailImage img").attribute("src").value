@@ -1,0 +1,396 @@
+=> [1;34m#(Document:0x1404c04 {[0m
+  name = [31m[1;31m"[0m[31mdocument[1;31m"[0m[31m[0m,
+  children = [
+    [1;34m#(DTD:0x13fe37c {[0m name = [31m[1;31m"[0m[31mhtml[1;31m"[0m[31m[0m }),
+    [1;34m#(Element:0x13f487c {[0m
+      name = [31m[1;31m"[0m[31mhtml[1;31m"[0m[31m[0m,
+      attributes = [
+        [1;34m#(Attr:0x13f1000 {[0m
+          name = [31m[1;31m"[0m[31mxmlns[1;31m"[0m[31m[0m,
+          value = [31m[1;31m"[0m[31mhttp://www.w3.org/1999/xhtml[1;31m"[0m[31m[0m
+          }),
+        [1;34m#(Attr:0x13f0fec {[0m
+          name = [31m[1;31m"[0m[31mxmlns:fb[1;31m"[0m[31m[0m,
+          value = [31m[1;31m"[0m[31mhttp://ogp.me/ns/fb#[1;31m"[0m[31m[0m
+          })],
+      children = [
+        [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m[1;31m"[0m[31m[0m),
+        [1;34m#(Element:0x13b3200 {[0m
+          name = [31m[1;31m"[0m[31mhead[1;31m"[0m[31m[0m,
+          children = [
+            [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m    [1;35m\r[0m[31m[1;35m\n[0m[31m[1;31m"[0m[31m[0m),
+            [1;34m#(Comment [0m[31m[1;31m"[0m[31m Google Tag Manager [1;31m"[0m[31m[0m),
+            [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m[1;31m"[0m[31m[0m),
+            [1;34m#(Element:0x1399af8 {[0m
+              name = [31m[1;31m"[0m[31mscript[1;31m"[0m[31m[0m,
+              children = [
+                [1;34m#(CDATA [0m[31m[1;31m"[0m[31m(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':[1;35m\r[0m[31m[1;35m\n[0m[31mnew Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],[1;35m\r[0m[31m[1;35m\n[0m[31mj=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=[1;35m\r[0m[31m[1;35m\n[0m[31m'https://www.googletagmanager.com/gtm.js?id='+i+dl+ '&gtm_auth=9CtDD7Bjc4QB8s5QjHgo2w&gtm_preview=env-1&gtm_cookies_win=x';f.parentNode.insertBefore(j,f);[1;35m\r[0m[31m[1;35m\n[0m[31m})(window,document,'script','dataLayer','GTM-MDKRQP');[1;31m"[0m[31m[0m)]
+              }),
+            [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m[1;31m"[0m[31m[0m),
+            [1;34m#(Comment [0m[31m[1;31m"[0m[31m End Google Tag Manager [1;31m"[0m[31m[0m),
+            [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m    [1;31m"[0m[31m[0m),
+            [1;34m#(Element:0x136baa4 {[0m
+              name = [31m[1;31m"[0m[31mtitle[1;31m"[0m[31m[0m,
+              children = [
+                [1;34m#(Text [0m[31m[1;31m"[0m[31mAegis Automaton - Aether Revolt, Magic: the Gathering - Online Gaming Store for Cards, Miniatures, Singles, Packs & Booster Boxes[1;31m"[0m[31m[0m)]
+              }),
+            [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m        [1;31m"[0m[31m[0m),
+            [1;34m#(Element:0x13593b8 {[0m
+              name = [31m[1;31m"[0m[31mmeta[1;31m"[0m[31m[0m,
+              attributes = [
+                [1;34m#(Attr:0x1353da0 {[0m name = [31m[1;31m"[0m[31mname[1;31m"[0m[31m[0m, value = [31m[1;31m"[0m[31mdescription[1;31m"[0m[31m[0m }),
+                [1;34m#(Attr:0x1353d8c {[0m
+                  name = [31m[1;31m"[0m[31mcontent[1;31m"[0m[31m[0m,
+                  value = [31m[1;31m"[0m[31mAegis Automaton from Aether Revolt for Magic the Gathering TCG (MTG)[1;31m"[0m[31m[0m
+                  })]
+              }),
+            [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m            [1;31m"[0m[31m[0m),
+            [1;34m#(Element:0x131ead8 {[0m
+              name = [31m[1;31m"[0m[31mmeta[1;31m"[0m[31m[0m,
+              attributes = [
+                [1;34m#(Attr:0x131aa8c {[0m name = [31m[1;31m"[0m[31mname[1;31m"[0m[31m[0m, value = [31m[1;31m"[0m[31mkeywords[1;31m"[0m[31m[0m }),
+                [1;34m#(Attr:0x131aa78 {[0m
+                  name = [31m[1;31m"[0m[31mcontent[1;31m"[0m[31m[0m,
+                  value = [31m[1;31m"[0m[31mMagic, Aegis Automaton, Aether Revolt, price, deck, single, card, foil, booster, box, pack, brick, game, mtg, TCG, card game, decklist, spoiler[1;31m"[0m[31m[0m
+                  })]
+              }),
+            [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m    [1;31m"[0m[31m[0m),
+            [1;34m#(Element:0x12f80f4 {[0m
+              name = [31m[1;31m"[0m[31mmeta[1;31m"[0m[31m[0m,
+              attributes = [
+                [1;34m#(Attr:0x12f4ea4 {[0m name = [31m[1;31m"[0m[31mproperty[1;31m"[0m[31m[0m, value = [31m[1;31m"[0m[31mfb:admins[1;31m"[0m[31m[0m }),
+                [1;34m#(Attr:0x12f4e90 {[0m
+                  name = [31m[1;31m"[0m[31mcontent[1;31m"[0m[31m[0m,
+                  value = [31m[1;31m"[0m[31m643675054,673820199,201100738,44203888,549856811,50701868,1195548639[1;31m"[0m[31m[0m
+                  })]
+              }),
+            [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m    [1;31m"[0m[31m[0m),
+            [1;34m#(Element:0x12cc210 {[0m
+              name = [31m[1;31m"[0m[31mmeta[1;31m"[0m[31m[0m,
+              attributes = [
+                [1;34m#(Attr:0x12c9330 {[0m name = [31m[1;31m"[0m[31mproperty[1;31m"[0m[31m[0m, value = [31m[1;31m"[0m[31mfb:app_id[1;31m"[0m[31m[0m }),
+                [1;34m#(Attr:0x12c931c {[0m
+                  name = [31m[1;31m"[0m[31mcontent[1;31m"[0m[31m[0m,
+                  value = [31m[1;31m"[0m[31m136270296395166[1;31m"[0m[31m[0m
+                  })]
+              }),
+            [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m    [1;31m"[0m[31m[0m),
+            [1;34m#(Element:0x129bca0 {[0m
+              name = [31m[1;31m"[0m[31mmeta[1;31m"[0m[31m[0m,
+              attributes = [
+                [1;34m#(Attr:0x129aa94 {[0m name = [31m[1;31m"[0m[31mname[1;31m"[0m[31m[0m, value = [31m[1;31m"[0m[31mviewport[1;31m"[0m[31m[0m }),
+                [1;34m#(Attr:0x129aa80 {[0m name = [31m[1;31m"[0m[31mcontent[1;31m"[0m[31m[0m, value = [31m[1;31m"[0m[31mwidth=975px[1;31m"[0m[31m[0m })]
+              }),
+            [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m    [1;31m"[0m[31m[0m),
+            [1;34m#(Element:0x1276fe0 {[0m
+              name = [31m[1;31m"[0m[31mscript[1;31m"[0m[31m[0m,
+              attributes = [
+                [1;34m#(Attr:0x1271ea0 {[0m name = [31m[1;31m"[0m[31mlanguage[1;31m"[0m[31m[0m, value = [31m[1;31m"[0m[31mjavascript[1;31m"[0m[31m[0m }),
+                [1;34m#(Attr:0x1271e8c {[0m
+                  name = [31m[1;31m"[0m[31mtype[1;31m"[0m[31m[0m,
+                  value = [31m[1;31m"[0m[31mtext/javascript[1;31m"[0m[31m[0m
+                  })],
+              children = [
+                [1;34m#(CDATA [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m    var SITEROOT = '/';[1;35m\r[0m[31m[1;35m\n[0m[31m        var FULLSITEROOT = 'http://shop.tcgplayer.com/';[1;35m\r[0m[31m[1;35m\n[0m[31m    [1;31m"[0m[31m[0m)]
+              }),
+            [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m    [1;31m"[0m[31m[0m),
+            [1;34m#(Comment [0m[31m[1;31m"[0m[31m[if IE 6]>[1;35m\r[0m[31m[1;35m\n[0m[31m    <style type=[1;35m\"[0m[31mtext/css[1;35m\"[0m[31m>[1;35m\r[0m[31m[1;35m\n[0m[31m    #vertical-navigation li:hover ul li a,[1;35m\r[0m[31m[1;35m\n[0m[31m    #vertical-navigation ul li a[1;35m\r[0m[31m[1;35m\n[0m[31m    {[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\t[0m[31m    line-height: 50%;[1;35m\r[0m[31m[1;35m\n[0m[31m    }[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m    #vertical-navigation ul[1;35m\r[0m[31m[1;35m\n[0m[31m    {[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\t[0m[31m    top: 2.5em;[1;35m\r[0m[31m[1;35m\n[0m[31m    }[1;35m\r[0m[31m[1;35m\n[0m[31m    </style>[1;35m\r[0m[31m[1;35m\n[0m[31m    <![endif][1;31m"[0m[31m[0m),
+            [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m    [1;31m"[0m[31m[0m),
+            [1;34m#(Element:0x101c4fc {[0m
+              name = [31m[1;31m"[0m[31mlink[1;31m"[0m[31m[0m,
+              attributes = [
+                [1;34m#(Attr:0x1003d94 {[0m
+                  name = [31m[1;31m"[0m[31mhref[1;31m"[0m[31m[0m,
+                  value = [31m[1;31m"[0m[31m/content/sitev2.css?v=31014[1;31m"[0m[31m[0m
+                  }),
+                [1;34m#(Attr:0x1003d6c {[0m name = [31m[1;31m"[0m[31mrel[1;31m"[0m[31m[0m, value = [31m[1;31m"[0m[31mstylesheet[1;31m"[0m[31m[0m }),
+                [1;34m#(Attr:0x1003d44 {[0m name = [31m[1;31m"[0m[31mtype[1;31m"[0m[31m[0m, value = [31m[1;31m"[0m[31mtext/css[1;31m"[0m[31m[0m }),
+                [1;34m#(Attr:0x1003d30 {[0m name = [31m[1;31m"[0m[31mmedia[1;31m"[0m[31m[0m, value = [31m[1;31m"[0m[31mscreen[1;31m"[0m[31m[0m })]
+              }),
+            [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m    [1;31m"[0m[31m[0m),
+            [1;34m#(Element:0xf3b0c4 {[0m
+              name = [31m[1;31m"[0m[31mlink[1;31m"[0m[31m[0m,
+              attributes = [
+                [1;34m#(Attr:0xf37898 {[0m
+                  name = [31m[1;31m"[0m[31mhref[1;31m"[0m[31m[0m,
+                  value = [31m[1;31m"[0m[31m/content/header.css?v=31014[1;31m"[0m[31m[0m
+                  }),
+                [1;34m#(Attr:0xf37884 {[0m name = [31m[1;31m"[0m[31mrel[1;31m"[0m[31m[0m, value = [31m[1;31m"[0m[31mstylesheet[1;31m"[0m[31m[0m }),
+                [1;34m#(Attr:0xf37870 {[0m name = [31m[1;31m"[0m[31mtype[1;31m"[0m[31m[0m, value = [31m[1;31m"[0m[31mtext/css[1;31m"[0m[31m[0m }),
+                [1;34m#(Attr:0xf3785c {[0m name = [31m[1;31m"[0m[31mmedia[1;31m"[0m[31m[0m, value = [31m[1;31m"[0m[31mscreen[1;31m"[0m[31m[0m })]
+              }),
+            [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m    [1;31m"[0m[31m[0m),
+            [1;34m#(Element:0xded140 {[0m
+              name = [31m[1;31m"[0m[31mlink[1;31m"[0m[31m[0m,
+              attributes = [
+                [1;34m#(Attr:0xde5828 {[0m
+                  name = [31m[1;31m"[0m[31mhref[1;31m"[0m[31m[0m,
+                  value = [31m[1;31m"[0m[31m/content/footer.css?v=31014[1;31m"[0m[31m[0m
+                  }),
+                [1;34m#(Attr:0xde5760 {[0m name = [31m[1;31m"[0m[31mrel[1;31m"[0m[31m[0m, value = [31m[1;31m"[0m[31mstylesheet[1;31m"[0m[31m[0m }),
+                [1;34m#(Attr:0xde56e8 {[0m name = [31m[1;31m"[0m[31mtype[1;31m"[0m[31m[0m, value = [31m[1;31m"[0m[31mtext/css[1;31m"[0m[31m[0m }),
+                [1;34m#(Attr:0xde56d4 {[0m name = [31m[1;31m"[0m[31mmedia[1;31m"[0m[31m[0m, value = [31m[1;31m"[0m[31mscreen[1;31m"[0m[31m[0m })]
+              }),
+            [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m    [1;31m"[0m[31m[0m),
+            [1;34m#(Element:0x12b30e4 {[0m
+              name = [31m[1;31m"[0m[31mlink[1;31m"[0m[31m[0m,
+              attributes = [
+                [1;34m#(Attr:0x12b225c {[0m
+                  name = [31m[1;31m"[0m[31mhref[1;31m"[0m[31m[0m,
+                  value = [31m[1;31m"[0m[31m/content/prettify.css?v=31014[1;31m"[0m[31m[0m
+                  }),
+                [1;34m#(Attr:0x12b2234 {[0m name = [31m[1;31m"[0m[31mrel[1;31m"[0m[31m[0m, value = [31m[1;31m"[0m[31mstylesheet[1;31m"[0m[31m[0m }),
+                [1;34m#(Attr:0x12b2220 {[0m name = [31m[1;31m"[0m[31mtype[1;31m"[0m[31m[0m, value = [31m[1;31m"[0m[31mtext/css[1;31m"[0m[31m[0m })]
+              }),
+            [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m    [1;31m"[0m[31m[0m),
+            [1;34m#(Element:0x13f0a74 {[0m
+              name = [31m[1;31m"[0m[31mlink[1;31m"[0m[31m[0m,
+              attributes = [
+                [1;34m#(Attr:0x13e99b8 {[0m
+                  name = [31m[1;31m"[0m[31mhref[1;31m"[0m[31m[0m,
+                  value = [31m[1;31m"[0m[31m/content/jquery-ui-1.10.4.custom.css?v=31014[1;31m"[0m[31m[0m
+                  }),
+                [1;34m#(Attr:0x13e9990 {[0m name = [31m[1;31m"[0m[31mrel[1;31m"[0m[31m[0m, value = [31m[1;31m"[0m[31mStylesheet[1;31m"[0m[31m[0m }),
+                [1;34m#(Attr:0x13e997c {[0m name = [31m[1;31m"[0m[31mtype[1;31m"[0m[31m[0m, value = [31m[1;31m"[0m[31mtext/css[1;31m"[0m[31m[0m }),
+                [1;34m#(Attr:0x13e9954 {[0m name = [31m[1;31m"[0m[31mmedia[1;31m"[0m[31m[0m, value = [31m[1;31m"[0m[31mscreen[1;31m"[0m[31m[0m })]
+              }),
+            [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m    [1;31m"[0m[31m[0m),
+            [1;34m#(Element:0x138f328 {[0m
+              name = [31m[1;31m"[0m[31mscript[1;31m"[0m[31m[0m,
+              attributes = [
+                [1;34m#(Attr:0x1385d64 {[0m
+                  name = [31m[1;31m"[0m[31msrc[1;31m"[0m[31m[0m,
+                  value = [31m[1;31m"[0m[31mhttp://www.google.com/jsapi[1;31m"[0m[31m[0m
+                  }),
+                [1;34m#(Attr:0x1385d50 {[0m name = [31m[1;31m"[0m[31mtype[1;31m"[0m[31m[0m, value = [31m[1;31m"[0m[31mtext/javascript[1;31m"[0m[31m[0m })]
+              }),
+            [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m    [1;31m"[0m[31m[0m),
+            [1;34m#(Element:0x1362fa8 {[0m
+              name = [31m[1;31m"[0m[31mscript[1;31m"[0m[31m[0m,
+              attributes = [
+                [1;34m#(Attr:0x135dcd8 {[0m
+                  name = [31m[1;31m"[0m[31msrc[1;31m"[0m[31m[0m,
+                  value = [31m[1;31m"[0m[31m/scripts/graph.js?v=31014[1;31m"[0m[31m[0m
+                  }),
+                [1;34m#(Attr:0x135dcc4 {[0m name = [31m[1;31m"[0m[31mtype[1;31m"[0m[31m[0m, value = [31m[1;31m"[0m[31mtext/javascript[1;31m"[0m[31m[0m })]
+              }),
+            [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m    [1;31m"[0m[31m[0m),
+            [1;34m#(Element:0x132ced0 {[0m
+              name = [31m[1;31m"[0m[31mscript[1;31m"[0m[31m[0m,
+              attributes = [
+                [1;34m#(Attr:0x1327944 {[0m
+                  name = [31m[1;31m"[0m[31msrc[1;31m"[0m[31m[0m,
+                  value = [31m[1;31m"[0m[31m/scripts/jquery-1.7.2.min.js?v=31014[1;31m"[0m[31m[0m
+                  }),
+                [1;34m#(Attr:0x1327908 {[0m name = [31m[1;31m"[0m[31mtype[1;31m"[0m[31m[0m, value = [31m[1;31m"[0m[31mtext/javascript[1;31m"[0m[31m[0m })]
+              }),
+            [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m    [1;31m"[0m[31m[0m),
+            [1;34m#(Element:0x1303b0c {[0m
+              name = [31m[1;31m"[0m[31mscript[1;31m"[0m[31m[0m,
+              attributes = [
+                [1;34m#(Attr:0x1302720 {[0m
+                  name = [31m[1;31m"[0m[31msrc[1;31m"[0m[31m[0m,
+                  value = [31m[1;31m"[0m[31m/scripts/jquery.unobtrusive-ajax.min.js?v=31014[1;31m"[0m[31m[0m
+                  }),
+                [1;34m#(Attr:0x130270c {[0m name = [31m[1;31m"[0m[31mtype[1;31m"[0m[31m[0m, value = [31m[1;31m"[0m[31mtext/javascript[1;31m"[0m[31m[0m })]
+              }),
+            [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m    [1;31m"[0m[31m[0m),
+            [1;34m#(Element:0x12d6c10 {[0m
+              name = [31m[1;31m"[0m[31mscript[1;31m"[0m[31m[0m,
+              attributes = [
+                [1;34m#(Attr:0x12d3bf0 {[0m
+                  name = [31m[1;31m"[0m[31msrc[1;31m"[0m[31m[0m,
+                  value = [31m[1;31m"[0m[31m/scripts/bootstrap.js?v=31014[1;31m"[0m[31m[0m
+                  }),
+                [1;34m#(Attr:0x12d3bdc {[0m name = [31m[1;31m"[0m[31mtype[1;31m"[0m[31m[0m, value = [31m[1;31m"[0m[31mtext/javascript[1;31m"[0m[31m[0m })]
+              }),
+            [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m    [1;31m"[0m[31m[0m),
+            [1;34m#(Element:0x12a9b20 {[0m
+              name = [31m[1;31m"[0m[31mscript[1;31m"[0m[31m[0m,
+              attributes = [
+                [1;34m#(Attr:0x12a89f0 {[0m
+                  name = [31m[1;31m"[0m[31msrc[1;31m"[0m[31m[0m,
+                  value = [31m[1;31m"[0m[31m/scripts/scripts.js?v=31014[1;31m"[0m[31m[0m
+                  }),
+                [1;34m#(Attr:0x12a89dc {[0m name = [31m[1;31m"[0m[31mtype[1;31m"[0m[31m[0m, value = [31m[1;31m"[0m[31mtext/javascript[1;31m"[0m[31m[0m })]
+              }),
+            [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m    [1;31m"[0m[31m[0m),
+            [1;34m#(Element:0x12869b8 {[0m
+              name = [31m[1;31m"[0m[31mscript[1;31m"[0m[31m[0m,
+              attributes = [
+                [1;34m#(Attr:0x127f80c {[0m
+                  name = [31m[1;31m"[0m[31msrc[1;31m"[0m[31m[0m,
+                  value = [31m[1;31m"[0m[31m/scripts/jquery-ui-1.8.17.custom.min.js?v=31014[1;31m"[0m[31m[0m
+                  }),
+                [1;34m#(Attr:0x127f7f8 {[0m name = [31m[1;31m"[0m[31mtype[1;31m"[0m[31m[0m, value = [31m[1;31m"[0m[31mtext/javascript[1;31m"[0m[31m[0m })]
+              }),
+            [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m    [1;31m"[0m[31m[0m),
+            [1;34m#(Element:0x1262324 {[0m
+              name = [31m[1;31m"[0m[31mscript[1;31m"[0m[31m[0m,
+              attributes = [
+                [1;34m#(Attr:0xf8929c {[0m
+                  name = [31m[1;31m"[0m[31msrc[1;31m"[0m[31m[0m,
+                  value = [31m[1;31m"[0m[31m/scripts/jquery.lazyload.min.js?v=31014[1;31m"[0m[31m[0m
+                  }),
+                [1;34m#(Attr:0xf89288 {[0m name = [31m[1;31m"[0m[31mtype[1;31m"[0m[31m[0m, value = [31m[1;31m"[0m[31mtext/javascript[1;31m"[0m[31m[0m })]
+              }),
+            [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m    [1;31m"[0m[31m[0m),
+            [1;34m#(Element:0x1006558 {[0m
+              name = [31m[1;31m"[0m[31mscript[1;31m"[0m[31m[0m,
+              attributes = [
+                [1;34m#(Attr:0xfffa78 {[0m
+                  name = [31m[1;31m"[0m[31msrc[1;31m"[0m[31m[0m,
+                  value = [31m[1;31m"[0m[31m/scripts/autocomplete.js?v=31014[1;31m"[0m[31m[0m
+                  }),
+                [1;34m#(Attr:0xfffa50 {[0m name = [31m[1;31m"[0m[31mtype[1;31m"[0m[31m[0m, value = [31m[1;31m"[0m[31mtext/javascript[1;31m"[0m[31m[0m })]
+              }),
+            [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m    [1;31m"[0m[31m[0m),
+            [1;34m#(Element:0xf7ae90 {[0m
+              name = [31m[1;31m"[0m[31mscript[1;31m"[0m[31m[0m,
+              attributes = [
+                [1;34m#(Attr:0xf76b74 {[0m
+                  name = [31m[1;31m"[0m[31msrc[1;31m"[0m[31m[0m,
+                  value = [31m[1;31m"[0m[31m/scripts/jquery.carouFredSel-6.2.1-packed.js?v=31014[1;31m"[0m[31m[0m
+                  }),
+                [1;34m#(Attr:0xf76aac {[0m name = [31m[1;31m"[0m[31mtype[1;31m"[0m[31m[0m, value = [31m[1;31m"[0m[31mtext/javascript[1;31m"[0m[31m[0m })]
+              }),
+            [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m    [1;31m"[0m[31m[0m),
+            [1;34m#(Element:0xe7ce1c {[0m
+              name = [31m[1;31m"[0m[31mscript[1;31m"[0m[31m[0m,
+              attributes = [
+                [1;34m#(Attr:0xe70ff4 {[0m
+                  name = [31m[1;31m"[0m[31msrc[1;31m"[0m[31m[0m,
+                  value = [31m[1;31m"[0m[31m/scripts/prettify.js?v=31014[1;31m"[0m[31m[0m
+                  }),
+                [1;34m#(Attr:0xe70f90 {[0m name = [31m[1;31m"[0m[31mtype[1;31m"[0m[31m[0m, value = [31m[1;31m"[0m[31mtext/javascript[1;31m"[0m[31m[0m })]
+              }),
+            [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m    [1;31m"[0m[31m[0m),
+            [1;34m#(Element:0xdfceec {[0m
+              name = [31m[1;31m"[0m[31mscript[1;31m"[0m[31m[0m,
+              attributes = [
+                [1;34m#(Attr:0xded9ec {[0m
+                  name = [31m[1;31m"[0m[31msrc[1;31m"[0m[31m[0m,
+                  value = [31m[1;31m"[0m[31m/scripts/spin.min.js?v=31014[1;31m"[0m[31m[0m
+                  }),
+                [1;34m#(Attr:0xded9d8 {[0m name = [31m[1;31m"[0m[31mtype[1;31m"[0m[31m[0m, value = [31m[1;31m"[0m[31mtext/javascript[1;31m"[0m[31m[0m })]
+              }),
+            [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m    [1;31m"[0m[31m[0m),
+            [1;34m#(Element:0x13c6a6c {[0m
+              name = [31m[1;31m"[0m[31mscript[1;31m"[0m[31m[0m,
+              attributes = [
+                [1;34m#(Attr:0x139c168 {[0m
+                  name = [31m[1;31m"[0m[31msrc[1;31m"[0m[31m[0m,
+                  value = [31m[1;31m"[0m[31m/scripts/tcglibrary.js?v=31014[1;31m"[0m[31m[0m
+                  }),
+                [1;34m#(Attr:0x139c140 {[0m name = [31m[1;31m"[0m[31mtype[1;31m"[0m[31m[0m, value = [31m[1;31m"[0m[31mtext/javascript[1;31m"[0m[31m[0m })]
+              }),
+            [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m    [1;31m"[0m[31m[0m),
+            [1;34m#(Element:0x1416d8c {[0m
+              name = [31m[1;31m"[0m[31mscript[1;31m"[0m[31m[0m,
+              attributes = [
+                [1;34m#(Attr:0x1413d6c {[0m
+                  name = [31m[1;31m"[0m[31msrc[1;31m"[0m[31m[0m,
+                  value = [31m[1;31m"[0m[31m/scripts/navbuilder.js[1;31m"[0m[31m[0m
+                  })]
+              }),
+            [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m    [1;31m"[0m[31m[0m),
+            [1;34m#(Element:0x13fb6a4 {[0m
+              name = [31m[1;31m"[0m[31mscript[1;31m"[0m[31m[0m,
+              attributes = [
+                [1;34m#(Attr:0x13f5d44 {[0m
+                  name = [31m[1;31m"[0m[31mtype[1;31m"[0m[31m[0m,
+                  value = [31m[1;31m"[0m[31mtext/javascript[1;31m"[0m[31m[0m
+                  })],
+              children = [
+                [1;34m#(CDATA [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m        jQuery(function ($) {[1;35m\r[0m[31m[1;35m\n[0m[31m            $([1;35m\"[0m[31mimg.lazy[1;35m\"[0m[31m).lazyload({[1;35m\r[0m[31m[1;35m\n[0m[31m                threshold: 300[1;35m\r[0m[31m[1;35m\n[0m[31m            });[1;35m\r[0m[31m[1;35m\n[0m[31m        });[1;35m\r[0m[31m[1;35m\n[0m[31m    [1;31m"[0m[31m[0m)]
+              }),
+            [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m    [1;35m\r[0m[31m[1;35m\n[0m[31m        [1;31m"[0m[31m[0m),
+            [1;34m#(Element:0x13b6310 {[0m
+              name = [31m[1;31m"[0m[31mscript[1;31m"[0m[31m[0m,
+              attributes = [
+                [1;34m#(Attr:0x13b3444 {[0m
+                  name = [31m[1;31m"[0m[31msrc[1;31m"[0m[31m[0m,
+                  value = [31m[1;31m"[0m[31m/scripts/ProductDetails.min.js?v=31014[1;31m"[0m[31m[0m
+                  }),
+                [1;34m#(Attr:0x13b3430 {[0m name = [31m[1;31m"[0m[31mtype[1;31m"[0m[31m[0m, value = [31m[1;31m"[0m[31mtext/javascript[1;31m"[0m[31m[0m })]
+              }),
+            [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m    [1;31m"[0m[31m[0m),
+            [1;34m#(Element:0x1380918 {[0m
+              name = [31m[1;31m"[0m[31mstyle[1;31m"[0m[31m[0m,
+              children = [
+                [1;34m#(CDATA [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m        .pricingBase {[1;35m\r[0m[31m[1;35m\n[0m[31m            vertical-align:middle;[1;35m\r[0m[31m[1;35m\n[0m[31m            text-align:center;[1;35m\r[0m[31m[1;35m\n[0m[31m            font-weight: bold;[1;35m\r[0m[31m[1;35m\n[0m[31m            padding: 5px;[1;35m\r[0m[31m[1;35m\n[0m[31m            font-size: 11px;[1;35m\r[0m[31m[1;35m\n[0m[31m        }[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m        .priceGuideWrap table {[1;35m\r[0m[31m[1;35m\n[0m[31m            width: 100%;[1;35m\r[0m[31m[1;35m\n[0m[31m        }[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m        .priceGuidePricePointDiv {[1;35m\r[0m[31m[1;35m\n[0m[31m            border: 1px solid #dcdadb;[1;35m\r[0m[31m[1;35m\n[0m[31m            border-radius: 3px;[1;35m\r[0m[31m[1;35m\n[0m[31m            float: left;[1;35m\r[0m[31m[1;35m\n[0m[31m        }[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m        .priceGuidePricePointDiv-magic {[1;35m\r[0m[31m[1;35m\n[0m[31m            width: 222px;[1;35m\r[0m[31m[1;35m\n[0m[31m        }[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m        .priceGuidePricePointDiv-non-magic {[1;35m\r[0m[31m[1;35m\n[0m[31m            width: 302px;[1;35m\r[0m[31m[1;35m\n[0m[31m        }[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m        .priceGuidePricePointDiv table {[1;35m\r[0m[31m[1;35m\n[0m[31m            width: 100%;[1;35m\r[0m[31m[1;35m\n[0m[31m        }[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m        .priceGuidePricePointHeader {[1;35m\r[0m[31m[1;35m\n[0m[31m            color: #fff;[1;35m\r[0m[31m[1;35m\n[0m[31m            text-align: center;[1;35m\r[0m[31m[1;35m\n[0m[31m        }[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m        .priceGuidePricePointHeader td {[1;35m\r[0m[31m[1;35m\n[0m[31m            padding: 5px;[1;35m\r[0m[31m[1;35m\n[0m[31m        }[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m        .priceGuidePricePointName {[1;35m\r[0m[31m[1;35m\n[0m[31m            border: 1px solid #dcdadb;[1;35m\r[0m[31m[1;35m\n[0m[31m            padding: 8px;[1;35m\r[0m[31m[1;35m\n[0m[31m            width: 40%;[1;35m\r[0m[31m[1;35m\n[0m[31m            vertical-align: middle;[1;35m\r[0m[31m[1;35m\n[0m[31m        }[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m        .priceGuidePricePointData {[1;35m\r[0m[31m[1;35m\n[0m[31m             border: 1px solid #dcdadb;[1;35m\r[0m[31m[1;35m\n[0m[31m             border-right: none;[1;35m\r[0m[31m[1;35m\n[0m[31m             font-family: ProximaNovaSemiBold,sans-serif;[1;35m\r[0m[31m[1;35m\n[0m[31m             padding: 8px;[1;35m\r[0m[31m[1;35m\n[0m[31m        }[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m        .priceGuidePricePointGraph {[1;35m\r[0m[31m[1;35m\n[0m[31m            border: 1px solid #dcdadb;[1;35m\r[0m[31m[1;35m\n[0m[31m            border-right: none;[1;35m\r[0m[31m[1;35m\n[0m[31m            font-family: ProximaNovaSemiBold,sans-serif;[1;35m\r[0m[31m[1;35m\n[0m[31m            padding-left: 8px;[1;35m\r[0m[31m[1;35m\n[0m[31m            font-style: italic;[1;35m\r[0m[31m[1;35m\n[0m[31m        }[1;35m\r[0m[31m[1;35m\n[0m[31m    [1;31m"[0m[31m[0m)]
+              }),
+            [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m    [1;31m"[0m[31m[0m),
+            [1;34m#(Element:0x135d88c {[0m
+              name = [31m[1;31m"[0m[31mscript[1;31m"[0m[31m[0m,
+              attributes = [
+                [1;34m#(Attr:0x135bcf8 {[0m
+                  name = [31m[1;31m"[0m[31mtype[1;31m"[0m[31m[0m,
+                  value = [31m[1;31m"[0m[31mtext/javascript[1;31m"[0m[31m[0m
+                  })],
+              children = [
+                [1;34m#(CDATA [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m        var SHIPPINGTHRESHOLD = 25.0000;[1;35m\r[0m[31m[1;35m\n[0m[31m        var MinDirectOrderDisplayPrice = SHIPPINGTHRESHOLD;[1;35m\r[0m[31m[1;35m\n[0m[31m        var SHIPPINGCOUNTRY = 'US';[1;35m\r[0m[31m[1;35m\n[0m[31m        var ISDIRECTELIGIBLE = true;[1;35m\r[0m[31m[1;35m\n[0m[31m        var ISUNDERTHRESHOLDUSER = true;[1;35m\r[0m[31m[1;35m\n[0m[31m        var ISOPTEDINTODIRECT = true;[1;35m\r[0m[31m[1;35m\n[0m[31m        var CONDITIONGUIDEURL = 'conditions/magic.aspx';[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m        //Position the shipping tip arrow if it exists[1;35m\r[0m[31m[1;35m\n[0m[31m        $(window).load(function () {[1;35m\r[0m[31m[1;35m\n[0m[31m            if ($([1;35m\"[0m[31m#shippingTipArrow[1;35m\"[0m[31m).length) {[1;35m\r[0m[31m[1;35m\n[0m[31m                var tiparrow = $([1;35m\"[0m[31m#shippingTipArrow[1;35m\"[0m[31m);[1;35m\r[0m[31m[1;35m\n[0m[31m                var pricelabel = $([1;35m\"[0m[31m.priceHeader[1;35m\"[0m[31m);[1;35m\r[0m[31m[1;35m\n[0m[31m                if (pricelabel.length) {[1;35m\r[0m[31m[1;35m\n[0m[31m                    var shippingTip = $([1;35m\"[0m[31m#shippingTip[1;35m\"[0m[31m);[1;35m\r[0m[31m[1;35m\n[0m[31m                    tiparrow.css({ visibility: [1;35m\"[0m[31mvisible[1;35m\"[0m[31m });[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m                    $('#shippingTipArrow').position({[1;35m\r[0m[31m[1;35m\n[0m[31m                        my: 'center top',[1;35m\r[0m[31m[1;35m\n[0m[31m                        at: 'bottom',[1;35m\r[0m[31m[1;35m\n[0m[31m                        of: '#shippingTip',[1;35m\r[0m[31m[1;35m\n[0m[31m                        offset: '35 -2'[1;35m\r[0m[31m[1;35m\n[0m[31m                    });[1;35m\r[0m[31m[1;35m\n[0m[31m                }[1;35m\r[0m[31m[1;35m\n[0m[31m            }[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m            initializeBackToTopIcon();[1;35m\r[0m[31m[1;35m\n[0m[31m        });[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m        $(document).ready(function () {[1;35m\r[0m[31m[1;35m\n[0m[31m            showfeaturedSellersLoadingMask();[1;35m\r[0m[31m[1;35m\n[0m[31m            showPriceChartLoadingMask();[1;35m\r[0m[31m[1;35m\n[0m[31m                 loadDelayedTables();[1;35m\r[0m[31m[1;35m\n[0m[31m        });[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m        function loadDelayedTables() {[1;35m\r[0m[31m[1;35m\n[0m[31m            showPriceTableLoadingMask();[1;35m\r[0m[31m[1;35m\n[0m[31m            showPriceSummaryLoadingMask();[1;35m\r[0m[31m[1;35m\n[0m[31m            //Update the price table[1;35m\r[0m[31m[1;35m\n[0m[31m            var jqxhr = $.ajax({[1;35m\r[0m[31m[1;35m\n[0m[31m                url: SITEROOT + 'productcatalog/product/getpricetable?captureFeaturedSellerData=True&pageSize=10&productId=126339&gameName=' + encodeURIComponent('magic'),[1;35m\r[0m[31m[1;35m\n[0m[31m                cache: false,[1;35m\r[0m[31m[1;35m\n[0m[31m                success: function (data) {[1;35m\r[0m[31m[1;35m\n[0m[31m                    $('#priceTableContainer').html(data);[1;35m\r[0m[31m[1;35m\n[0m[31m                    getPriceTableRows();[1;35m\r[0m[31m[1;35m\n[0m[31m                    updateAvailable();[1;35m\r[0m[31m[1;35m\n[0m[31m                    getFeaturedSeller('126339', encodeURIComponent('magic'));[1;35m\r[0m[31m[1;35m\n[0m[31m                }[1;35m\r[0m[31m[1;35m\n[0m[31m            }).always(function () {[1;35m\r[0m[31m[1;35m\n[0m[31m                hidePriceTableLoadingMask();[1;35m\r[0m[31m[1;35m\n[0m[31m            });[1;35m\r[0m[31m[1;35m\n[0m[31m        }[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m        //Clear a filter from a section[1;35m\r[0m[31m[1;35m\n[0m[31m        function ClearDetailsPriceFilters(productId, gameName) {[1;35m\r[0m[31m[1;35m\n[0m[31m            showPriceTableLoadingMask();[1;35m\r[0m[31m[1;35m\n[0m[31m            showPriceSummaryLoadingMask();[1;35m\r[0m[31m[1;35m\n[0m[31m            showFilterLoadingMask();[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m            var jqxhr = $.ajax({[1;35m\r[0m[31m[1;35m\n[0m[31m                url: SITEROOT + 'productcatalog/product/cleardetailspricefilters?productId=' + encodeURIComponent(productId) + '&gameName=' + encodeURIComponent(gameName),[1;35m\r[0m[31m[1;35m\n[0m[31m                cache: false,[1;35m\r[0m[31m[1;35m\n[0m[31m                success: function (data) {[1;35m\r[0m[31m[1;35m\n[0m[31m                    $('#priceTableContainer').html(data);[1;35m\r[0m[31m[1;35m\n[0m[31m                    getPriceTableRows();[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m                    updateAvailable();[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m                    getFeaturedSeller('126339', encodeURIComponent('magic'));[1;35m\r[0m[31m[1;35m\n[0m[31m                }[1;35m\r[0m[31m[1;35m\n[0m[31m            });[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m            jqxhr.done(function () {[1;35m\r[0m[31m[1;35m\n[0m[31m                $.ajax({[1;35m\r[0m[31m[1;35m\n[0m[31m                    url: SITEROOT + 'productcatalog/product/updatedetailsfilter?productId=' + encodeURIComponent(productId) + '&gameName=' + encodeURIComponent(gameName) + '&isSealed=False',[1;35m\r[0m[31m[1;35m\n[0m[31m                    cache: false,[1;35m\r[0m[31m[1;35m\n[0m[31m                    success: function (data) {[1;35m\r[0m[31m[1;35m\n[0m[31m                        $('#detailsFilters').html(data);[1;35m\r[0m[31m[1;35m\n[0m[31m                    }[1;35m\r[0m[31m[1;35m\n[0m[31m                });[1;35m\r[0m[31m[1;35m\n[0m[31m            });[1;35m\r[0m[31m[1;35m\n[0m[31m            jqxhr.always(function () { hidePriceTableLoadingMask(); hideFilterLoadingMask(); });[1;35m\r[0m[31m[1;35m\n[0m[31m        }[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m        //Clear a filter from a section[1;35m\r[0m[31m[1;35m\n[0m[31m        function clearFilter(filterSection, productId, gameName) {[1;35m\r[0m[31m[1;35m\n[0m[31m            showPriceTableLoadingMask();[1;35m\r[0m[31m[1;35m\n[0m[31m            showPriceSummaryLoadingMask();[1;35m\r[0m[31m[1;35m\n[0m[31m            showFilterLoadingMask();[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m            var jqxhr = $.ajax({[1;35m\r[0m[31m[1;35m\n[0m[31m                url: SITEROOT + 'productcatalog/product/cleardetailsfilter?filterSection=' + encodeURIComponent(filterSection) + '&productId=' + encodeURIComponent(productId) + '&gameName=' + encodeURIComponent(gameName),[1;35m\r[0m[31m[1;35m\n[0m[31m                cache: false,[1;35m\r[0m[31m[1;35m\n[0m[31m                success: function (data) {[1;35m\r[0m[31m[1;35m\n[0m[31m                    $('#priceTableContainer').html(data);[1;35m\r[0m[31m[1;35m\n[0m[31m                    getPriceTableRows();[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m                    updateAvailable();[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m                    getFeaturedSeller('126339', encodeURIComponent('magic'));[1;35m\r[0m[31m[1;35m\n[0m[31m                }[1;35m\r[0m[31m[1;35m\n[0m[31m            });[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m            jqxhr.done(function () {[1;35m\r[0m[31m[1;35m\n[0m[31m                $.ajax({[1;35m\r[0m[31m[1;35m\n[0m[31m                    url: SITEROOT + 'productcatalog/product/updatedetailsfilter?productId=' + encodeURIComponent(productId) + '&gameName=' + encodeURIComponent(gameName) + '&isSealed=False',[1;35m\r[0m[31m[1;35m\n[0m[31m                    cache: false,[1;35m\r[0m[31m[1;35m\n[0m[31m                    success: function (data) {[1;35m\r[0m[31m[1;35m\n[0m[31m                        $('#detailsFilters').html(data);[1;35m\r[0m[31m[1;35m\n[0m[31m                    }[1;35m\r[0m[31m[1;35m\n[0m[31m                });[1;35m\r[0m[31m[1;35m\n[0m[31m            });[1;35m\r[0m[31m[1;35m\n[0m[31m            jqxhr.always(function () { hidePriceTableLoadingMask(); hideFilterLoadingMask(); });[1;35m\r[0m[31m[1;35m\n[0m[31m        }[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m        //Change a filter value[1;35m\r[0m[31m[1;35m\n[0m[31m        function changeFilter(filterName, filterValue, productId, gameName) {[1;35m\r[0m[31m[1;35m\n[0m[31m            showPriceTableLoadingMask();[1;35m\r[0m[31m[1;35m\n[0m[31m            showPriceSummaryLoadingMask();[1;35m\r[0m[31m[1;35m\n[0m[31m            showFilterLoadingMask();[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m            var jqxhr = $.ajax({[1;35m\r[0m[31m[1;35m\n[0m[31m                url: SITEROOT + 'productcatalog/product/changedetailsfilter?filterName=' + encodeURIComponent(filterName) + '&filterValue=' + encodeURIComponent(filterValue) + '&productId=' + encodeURIComponent(productId) + '&gameName=' + encodeURIComponent(gameName),[1;35m\r[0m[31m[1;35m\n[0m[31m                cache: false,[1;35m\r[0m[31m[1;35m\n[0m[31m                success: function (data) {[1;35m\r[0m[31m[1;35m\n[0m[31m                    $('#priceTableContainer').html(data);[1;35m\r[0m[31m[1;35m\n[0m[31m                    getPriceTableRows();[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m                    updateAvailable();[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m                    getFeaturedSeller('126339', encodeURIComponent('magic'));[1;35m\r[0m[31m[1;35m\n[0m[31m                }[1;35m\r[0m[31m[1;35m\n[0m[31m            }).always(function () {[1;35m\r[0m[31m[1;35m\n[0m[31m                hidePriceTableLoadingMask();[1;35m\r[0m[31m[1;35m\n[0m[31m            });[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m            jqxhr.done(function () {[1;35m\r[0m[31m[1;35m\n[0m[31m                $.ajax({[1;35m\r[0m[31m[1;35m\n[0m[31m                    url: SITEROOT + 'productcatalog/product/updatedetailsfilter?productId=' + encodeURIComponent(productId) + '&gameName=' + encodeURIComponent(gameName) + '&isSealed=False',[1;35m\r[0m[31m[1;35m\n[0m[31m                    cache: false,[1;35m\r[0m[31m[1;35m\n[0m[31m                    success: function (data) {[1;35m\r[0m[31m[1;35m\n[0m[31m                        $('#detailsFilters').html(data);[1;35m\r[0m[31m[1;35m\n[0m[31m                    }[1;35m\r[0m[31m[1;35m\n[0m[31m                }).always(function () {[1;35m\r[0m[31m[1;35m\n[0m[31m                    hideFilterLoadingMask();[1;35m\r[0m[31m[1;35m\n[0m[31m                });[1;35m\r[0m[31m[1;35m\n[0m[31m            });[1;35m\r[0m[31m[1;35m\n[0m[31m        }[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m        function addData(data) {[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m        }[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m        function updateAvailable() {[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m            //Update the total available in the pricing options warning.[1;35m\r[0m[31m[1;35m\n[0m[31m            $([1;35m\"[0m[31m#tus_Header[1;35m\"[0m[31m).html($([1;35m\"[0m[31m#tus_PriceTable[1;35m\"[0m[31m).html());[1;35m\r[0m[31m[1;35m\n[0m[31m        };[1;35m\r[0m[31m[1;35m\n[0m[31m    [1;31m"[0m[31m[0m)]
+              }),
+            [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m[1;31m"[0m[31m[0m)]
+          }),
+        [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m[1;31m"[0m[31m[0m),
+        [1;34m#(Element:0x1302c48 {[0m
+          name = [31m[1;31m"[0m[31mbody[1;31m"[0m[31m[0m,
+          children = [
+            [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m    [1;35m\r[0m[31m[1;35m\n[0m[31m[1;31m"[0m[31m[0m),
+            [1;34m#(Comment [0m[31m[1;31m"[0m[31m Google Tag Manager (noscript) [1;31m"[0m[31m[0m),
+            [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m[1;31m"[0m[31m[0m),
+            [1;34m#(Element:0x12e592c {[0m
+              name = [31m[1;31m"[0m[31mnoscript[1;31m"[0m[31m[0m,
+              children = [
+                [1;34m#(Element:0x12db3dc {[0m
+                  name = [31m[1;31m"[0m[31miframe[1;31m"[0m[31m[0m,
+                  attributes = [
+                    [1;34m#(Attr:0x12d755c {[0m
+                      name = [31m[1;31m"[0m[31mid[1;31m"[0m[31m[0m,
+                      value = [31m[1;31m"[0m[31mifr-googletagmanager[1;31m"[0m[31m[0m
+                      }),
+                    [1;34m#(Attr:0x12d7548 {[0m
+                      name = [31m[1;31m"[0m[31msrc[1;31m"[0m[31m[0m,
+                      value = [31m[1;31m"[0m[31mhttps://www.googletagmanager.com/ns.html?id=GTM-MDKRQP&gtm_auth=9CtDD7Bjc4QB8s5QjHgo2w&gtm_preview=env-1&gtm_cookies_win=x[1;31m"[0m[31m[0m
+                      }),
+                    [1;34m#(Attr:0x12d7520 {[0m name = [31m[1;31m"[0m[31mheight[1;31m"[0m[31m[0m, value = [31m[1;31m"[0m[31m0[1;31m"[0m[31m[0m }),
+                    [1;34m#(Attr:0x12d74f8 {[0m name = [31m[1;31m"[0m[31mwidth[1;31m"[0m[31m[0m, value = [31m[1;31m"[0m[31m0[1;31m"[0m[31m[0m }),
+                    [1;34m#(Attr:0x12d74e4 {[0m
+                      name = [31m[1;31m"[0m[31mstyle[1;31m"[0m[31m[0m,
+                      value = [31m[1;31m"[0m[31mdisplay:none;visibility:hidden[1;31m"[0m[31m[0m
+                      })]
+                  })]
+              }),
+            [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m[1;31m"[0m[31m[0m),
+            [1;34m#(Comment [0m[31m[1;31m"[0m[31m End Google Tag Manager (noscript) [1;31m"[0m[31m[0m),
+            [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m    [1;31m"[0m[31m[0m),
+            [1;34m#(Element:0x127bf90 {[0m
+              name = [31m[1;31m"[0m[31mdiv[1;31m"[0m[31m[0m,
+              attributes = [
+                [1;34m#(Attr:0x127ae88 {[0m name = [31m[1;31m"[0m[31mclass[1;31m"[0m[31m[0m, value = [31m[1;31m"[0m[31mpageOverlay[1;31m"[0m[31m[0m })]
+              }),
+            [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m         [1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m[1;31m"[0m[31m[0m),
+            [1;34m#(Comment [0m[31m[1;31m"[0m[31m<div style=[1;35m\"[0m[31mwidth: 100%; background:#188ecb; height: 45px; margin:0; padding:0;[1;35m\"[0m[31m>[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\t[0m[31m<div style=[1;35m\"[0m[31mmargin: 0 auto; width: 975px;height:45px;[1;35m\"[0m[31m>[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\t[0m[31m[1;35m\t[0m[31m<a href=[1;35m\"[0m[31mhttp://store.tcgplayer.com/help/shippingrecruit[1;35m\"[0m[31m><img width=[1;35m\"[0m[31m974px[1;35m\"[0m[31m src=[1;35m\"[0m[31mhttps://img.tcgplayer.com/store/img/IN-03-09-2016-Hiring-Slim.jpg[1;35m\"[0m[31m /></a>[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\t[0m[31m</div>[1;35m\r[0m[31m[1;35m\n[0m[31m</div>[1;31m"[0m[31m[0m),
+            [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m    [1;31m"[0m[31m[0m),
+            [1;34m#(Element:0xf7e284 {[0m
+              name = [31m[1;31m"[0m[31mdiv[1;31m"[0m[31m[0m,
+              attributes = [
+                [1;34m#(Attr:0xf75058 {[0m name = [31m[1;31m"[0m[31mid[1;31m"[0m[31m[0m, value = [31m[1;31m"[0m[31mfb-root[1;31m"[0m[31m[0m })]
+              }),
+            [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m    [1;31m"[0m[31m[0m),
+            [1;34m#(Element:0x101b4f8 {[0m
+              name = [31m[1;31m"[0m[31mscript[1;31m"[0m[31m[0m,
+              attributes = [
+                [1;34m#(Attr:0x1003948 {[0m
+                  name = [31m[1;31m"[0m[31mtype[1;31m"[0m[31m[0m,
+                  value = [31m[1;31m"[0m[31mtext/javascript[1;31m"[0m[31m[0m
+                  })],
+              children = [
+                [1;34m#(CDATA [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m      window.fbAsyncInit = function() {[1;35m\r[0m[31m[1;35m\n[0m[31m        FB.init({[1;35m\r[0m[31m[1;35m\n[0m[31m          appId      : '136270296395166', // App ID[1;35m\r[0m[31m[1;35m\n[0m[31m          status     : true, // check login status[1;35m\r[0m[31m[1;35m\n[0m[31m          cookie     : true, // enable cookies to allow the server to access the session[1;35m\r[0m[31m[1;35m\n[0m[31m          xfbml      : true  // parse XFBML[1;35m\r[0m[31m[1;35m\n[0m[31m        });[1;35m\r[0m[31m[1;35m\n[0m[31m      };[1;35m\r[0m[31m[1;35m\n[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m      // Load the SDK Asynchronously[1;35m\r[0m[31m[1;35m\n[0m[31m      (function(d){[1;35m\r[0m[31m[1;35m\n[0m[31m         var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];[1;35m\r[0m[31m[1;35m\n[0m[31m         if (d.getElementById(id)) {return;}[1;35m\r[0m[31m[1;35m\n[0m[31m         js = d.createElement('script'); js.id = id; js.async = true;[1;35m\r[0m[31m[1;35m\n[0m[31m         js.src = [1;35m\"[0m[31m//connect.facebook.net/en_US/all.js[1;35m\"[0m[31m;[1;35m\r[0m[31m[1;35m\n[0m[31m         ref.parentNode.insertBefore(js, ref);[1;35m\r[0m[31m[1;35m\n[0m[31m       }(document));[1;35m\r[0m[31m[1;35m\n[0m[31m    [1;31m"[0m[31m[0m)]
+              }),
+            [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\r[0m[31m[1;35m\n[0m[31m[1;31m"[0m[31m[0m),
+            [1;34m#(Element:0xf7b9e4 {[0m
+              name = [31m[1;31m"[0m[31mdiv[1;31m"[0m[31m[0m,
+              attributes = [
+                
