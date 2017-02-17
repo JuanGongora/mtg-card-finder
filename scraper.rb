@@ -15,8 +15,18 @@ class MTG
   end
 
   def self.all
-    puts @@all_cards
+    #iterate through each instance of MTG made from Scraper.scrape_data
+    #that was appended into @@all_cards during initialization
+    @@all_cards.each do |card|
+      #iterate through each instance method that was defined for
+      #the instance variable of MTG from key/value pairs of Scraper.scrape_data
+      card.instance_variables.each do |value|
+        # returns the value of the instance method applied to the instance
+        puts "#{card.instance_variable_get(value)}"
+      end
+    end
   end
+
 end
 
 class Scraper
@@ -43,4 +53,10 @@ end
 
 Scraper.scrape_data
 MTG.all
-# ^^ seems to have returned a created object inside the class variable as => #<MTG:0x0000000200c308>
+# ^^^
+# returned values from MTG.all below:
+# Aegis Automaton
+# C
+# 0.03
+# 0.0
+# http://i.tcgplayer.com/126339_200w.jpg
