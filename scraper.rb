@@ -5,6 +5,13 @@ require 'pry'
 class MTG
   attr_accessor :card, :rarity, :market_price, :wholesale_price, :image
   @@all_cards = []
+  ATTRIBUTES = [
+      "Card:",
+      "Rarity:",
+      "Market Value:",
+      "Wholesale Value:",
+      "Image URL:"
+  ]
 
   #need to make instance methods from attr_accessor be associated with
   #the values I scrape from the website, all instances will be recorded
@@ -23,7 +30,8 @@ class MTG
       card.instance_variables.each_with_index do |value, index|
         #returns the value of the instance method applied to the instance
         #with an index value of the first/last, key/value pairs ordered in Scraper.scrape_data
-        puts "#{index}: #{card.instance_variable_get(value)}"
+        #associates a named definition of the values by titling it from constant ATTRIBUTES
+        puts "#{ATTRIBUTES[index]} #{card.instance_variable_get(value)}"
       end
     end
   end
@@ -56,8 +64,8 @@ Scraper.scrape_data
 MTG.all
 # ^^^
 # returned values from MTG.all below:
-# 0: Aegis Automaton
-# 1: C
-# 2: 0.03
-# 3: 0.0
-# 4: http://i.tcgplayer.com/126339_200w.jpg
+# Card: Aegis Automaton
+# Rarity: C
+# Market Value: 0.03
+# Wholesale Value: 0.0
+# Image URL: http://i.tcgplayer.com/126339_200w.jpg
