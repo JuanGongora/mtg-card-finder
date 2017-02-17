@@ -20,9 +20,10 @@ class MTG
     @@all_cards.each do |card|
       #iterate through each instance method that was defined for
       #the instance variable of MTG from key/value pairs of Scraper.scrape_data
-      card.instance_variables.each do |value|
-        # returns the value of the instance method applied to the instance
-        puts "#{card.instance_variable_get(value)}"
+      card.instance_variables.each_with_index do |value, index|
+        #returns the value of the instance method applied to the instance
+        #with an index value of the first/last, key/value pairs ordered in Scraper.scrape_data
+        puts "#{index}: #{card.instance_variable_get(value)}"
       end
     end
   end
@@ -55,8 +56,8 @@ Scraper.scrape_data
 MTG.all
 # ^^^
 # returned values from MTG.all below:
-# Aegis Automaton
-# C
-# 0.03
-# 0.0
-# http://i.tcgplayer.com/126339_200w.jpg
+# 0: Aegis Automaton
+# 1: C
+# 2: 0.03
+# 3: 0.0
+# 4: http://i.tcgplayer.com/126339_200w.jpg
