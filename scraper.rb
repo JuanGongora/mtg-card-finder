@@ -15,7 +15,7 @@ class MTG
 
   #need to make instance methods from attr_accessor be associated with
   #the values I scrape from the website, all instances will be recorded
-  #into class variable @@all_cards with the recorded paired method values.
+  #into class variable @@all_cards with the recorded paired method/values.
   def initialize(attributes)
     attributes.each {|key, value| self.send("#{key}=", value)}
     @@all_cards << self
@@ -58,14 +58,18 @@ class Scraper
                 })
     end
   end
+
+  #Scrape.scrape_data parses through one row, but doesn't gather the collections
+  #of the rest of the following cards. I need to iterate throught the array value
+  #of the css selectors that are set before the '.text' methods of each of them.
+  def self.counter
+    #first going to find out how many rows there are in total to then see how to iterate them
+    rows = Nokogiri::HTML(open("http://prices.tcgplayer.com/price-guide")).css("tbody tr")[1..-1]
+    puts "#{rows.length}"
+  end
+
 end
 
 Scraper.scrape_data
-MTG.all
-# ^^^
-# returned values from MTG.all below:
-# Card: Aegis Automaton
-# Rarity: C
-# Market Value: 0.03
-# Wholesale Value: 0.0
-# Image URL: http://i.tcgplayer.com/126339_200w.jpg
+# MTG.all
+Scraper.counter # => returns 197 rows
