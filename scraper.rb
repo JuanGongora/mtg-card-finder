@@ -27,6 +27,7 @@ class Scraper
       #card: row.css(".productDetail a")[0].text
       #rarity: row.css(".rarity div")[0].text.split[0]
       #market_price: row.css(".marketPrice")[0].text.split[0].gsub!("$", "").to_f
+      #wholesale_price: row.css(".buylistMarketPrice")[0].text.split[0].gsub!("$", "").to_f
       binding.pry
     end
   end
