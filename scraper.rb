@@ -1,4 +1,4 @@
-# require 'open-uri'
+require 'open-uri'
 require 'nokogiri'
 require 'pry'
 
@@ -24,7 +24,10 @@ class Scraper
     #parses our nokogiri object for the css selector that defines our
     #preliminary category queries.
     doc.css("tbody").each do |row|
-    binding.pry
+      #card: row.css(".productDetail a")[0].text
+      #rarity: row.css(".rarity div")[0].text.split[0]
+      #market_price: row.css(".marketPrice")[0].text.split[0].gsub!("$", "").to_f
+      binding.pry
     end
   end
 end
