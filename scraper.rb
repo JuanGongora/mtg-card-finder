@@ -27,12 +27,14 @@ class MTG
     @@all_cards.each do |card|
       #iterate through each instance method that was defined for
       #the instance variable of MTG from key/value pairs of Scraper.scrape_data
+      puts "-------------------------------------------------"
       card.instance_variables.each_with_index do |value, index|
         #returns the value of the instance method applied to the instance
         #with an index value of the first/last, key/value pairs ordered in Scraper.scrape_data
         #associates a named definition of the values by titling it from constant ATTRIBUTES
         puts "#{ATTRIBUTES[index]} #{card.instance_variable_get(value)}"
       end
+      puts "-------------------------------------------------"
     end
   end
 
@@ -46,7 +48,7 @@ class Scraper
     doc = Nokogiri::HTML(open("http://prices.tcgplayer.com/price-guide"))
     #parses our nokogiri object for the css selector that defines our
     #preliminary category queries.
-    doc.css("tbody").each do |row|
+    doc.css("tbody tr").each do |row|
       #parsing is now initialized into MTG class, with key/value pairs for its scraped attributes
       row = MTG.new({
                 card: row.css(".productDetail a")[0].text,
@@ -59,17 +61,15 @@ class Scraper
     end
   end
 
-  #Scrape.scrape_data parses through one row, but doesn't gather the collections
-  #of the rest of the following cards. I need to iterate throught the array value
-  #of the css selectors that are set before the '.text' methods of each of them.
+
   def self.counter
-    #first going to find out how many rows there are in total to then see how to iterate them
-    rows = Nokogiri::HTML(open("http://prices.tcgplayer.com/price-guide")).css("tbody tr")[1..-1]
+    #shows how many rows there are in total for the page, may come in handy later
+    rows = Nokogiri::HTML(open("http://prices.tcgplayer.com/price-guide")).css("tbody tr")[0..-1]
     puts "#{rows.length}"
   end
 
 end
 
 Scraper.scrape_data
-# MTG.all
-Scraper.counter # => returns 197 rows
+MTG.all
+# Scraper.counter # => returns 198 rows
