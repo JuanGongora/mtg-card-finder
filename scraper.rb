@@ -53,6 +53,21 @@ class Set
     @@all_sets << self
   end
 
+  #I am iterating through the stored sets of @@all_sets to return
+  #the first value which is the name of the set
+  def self.all
+    @@all_sets.each do |set|
+      set.instance_variables.each_with_index do |value, index|
+        #I only want to return the first value as the viewable option
+        #the second value is the url for loading the set, which
+        #I will later use to load the preconfigured webpage for card parsing
+        if index < 1
+          puts "Set: #{set.instance_variable_get(value)}"
+        end
+      end
+    end
+  end
+
 end
 
 
@@ -63,10 +78,10 @@ class Scraper
   def self.scrape_set_options
     doc = Nokogiri::HTML(open("http://prices.tcgplayer.com/price-guide/magic"))
     doc.css("#set").each do |option|
-      binding.pry
+      #I will need to parse through the index numbers of the css selectors to collect all of the sets
       option = Set.new({
-                   set: option.css("option")[0].text.split.join(" ")
-
+                   set: option.css("option")[0].text.split.join(" "),
+                   set_url: "http://prices.tcgplayer.com/price-guide/magic/#{option.css("option")[0].attribute("value").value}"
                    })
     end
   end
@@ -103,4 +118,5 @@ end
 # Scraper.scrape_cards
 # MTG.all
 Scraper.scrape_set_options
+Set.all
 # Scraper.counter # => returns 198 rows for the 'set' Aether Revolt
