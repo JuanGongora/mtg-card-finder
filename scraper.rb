@@ -79,28 +79,29 @@ class Scraper
   @@overall_set_options = nil
   @@overall_card_rows = nil
   @@iterator = nil
-  # @@set_amount = 0
-
+  @@set_amount = -1
 
   #same idea here as self.scrape_cards, only I'm parsing for sets this time
   def self.scrape_set_options
     doc = Nokogiri::HTML(open("http://prices.tcgplayer.com/price-guide/magic"))
     #call Scraper.set_counter to get the total amount of sets first
     self.set_counter
-    #class var below is converted to numerical array depicting the amount of sets
+    #the class variable @@iterator is converted into a numerical array depicting the amount of sets
     @@iterator = (0..@@overall_set_options).to_a
-    #I will need to parse through the index numbers of the css selectors to collect all of the sets
-    #This attempt below will be to depict the number of times I want a new instance of Set to be made
-    #I just need to figure out a way to make "[0].text" and "[0].attribute" increase their index
-    #in proportion to @@iterator's count
+    #I parse through the index numbers of the css selectors "[0].text" and "[0].attribute" to increase *
+    #their index in proportion to @@iterator's count
     @@iterator.each do |count|
+      #increment by 1 everytime it parses so as to have the right index value in the css selectors (described above)*
+      count = @@set_amount += 1
       doc.css("#set").each_with_index do |option, index|
-        # if index < number
+        index = @@set_amount
+        #if my incremented value from "count" is less than the total amount of sets, continue operation
+        if index < @@overall_set_options
           option = Set.new({
-                               set: option.css("option")[0].text.split.join(" "),
-                               set_url: "http://prices.tcgplayer.com/price-guide/magic/#{option.css("option")[0].attribute("value").value}"
-                           })
-        # end
+                       set: option.css("option")[index].text.split.join(" "),
+                       set_url: "http://prices.tcgplayer.com/price-guide/magic/#{option.css("option")[index].attribute("value").value}"
+                       })
+        end
       end
     end
   end
@@ -144,6 +145,6 @@ end
 # MTG.all
 Scraper.scrape_set_options
 Set.all
-Set.set_amount # => atleast it does seem to be returning 193 new instances, just not with the right values...
+Set.set_amount # => returns all the correct instances, with their appropriate key/values
 # Scraper.set_counter # => returns 193 sets in total
 # Scraper.counter # => returns 198 rows for the 'set' Aether Revolt
