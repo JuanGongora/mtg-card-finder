@@ -40,12 +40,42 @@ class MTG
 
 end
 
+#each card comes from a 'card set', and there are various sets that span years of production
+#since I want to have a hierarchy that allows searching of cards per set I'm making
+#a similar functionality to that of class MTG with this new class 'Set'
+class Set
+  attr_accessor :set, :set_url
+  @@all_sets = []
+
+  #same methodology of initialization as class MTG
+  def initialize(attributes)
+    attributes.each {|key, value| self.send("#{key}=", value)}
+    @@all_sets << self
+  end
+
+end
+
+
 class Scraper
+
+
+  #same idea here as self.scrape_cards, only I'm parsing for sets this time
+  def self.scrape_set_options
+    doc = Nokogiri::HTML(open("http://prices.tcgplayer.com/price-guide/magic"))
+    doc.css("#set").each do |option|
+      binding.pry
+      option = Set.new({
+                   set: option.css("option")[0].text.split.join(" ")
+
+                   })
+    end
+  end
+
 
   #use HTTP request to website in the 'open' method with open-uri, then
   #creates a nokogiri wrapped object inside our local variable 'doc'.
-  def self.scrape_data
-    doc = Nokogiri::HTML(open("http://prices.tcgplayer.com/price-guide"))
+  def self.scrape_cards
+    doc = Nokogiri::HTML(open("http://prices.tcgplayer.com/price-guide/magic"))
     #parses our nokogiri object for the css selector that defines our
     #preliminary category queries.
     doc.css("tbody tr").each do |row|
@@ -64,12 +94,13 @@ class Scraper
 
   def self.counter
     #shows how many rows there are in total for the page, may come in handy later
-    rows = Nokogiri::HTML(open("http://prices.tcgplayer.com/price-guide")).css("tbody tr")[0..-1]
+    rows = Nokogiri::HTML(open("http://prices.tcgplayer.com/price-guide/magic")).css("tbody tr")[0..-1]
     puts "#{rows.length}"
   end
 
 end
 
-Scraper.scrape_data
-MTG.all
-# Scraper.counter # => returns 198 rows
+# Scraper.scrape_cards
+# MTG.all
+Scraper.scrape_set_options
+# Scraper.counter # => returns 198 rows for the 'set' Aether Revolt
