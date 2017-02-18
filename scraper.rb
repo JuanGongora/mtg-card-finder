@@ -5,6 +5,7 @@ require 'pry'
 class MTG
   attr_accessor :card, :rarity, :market_price, :wholesale_price, :image
   @@all_cards = []
+  @@card_amount = 0
   ATTRIBUTES = [
       "Card:",
       "Rarity:",
@@ -46,11 +47,16 @@ end
 class Set
   attr_accessor :set, :set_url
   @@all_sets = []
+  @@set_amount = 0
 
   #same methodology of initialization as class MTG
   def initialize(attributes)
     attributes.each {|key, value| self.send("#{key}=", value)}
     @@all_sets << self
+  end
+
+  def self.set_amount
+    @@set_amount
   end
 
   #I am iterating through the stored sets of @@all_sets to return
@@ -72,20 +78,27 @@ end
 
 
 class Scraper
-
+  @@overall_set_options = nil
+  @@overall_card_rows = nil
 
   #same idea here as self.scrape_cards, only I'm parsing for sets this time
   def self.scrape_set_options
     doc = Nokogiri::HTML(open("http://prices.tcgplayer.com/price-guide/magic"))
-    doc.css("#set").each do |option|
-      #I will need to parse through the index numbers of the css selectors to collect all of the sets
-      option = Set.new({
-                   set: option.css("option")[0].text.split.join(" "),
-                   set_url: "http://prices.tcgplayer.com/price-guide/magic/#{option.css("option")[0].attribute("value").value}"
-                   })
+    #call Scraper.set_counter to get the total amount of sets first
+    self.set_counter
+    #I will need to parse through the index numbers of the css selectors to collect all of the sets
+    #this attempt doesn't seem to work however...
+    loop do
+      if Set.set_amount <= @@overall_set_options
+        doc.css("#set").each do |option|
+          option = Set.new({
+                               set: option.css("option")[Set.set_amount].text.split.join(" "),
+                               set_url: "http://prices.tcgplayer.com/price-guide/magic/#{option.css("option")[Set.set_amount].attribute("value").value}"
+                           })
+        end
+      end
     end
   end
-
 
   #use HTTP request to website in the 'open' method with open-uri, then
   #creates a nokogiri wrapped object inside our local variable 'doc'.
@@ -106,11 +119,18 @@ class Scraper
     end
   end
 
+  #same concept as Scraper.card_counter
+  def self.set_counter
+    options = Nokogiri::HTML(open("http://prices.tcgplayer.com/price-guide/magic")).css("#set option")[0..-1]
+    @@overall_set_options = "#{options.length}".to_i
+    puts "#{@@overall_set_options} sets"
+  end
 
-  def self.counter
+  def self.card_counter
     #shows how many rows there are in total for the page, may come in handy later
     rows = Nokogiri::HTML(open("http://prices.tcgplayer.com/price-guide/magic")).css("tbody tr")[0..-1]
-    puts "#{rows.length}"
+    @@overall_card_rows = "#{rows.length}".to_i
+    puts "#{@@overall_card_rows} cards"
   end
 
 end
@@ -119,4 +139,5 @@ end
 # MTG.all
 Scraper.scrape_set_options
 Set.all
+# Scraper.set_counter # => returns 193 sets in total
 # Scraper.counter # => returns 198 rows for the 'set' Aether Revolt
