@@ -58,15 +58,15 @@ class Set
   end
 
   #I am iterating through the stored sets of @@all_sets to return
-  #the first value which is the name of the set
+  #the first value which is the name of the set, along with the set number
   def self.all
-    @@all_sets.each do |set|
+    @@all_sets.each_with_index do |set, number|
       set.instance_variables.each_with_index do |value, index|
         #I only want to return the first value as the viewable option
         #the second value is the url for loading the set, which
         #I will later use to load the preconfigured webpage for card parsing
         if index < 1
-          puts "Set: #{set.instance_variable_get(value)}"
+         puts "Set #{number + 1}) #{set.instance_variable_get(value)} |X|X| Set #{number + 1}) #{@@all_sets[0].instance_variable_get(value)} "
         end
       end
     end
@@ -145,6 +145,6 @@ end
 # MTG.all
 Scraper.scrape_set_options
 Set.all
-Set.set_amount # => returns all the correct instances, with their appropriate key/values
+# Set.set_amount # => returns all the correct instances, with their appropriate key/values
 # Scraper.set_counter # => returns 193 sets in total
 # Scraper.counter # => returns 198 rows for the 'set' Aether Revolt
