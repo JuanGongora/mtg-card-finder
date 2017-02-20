@@ -19,6 +19,10 @@ class Set
     @@set_iterator = (1..amount).to_a
   end
 
+  def self.set_name(value)
+    @@all_sets[value - 1].set
+  end
+
   #I am iterating through the stored sets of @@all_sets to return
   #the first value which is the name of the set, along with the set number
   def self.all

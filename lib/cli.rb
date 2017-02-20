@@ -17,10 +17,11 @@ class CLI
   end
 
   def self.check_input
-    puts "Please type out the number of the set you would like to see from above"
+    sleep(1)
+    puts "Please type out the number of the set you would like to see from above..."
     input = gets.strip.to_i
     if Set.set_amount.include?(input)
-      puts "You chose: #{input}."
+      puts "You chose Set #{input}: #{Set.set_name(input)}."
       sleep(1)
     else
         puts "invalid option"

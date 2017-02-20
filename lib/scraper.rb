@@ -58,14 +58,14 @@ class Scraper
   def self.set_counter
     options = Nokogiri::HTML(open("http://prices.tcgplayer.com/price-guide/magic")).css("#set option")[0..-1]
     @@overall_set_options = "#{options.length}".to_i
-    puts "#{@@overall_set_options} sets"
+    puts "loading #{@@overall_set_options} sets..."
   end
 
   def self.card_counter
     #shows how many rows there are in total for the page, may come in handy later
     rows = Nokogiri::HTML(open("http://prices.tcgplayer.com/price-guide/magic")).css("tbody tr")[0..-1]
     @@overall_card_rows = "#{rows.length}".to_i
-    puts "#{@@overall_card_rows} cards"
+    puts "loading #{@@overall_card_rows} cards..."
   end
 
 end
