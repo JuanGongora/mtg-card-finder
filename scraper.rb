@@ -46,6 +46,8 @@ end
 class Set
   attr_accessor :set, :set_url
   @@all_sets = []
+  #associated to self.set_amount below
+  @@set_iterator = nil
 
   #same methodology of initialization as class MTG
   def initialize(attributes)
@@ -54,19 +56,29 @@ class Set
   end
 
   def self.set_amount
-    p @@all_sets
+    #this was a method that I was testing to get values of only odd numbers
+    #may or may not use this, I'll keep it here for now and see if I might need it
+    amount = @@all_sets.length
+    @@set_iterator = (0..amount).step(2).to_a
   end
 
   #I am iterating through the stored sets of @@all_sets to return
   #the first value which is the name of the set, along with the set number
   def self.all
     @@all_sets.each_with_index do |set, number|
-      set.instance_variables.each_with_index do |value, index|
-        #I only want to return the first value as the viewable option
-        #the second value is the url for loading the set, which
-        #I will later use to load the preconfigured webpage for card parsing
-        if index < 1
-         puts "Set #{number + 1}) #{set.instance_variable_get(value)} |X|X| Set #{number + 1}) #{@@all_sets[0].instance_variable_get(value)} "
+      #this line below is applied simply to help me parse the values of the two instances seperately further down the code
+      if number.even?
+        set.instance_variables.each_with_index do |value, index|
+          #I only want to return the first value as the viewable option
+          #the second value is the url for loading the set, which
+          #I will later use to load the preconfigured webpage for card parsing
+          puts "-                                                                                           -"
+          if index < 1
+            #I iterate the index of @@all_sets(with the title of 'number') to apply it as a string for logging enumeration
+            #in both the actual set number and the value of the first instance method of the current index's instance
+            puts "|Set-#{number + 1}| #{@@all_sets[number].instance_variable_get(value)}  |Set-#{number + 2}| #{@@all_sets[number + 1].instance_variable_get(value)}"
+          end
+          puts "---------------------------------------------------------------------------------------------"
         end
       end
     end
@@ -79,7 +91,7 @@ class Scraper
   @@overall_set_options = nil
   @@overall_card_rows = nil
   @@iterator = nil
-  @@set_amount = -1
+  @@set_sum = -1
 
   #same idea here as self.scrape_cards, only I'm parsing for sets this time
   def self.scrape_set_options
@@ -92,9 +104,9 @@ class Scraper
     #their index in proportion to @@iterator's count
     @@iterator.each do |count|
       #increment by 1 everytime it parses so as to have the right index value in the css selectors (described above)*
-      count = @@set_amount += 1
+      count = @@set_sum += 1
       doc.css("#set").each_with_index do |option, index|
-        index = @@set_amount
+        index = @@set_sum
         #if my incremented value from "count" is less than the total amount of sets, continue operation
         if index < @@overall_set_options
           option = Set.new({
@@ -145,6 +157,5 @@ end
 # MTG.all
 Scraper.scrape_set_options
 Set.all
-# Set.set_amount # => returns all the correct instances, with their appropriate key/values
 # Scraper.set_counter # => returns 193 sets in total
-# Scraper.counter # => returns 198 rows for the 'set' Aether Revolt
+# Scraper.counter # => returns 198 rows(i.e. cards) for the 'set' Aether Revolt
