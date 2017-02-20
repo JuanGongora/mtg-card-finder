@@ -1,7 +1,7 @@
 class Scraper
   @@overall_set_options = nil
   @@overall_card_rows = nil
-  @@iterator = nil
+  @@iterator = []
   @@set_sum = -1
 
   #same idea here as self.scrape_cards, only I'm parsing for sets this time
@@ -9,8 +9,7 @@ class Scraper
     doc = Nokogiri::HTML(open("http://prices.tcgplayer.com/price-guide/magic"))
     #call Scraper.set_counter to get the total amount of sets first
     self.set_counter
-    #the class variable @@iterator is converted into a numerical array depicting the amount of sets
-    @@iterator = (0..@@overall_set_options).to_a
+    self.iterating(@@overall_set_options)
     #I parse through the index numbers of the css selectors "[0].text" and "[0].attribute" to increase *
     #their index in proportion to @@iterator's count
     @@iterator.each do |count|
@@ -48,6 +47,13 @@ class Scraper
     end
   end
 
+ def self.iterating(array_length)
+   #cleans out the var before it's re-used again
+   @@iterator.clear
+   #the class variable @@iterator is converted into a numerical array depicting the amount of sets/cards
+   @@iterator = (0..array_length).to_a
+ end
+
   #same concept as Scraper.card_counter
   def self.set_counter
     options = Nokogiri::HTML(open("http://prices.tcgplayer.com/price-guide/magic")).css("#set option")[0..-1]
@@ -63,6 +69,3 @@ class Scraper
   end
 
 end
-
-# Scraper.set_counter # => returns 193 sets in total
-# Scraper.counter # => returns 198 rows(i.e. cards) for the 'set' Aether Revolt

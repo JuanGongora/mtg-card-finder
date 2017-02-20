@@ -14,10 +14,9 @@ class Set
   end
 
   def self.set_amount
-    #this was a method that I was testing to get values of only odd numbers
-    #may or may not use this, I'll keep it here for now and see if I might need it
+    #will use this to help me get user to choose a currently existing set number
     amount = @@all_sets.length
-    @@set_iterator = (0..amount).step(2).to_a
+    @@set_iterator = (0..amount).to_a
   end
 
   #I am iterating through the stored sets of @@all_sets to return
