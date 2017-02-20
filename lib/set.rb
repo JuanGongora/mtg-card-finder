@@ -16,7 +16,7 @@ class Set
   def self.set_amount
     #will use this to help me get user to choose a currently existing set number
     amount = @@all_sets.length
-    @@set_iterator = (0..amount).to_a
+    @@set_iterator = (1..amount).to_a
   end
 
   #I am iterating through the stored sets of @@all_sets to return
