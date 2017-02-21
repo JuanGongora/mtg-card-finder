@@ -23,13 +23,14 @@ class CLI
     if Set.set_amount.include?(input)
       puts "You chose Set #{input}: #{Set.set_name(input)}."
       sleep(1)
+      Scraper.scrape_cards(Set.set_name_url(input))
+      MTG.all
     else
-        puts "invalid option"
-        self.check_input
+      puts "invalid option"
+      self.check_input
     end
   end
 
 end
-# Scraper.scrape_cards
-# MTG.all
+
 CLI.start

@@ -30,8 +30,9 @@ class Scraper
 
   #use HTTP request to website in the 'open' method with open-uri, then
   #creates a nokogiri wrapped object inside our local variable 'doc'.
-  def self.scrape_cards
-    doc = Nokogiri::HTML(open("http://prices.tcgplayer.com/price-guide/magic"))
+  def self.scrape_cards(set_url)
+    doc = Nokogiri::HTML(open(set_url))
+    self.card_counter(set_url)
     #parses our nokogiri object for the css selector that defines our
     #preliminary category queries.
     doc.css("tbody tr").each do |row|
@@ -61,11 +62,13 @@ class Scraper
     puts "loading #{@@overall_set_options} sets..."
   end
 
-  def self.card_counter
+  def self.card_counter(set_url)
     #shows how many rows there are in total for the page, may come in handy later
-    rows = Nokogiri::HTML(open("http://prices.tcgplayer.com/price-guide/magic")).css("tbody tr")[0..-1]
+    rows = Nokogiri::HTML(open(set_url)).css("tbody tr")[0..-1]
     @@overall_card_rows = "#{rows.length}".to_i
     puts "loading #{@@overall_card_rows} cards..."
+    sleep(1)
+    puts "Please be patient, may take 1-2 minutes"
   end
 
 end

@@ -23,6 +23,9 @@ class Set
     @@all_sets[value - 1].set
   end
 
+  def self.set_name_url(value)
+    @@all_sets[value - 1].set_url
+  end
   #I am iterating through the stored sets of @@all_sets to return
   #the first value which is the name of the set, along with the set number
   def self.all
