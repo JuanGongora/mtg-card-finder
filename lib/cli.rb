@@ -32,5 +32,3 @@ class CLI
   end
 
 end
-
-CLI.start

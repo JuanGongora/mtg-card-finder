@@ -39,7 +39,7 @@ class Set
           puts "-                                                                                           -"
           if index < 1
             #I iterate the index of @@all_sets(with the title of 'number') to apply it as a string for logging enumeration
-            #in both the actual set number and the value of the first instance method of the current index's instance
+            #in both the actual 'set' integer and the value of the first instance method of the current index's instance
             puts "|Set-#{number + 1}| #{@@all_sets[number].instance_variable_get(value)}  |Set-#{number + 2}| #{@@all_sets[number + 1].instance_variable_get(value)}"
           end
           puts "---------------------------------------------------------------------------------------------"
