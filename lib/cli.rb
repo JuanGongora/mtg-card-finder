@@ -1,6 +1,5 @@
-require 'open-uri'
-require 'nokogiri'
-require 'pry'
+require 'bundler'
+Bundler.require
 
 require_relative "./scraper"
 require_relative "./mtg"

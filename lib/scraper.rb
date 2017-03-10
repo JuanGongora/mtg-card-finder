@@ -6,7 +6,7 @@ class Scraper
 
   #same idea here as self.scrape_cards, only I'm parsing for sets this time
   def self.scrape_set_options
-    doc = Nokogiri::HTML(open("http://prices.tcgplayer.com/price-guide/magic"))
+    doc = Nokogiri::HTML(open("./lib/test.html"))
     #call Scraper.set_counter to get the total amount of sets first
     self.set_counter
     self.iterating(@@overall_set_options)
