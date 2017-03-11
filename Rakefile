@@ -1,4 +1,4 @@
-require_relative './lib/cli'
+require_relative './lib/parser'
 
 def reload!
   load_all './lib'
