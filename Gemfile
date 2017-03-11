@@ -6,4 +6,5 @@ gem "pry", "~> 0.10.4"
 gem "rubysl-open-uri", "~> 2.0"
 gem "nokogiri", "~> 1.7"
 gem 'rake'
+gem "mechanize"
 gem 'require_all'

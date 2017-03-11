@@ -4,16 +4,20 @@ Bundler.require
 
 class Cards
 
-  def self.scrape
-    agent = Mechanize.new
+  # def self.scrape
+    # agent = Mechanize.new
     #this will help me to make the website identify what type of user is accessing the content
-    #I also want to have the site understand the request that I want to keep access to
-    agent.pre_connect_hooks << lambda do |agent, request|
-        agent.user_agent = "Ruby/#{RUBY_VERSION}"
-        request["Referer"] = "http://www.mtgprice.com/quickList"
-      end
-        page = agent.get "http://www.mtgprice.com/taneLayout/mtg_price_tracker.jsp?period=DAILY"
-        page.css(".card a")[0].text
-  end
+    #I also want to have the site understand the request that referred me to the page
+    # agent.pre_connect_hooks << lambda do |agent, request|
+    #     agent.user_agent = "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+    #     request["Referer"] = "http://www.mtgprice.com/quickList"
+    #   end
+        # page = agent.get "./lib/test.html"
+  #       # page.css(".card a")[0].text
+  # end
 
+  def self.scrape
+    doc = Nokogiri::HTML(open("./lib/test.html"))
+    doc.css(".card a")[0].text
+  end
 end
