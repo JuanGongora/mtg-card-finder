@@ -43,11 +43,11 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 1.13)
-  mechanize
+  mechanize (~> 2.7.5)
   nokogiri (~> 1.7)
   pry (~> 0.10.4)
-  rake
-  require_all
+  rake (~> 12.0)
+  require_all (~> 1.4)
   rubysl-open-uri (~> 2.0)
 
 BUNDLED WITH
