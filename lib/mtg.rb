@@ -1,12 +1,12 @@
 class MTG
-  attr_accessor :card, :rarity, :market_price, :wholesale_price, :image
+  attr_accessor :card, :set, :market_price, :price_inflation #, :image
   @@all_cards = []
   ATTRIBUTES = [
       "Card:",
-      "Rarity:",
+      "Set:",
       "Market Value:",
-      "Wholesale Value:",
-      "Image URL:"
+      "Inflation amount:"
+      # "Image URL:"
   ]
 
   #need to make instance methods from attr_accessor be associated with

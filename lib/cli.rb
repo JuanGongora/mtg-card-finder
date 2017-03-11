@@ -1,9 +1,8 @@
 require 'bundler'
 Bundler.require
 
-require_relative "./scraper"
 require_relative "./mtg"
-require_relative "./set"
+require_relative "./parser"
 
 class CLI
 
