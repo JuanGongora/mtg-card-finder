@@ -3,6 +3,7 @@ Bundler.require
 #this combines all of my gems into one single require
 
 class Cards
+  @@overall_card_rows = nil
 
   # def self.scrape
     # agent = Mechanize.new
@@ -18,6 +19,7 @@ class Cards
 
   def self.scrape
     doc = Nokogiri::HTML(open("./lib/test.html"))
+    self.card_counter("./lib/test.html")
     doc.css("#top50Standard tr").each do |row|
       #parsing is now initialized into MTG class, with key/value pairs for its scraped attributes
       row = MTG.new({
@@ -29,6 +31,15 @@ class Cards
       # ^^ had to go another level deep to access a better quality image from its full product listing
       })
     end
+  end
+
+  def self.card_counter(set_url)
+    #shows how many rows there are in total for the page, may come in handy later
+    rows = Nokogiri::HTML(open(set_url)).css("#top50Standard tr")[0..-1]
+    @@overall_card_rows = "#{rows.length}".to_i
+    puts "loading the top #{@@overall_card_rows} gainers on the market for today..."
+    print "Please be patient"; print "."; sleep(1); print "."; sleep(1); print "."; sleep(1); print "."; sleep(1);
+    puts ""
   end
 
 end

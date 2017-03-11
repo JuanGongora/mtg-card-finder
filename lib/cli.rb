@@ -30,3 +30,5 @@ class CLI
   end
 
 end
+Cards.scrape
+MTG.all

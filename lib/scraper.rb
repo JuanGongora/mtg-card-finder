@@ -66,9 +66,9 @@ class Scraper
     #shows how many rows there are in total for the page, may come in handy later
     rows = Nokogiri::HTML(open(set_url)).css("tbody tr")[0..-1]
     @@overall_card_rows = "#{rows.length}".to_i
-    puts "loading #{@@overall_card_rows} cards..."
+    puts "loading the top #{@@overall_card_rows} gainers on the market for today..."
     sleep(1)
-    puts "Please be patient, may take 1-2 minutes"
+    puts "Please be patient.."
   end
 
 end
