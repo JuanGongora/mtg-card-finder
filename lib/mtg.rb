@@ -1,11 +1,11 @@
 class MTG
-  attr_accessor :card, :set, :market_price, :price_inflation #, :image
+  attr_accessor :card, :set, :market_price, :price_fluctuate #, :image
   @@all_cards = []
   ATTRIBUTES = [
       "Card:",
       "Set:",
       "Market Value:",
-      "Inflation amount:"
+      "Rise/Fall amount:"
       # "Image URL:"
   ]
 

@@ -4,7 +4,7 @@ Bundler.require
 
 class Parser
   @@overall_card_rows = nil
-  @@overall_format_options = nil
+  @@overall_format_options = []
 
   # def self.scrape
     # agent = Mechanize.new
@@ -27,7 +27,13 @@ class Parser
       card: row.css(".card a")[0].text,
       set: row.css(".set a")[0].text,
       market_price: row.css(".value")[0].text.split[0].gsub!("$", "").to_f,
-      price_inflation: row.css("td:last-child").text.split[0].gsub!("+", "").to_f,
+      price_fluctuate:  if row.css("td:last-child").text.include?("+")
+                           row.css("td:last-child").text.split[0].gsub!(/[+]/, "").to_f
+                        else
+                          integer = row.css("td:last-child").text.split[0].gsub!(/[-]/, "").to_f
+                          -(integer.abs)
+                        end
+
       # image: Nokogiri::HTML(open(row.css(".shop button").attribute("onclick").value.split(" ")[2].gsub!(/('|;)/, ""))).css(".detailImage img").attribute("src").value
       # ^^ had to go another level deep to access a better quality image from its full product listing
       })
@@ -45,7 +51,7 @@ class Parser
   end
 
   def self.select_format
-    @@overall_format_options = nil
+    @@overall_format_options.clear
     input = gets.strip.to_i
     case input
       when 1
