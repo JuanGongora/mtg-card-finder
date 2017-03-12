@@ -11,10 +11,14 @@ class CLI
     puts "-------------------------------------------------"
     puts "|Last Update|#{Parser.update_date}"
     puts "-------------------------------------------------"
-    puts "Standard: rising cards today"
+    puts "[1] Standard: rising cards today"
+    puts "[2] Modern: rising cards today"
+    puts "[3] Standard: crashing cards today"
+    puts "[4] Modern: crashing cards today"
+    puts "-------------------------------------------------"
+    self.check_input
     Parser.scrape_cards
     MTG.all
-    self.check_input
     # puts "What set would you like to see?"
   end
 
@@ -36,7 +40,7 @@ class CLI
   def self.check_input
     sleep(1)
     puts "Please type out the number of the format you would like to see from above..."
-    input = gets.strip.to_i
+    Parser.select_format
   end
 
 end

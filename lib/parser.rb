@@ -4,6 +4,7 @@ Bundler.require
 
 class Parser
   @@overall_card_rows = nil
+  @@overall_format_options = nil
 
   # def self.scrape
     # agent = Mechanize.new
@@ -20,7 +21,7 @@ class Parser
   def self.scrape_cards
     doc = Nokogiri::HTML(open("./lib/test.html"))
     self.card_counter
-    doc.css("#top50Standard tr").each do |row|
+    doc.css(@@overall_format_options[0]).each do |row|
       #parsing is now initialized into MTG class, with key/value pairs for its scraped attributes
       row = MTG.new({
       card: row.css(".card a")[0].text,
@@ -34,29 +35,31 @@ class Parser
   end
 
   def self.card_counter
+    @@overall_card_rows = nil
     #shows how many rows there are in total for the page, may come in handy later
-    rows = Nokogiri::HTML(open("./lib/test.html")).css(self.select_format(option))[0..-1]
+    rows = Nokogiri::HTML(open("./lib/test.html")).css(@@overall_format_options[0])[0..-1]
     @@overall_card_rows = "#{rows.length}".to_i
-    puts "loading the top #{@@overall_card_rows} gainers on the market for today..."
+    puts "loading the #{@@overall_format_options[1]} #{@@overall_card_rows} #{@@overall_format_options[2]} #{@@overall_format_options[3]} on the market for today..."
     print "Please be patient"; print "."; sleep(1); print "."; sleep(1); print "."; sleep(1); print "."; sleep(1);
     puts ""
   end
 
-  def self.select_format(option)
-
-    case option
-  when 1
-    "#top50Standard tr"
-  when 2
-    "#top50Modern tr"
-  when 3
-    "#bottom50Standard tr"
-  when 4
-    "#bottom50Modern tr"
-  else
-    "You're just making that up!"
+  def self.select_format
+    @@overall_format_options = nil
+    input = gets.strip.to_i
+    case input
+      when 1
+        @@overall_format_options = ["#top50Standard tr", "top", "Standard", "gainers"]
+      when 2
+        @@overall_format_options = ["#top50Modern tr", "top", "Modern", "gainers"]
+      when 3
+        @@overall_format_options = ["#bottom50Standard tr", "bottom", "Standard", "crashers"]
+      when 4
+        @@overall_format_options = ["#bottom50Modern tr", "bottom", "Modern", "crashers"]
+      else
+        CLI.check_input
+    end
   end
-end
 
 def self.update_date
   time = Nokogiri::HTML(open("./lib/test.html"))
