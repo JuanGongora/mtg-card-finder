@@ -19,7 +19,7 @@ class Parser
   # end
 
   def self.scrape_cards
-    doc = Nokogiri::HTML(open("./lib/test.html"))
+    doc = Nokogiri::HTML(open("./test.html"))
     self.card_counter
     doc.css(@@overall_format_options[0]).each do |row|
       #parsing is now initialized into MTG class, with key/value pairs for its scraped attributes
@@ -27,12 +27,8 @@ class Parser
       card: row.css(".card a")[0].text,
       set: row.css(".set a")[0].text,
       market_price: row.css(".value")[0].text.split[0].gsub!("$", "").to_f,
-      price_fluctuate:  if row.css("td:last-child").text.include?("+")
-                           row.css("td:last-child").text.split[0].gsub!(/[+]/, "").to_f
-                        else
-                          integer = row.css("td:last-child").text.split[0].gsub!(/[-]/, "").to_f
-                          -(integer.abs)
-                        end
+      price_fluctuate: row.css("td:last-child").text
+
 
       # image: Nokogiri::HTML(open(row.css(".shop button").attribute("onclick").value.split(" ")[2].gsub!(/('|;)/, ""))).css(".detailImage img").attribute("src").value
       # ^^ had to go another level deep to access a better quality image from its full product listing
@@ -43,7 +39,7 @@ class Parser
   def self.card_counter
     @@overall_card_rows = nil
     #shows how many rows there are in total for the page, may come in handy later
-    rows = Nokogiri::HTML(open("./lib/test.html")).css(@@overall_format_options[0])[0..-1]
+    rows = Nokogiri::HTML(open("./test.html")).css(@@overall_format_options[0])[0..-1]
     @@overall_card_rows = "#{rows.length}".to_i
     puts "loading the #{@@overall_format_options[1]} #{@@overall_card_rows} #{@@overall_format_options[2]} #{@@overall_format_options[3]} on the market for today..."
     print "Please be patient"; print "."; sleep(1); print "."; sleep(1); print "."; sleep(1); print "."; sleep(1);
@@ -68,7 +64,7 @@ class Parser
   end
 
 def self.update_date
-  time = Nokogiri::HTML(open("./lib/test.html"))
+  time = Nokogiri::HTML(open("./test.html"))
   time.css(".span6 h3")[0].text.split.join(" ").gsub!("Updated:", "")
 end
 

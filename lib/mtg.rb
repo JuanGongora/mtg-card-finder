@@ -20,10 +20,12 @@ class MTG
   def self.all
     #iterate through each instance of MTG made from Scraper.scrape_cards(set_url)
     #that was appended into @@all_cards during initialization
-    @@all_cards.each do |card|
+    @@all_cards.each_with_index do |card, number|
       #iterate through each instance method that was defined for
       #the instance variable of MTG from key/value pairs of Scraper.scrape_cards(set_url)
       puts "-------------------------------------------------"
+      puts "|- #{number + 1} -|"
+      puts ""
       card.instance_variables.each_with_index do |value, index|
         #returns the value of the instance method applied to the instance
         #with an index value of the first/last, key/value pairs ordered in Scraper.scrape_cards(set_url)
