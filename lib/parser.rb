@@ -21,16 +21,17 @@ class Parser
   def self.scrape_cards
     doc = Nokogiri::HTML(open("./test.html"))
     self.card_counter
-    doc.css(@@overall_format_options[0]).each do |row|
+    doc.css("#top50Standard tr").each do |row|
       #parsing is now initialized into MTG class, with key/value pairs for its scraped attributes
+      binding.pry
       row = MTG.new({
       card: row.css(".card a")[0].text,
       set: row.css(".set a")[0].text,
       market_price: row.css(".value")[0].text.split[0].gsub!("$", "").to_f,
       price_fluctuate: row.css("td:last-child").text
+      image: Nokogiri::HTML(open("./cards.html")).css(".card-img img").attribute("src").value
 
-
-      # image: Nokogiri::HTML(open(row.css(".shop button").attribute("onclick").value.split(" ")[2].gsub!(/('|;)/, ""))).css(".detailImage img").attribute("src").value
+      # image: Nokogiri::HTML(open("http://www.mtgprice.com#{row.css(".card a").attribute("href").value}")).css(".card-img img").attribute("src").value
       # ^^ had to go another level deep to access a better quality image from its full product listing
       })
     end
@@ -69,3 +70,4 @@ def self.update_date
 end
 
 end
+Parser.scrape_cards

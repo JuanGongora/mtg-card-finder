@@ -1,5 +1,5 @@
 class MTG
-  attr_accessor :card, :set, :market_price, :price_fluctuate #, :image
+  attr_accessor :card, :set, :market_price, :price_fluctuate, :image
   @@all_cards = []
   ATTRIBUTES = [
       "Card:",
