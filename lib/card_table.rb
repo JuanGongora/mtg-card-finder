@@ -15,8 +15,19 @@ def self.create_table
           market_price INTEGER,
           price_fluctuate TEXT,
           image TEXT
-        )
-      SQL
+          )
+          SQL
 
-  DB[:conn].exectute(sql)
+  DB[:conn].execute(sql)
+end
+
+def save
+  sql = <<-SQL
+        INSERT INTO #{self.table_name} (card, sets, market_price, price_fluctuate, image) VALUES (?,?,?,?,?)
+           SQL
+
+  DB[:conn].execute(sql)
+end
+
+
 end
