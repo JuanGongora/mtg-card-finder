@@ -32,6 +32,9 @@ class CardTable
     SQL
 
     DB[:conn].execute(sql, self.card, self.sets, self.market_price, self.price_fluctuate, self.image)
+    #after inserting the card to the database, I want to get the primary key that is auto assigned to it
+    #from sql and set it to the instance method 'id' of this very instance variable.
+    self.id = DB[:conn].execute("SELECT last_insert_rowid();").flatten.first #returns a new array that is a one-dimensional flattening of this array with the first value for it
   end
 
   def self.find(id)
@@ -57,8 +60,22 @@ class CardTable
     end
   end
 
-end
+  #the website below gives an excellent explanation to how this method works
+  # http://www.blackbytes.info/2017/03/ruby-equality/?tl_inbound=1&tl_target_all=1&tl_form_type=1&tl_period_type=1
+  def ==(other_card)
+    self.id == other_card.id
+  end
 
+  #updates by the unique identifier of 'id'
+  def update
+    sql = <<-SQL
+        UPDATE #{self.class.table_name} SET card=(?), sets=(?), market_price=(?), price_fluctuate=(?), image=(?) WHERE id=(?)
+          SQL
+
+    DB[:conn].execute(sql, self.card, self.sets, self.market_price, self.price_fluctuate, self.image, self.id)
+ end
+
+end
 
 
 CardTable.create_table
