@@ -1,3 +1,5 @@
+require_relative "./color"
+
 class Parser
   @@overall_card_rows = nil
   @@overall_format_options = []
@@ -37,7 +39,7 @@ class Parser
     #shows how many rows there are in total for the page, may come in handy later
     rows = Nokogiri::HTML(open("./test.html")).css(@@overall_format_options[0])[0..-1]
     @@overall_card_rows = "#{rows.length}".to_i
-    puts "loading the #{@@overall_format_options[1]} #{@@overall_card_rows} #{@@overall_format_options[2]} #{@@overall_format_options[3]} on the market for today..."
+    puts "loading the #{@@overall_format_options[1]} #{@@overall_card_rows} #{@@overall_format_options[2]} #{@@overall_format_options[3]} on the market for today..."; sleep(1);
     print "Please be patient"; print "."; sleep(1); print "."; sleep(1); print "."; sleep(1); print "."; sleep(1);
     puts ""
   end
@@ -47,13 +49,13 @@ class Parser
     input = gets.strip.to_i
     case input
       when 1
-        @@overall_format_options = ["#top50Standard tr", "top", "Standard", "gainers"]
+        @@overall_format_options = ["#top50Standard tr", "top", "Standard", "#{"gainers".fg COLORS[4]}"]
       when 2
-        @@overall_format_options = ["#top50Modern tr", "top", "Modern", "gainers"]
+        @@overall_format_options = ["#top50Modern tr", "top", "Modern", "#{"gainers".fg COLORS[4]}"]
       when 3
-        @@overall_format_options = ["#bottom50Standard tr", "bottom", "Standard", "crashers"]
+        @@overall_format_options = ["#bottom50Standard tr", "bottom", "Standard", "#{"crashers".fg COLORS[6]}"]
       when 4
-        @@overall_format_options = ["#bottom50Modern tr", "bottom", "Modern", "crashers"]
+        @@overall_format_options = ["#bottom50Modern tr", "bottom", "Modern", "#{"crashers".fg COLORS[6]}"]
       else
         CLI.check_input
     end

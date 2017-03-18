@@ -21,7 +21,7 @@ class MTG
 
   def self.all
     puts "-------------------------------------------------"
-    print "                                                 ".bg COLORS[0]
+    print "                                                 ".bg COLORS[7]
     #iterate through each instance of MTG made from Scraper.scrape_cards(set_url)
     #that was appended into @@all_cards during initialization
     @@all_cards.each_with_index do |card, number|
@@ -39,7 +39,7 @@ class MTG
       end
       puts ""
       puts "-------------------------------------------------"
-      print "                                                 ".bg COLORS[0]
+      print "                                                 ".bg COLORS[7]
     end
   end
 
