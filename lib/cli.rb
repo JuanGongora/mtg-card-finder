@@ -1,8 +1,10 @@
 require 'bundler'
 Bundler.require
+#this combines all of my gems into one single require
 
 require_relative "./mtg"
 require_relative "./parser"
+require_relative "./color"
 
 class CLI
 
