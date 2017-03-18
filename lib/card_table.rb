@@ -34,13 +34,30 @@ def insert
   DB[:conn].execute(sql, self.card, self.sets, self.market_price, self.price_fluctuate, self.image)
 end
 
-def find(id)
+def self.find(id)
   sql = <<-SQL
         FIND * FROM (self.class.table_name) WHERE id=(?)
         SQL
 
-  DB[:conn].execute(sql, id)
+  row = DB[:conn].execute(sql, id)
+  self.reify_from_row(row.first)  #using first array method to return only the first nested array
 end
+
+#opposite of abstraction is reification i.e. I'm getting the raw data of these variables
+def self.reify_from_row(row.first)
+  self.new.tap do |card|
+    card.id = row[0]
+    card.card = row[1]
+    card.sets = row[2]
+    card.market_price = row[3]
+    card.price_fluctuate = row[4]
+    card.image = row[5]
+    end
+end
+
+end
+
+
 
 # CardTable.create_table
 #
