@@ -1,7 +1,7 @@
 require_relative "./color"
 
 class MTG
-  attr_accessor :card, :set, :market_price, :price_fluctuate#, :image
+  attr_accessor :card, :sets, :market_price, :price_fluctuate#, :image
   @@all_cards = []
   ATTRIBUTES = [
       "Card:",

@@ -23,7 +23,7 @@ class Parser
       #parsing is now initialized into MTG class, with key/value pairs for its scraped attributes
       row = MTG.new({
       card: row.css(".card a")[0].text,
-      set: row.css(".set a")[0].text,
+      sets: row.css(".set a")[0].text,
       market_price: row.css(".value")[0].text.split[0].gsub!("$", "").to_f,
       price_fluctuate: row.css("td:last-child").text
       #image: Nokogiri::HTML(open("./cards.html")).css(".card-img img").attribute("src").value
