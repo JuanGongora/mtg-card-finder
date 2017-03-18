@@ -26,17 +26,6 @@ class CardTable
     DB[:conn].execute(sql)
   end
 
-  def insert
-    sql = <<-SQL
-        INSERT INTO #{self.class.table_name} (card, sets, market_price, price_fluctuate, image) VALUES (?,?,?,?,?)
-    SQL
-
-    DB[:conn].execute(sql, self.card, self.sets, self.market_price, self.price_fluctuate, self.image)
-    #after inserting the card to the database, I want to get the primary key that is auto assigned to it
-    #from sql and set it to the instance method 'id' of this very instance variable.
-    self.id = DB[:conn].execute("SELECT last_insert_rowid();").flatten.first #returns a new array that is a one-dimensional flattening of this array with the first value for it
-  end
-
   def self.find(id)
     sql = <<-SQL
         SELECT * FROM #{self.table_name} WHERE id=(?)
@@ -66,14 +55,37 @@ class CardTable
     self.id == other_card.id
   end
 
+  def save
+    #if the card has already been saved, then call update method
+    persisted? ? update : insert
+    #if not call insert method instead
+  end
+
+  private #the below methods don't need to be accessed by the user
+
+  def persisted?
+    !!self.id  #the '!!' double bang converts object into a truthy value statement
+  end
+
   #updates by the unique identifier of 'id'
   def update
     sql = <<-SQL
-        UPDATE #{self.class.table_name} SET card=(?), sets=(?), market_price=(?), price_fluctuate=(?), image=(?) WHERE id=(?)
-          SQL
+       UPDATE #{self.class.table_name} SET card=(?), sets=(?), market_price=(?), price_fluctuate=(?), image=(?) WHERE id=(?)
+    SQL
 
     DB[:conn].execute(sql, self.card, self.sets, self.market_price, self.price_fluctuate, self.image, self.id)
- end
+  end
+
+  def insert
+    sql = <<-SQL
+      INSERT INTO #{self.class.table_name} (card, sets, market_price, price_fluctuate, image) VALUES (?,?,?,?,?)
+    SQL
+
+    DB[:conn].execute(sql, self.card, self.sets, self.market_price, self.price_fluctuate, self.image)
+    #after inserting the card to the database, I want to get the primary key that is auto assigned to it
+    #from sql and set it to the instance method 'id' of this very instance variable.
+    self.id = DB[:conn].execute("SELECT last_insert_rowid();").flatten.first #returns a new array that is a one-dimensional flattening of this array with the first value for it
+  end
 
 end
 
@@ -92,6 +104,6 @@ first.price_fluctuate = "+26"
 
 first.image = "ugly looking fella"
 
-first.insert
+first.save
 
 puts CardTable.find(1)
