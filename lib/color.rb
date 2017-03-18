@@ -1,3 +1,6 @@
+require 'bundler'
+Bundler.require
+
 require "tco"
 
 conf = Tco.config
