@@ -5,7 +5,19 @@ DB = {:conn => SQLite3::Database.new("db/cards.db")}
 
 class CardTable
 
-  attr_accessor :id, :card, :sets, :market_price, :price_fluctuate, :image
+  #metaprogramming the hash to convert keys to attr_accessor's and also for inserting the values to the sql strings
+  ATTRS = {
+    :id => "INTEGER PRIMARY KEY",
+    :card => "TEXT",
+    :sets => "TEXT",
+    :market_price => "INTEGER",
+    :price_fluctuate => "TEXT",
+    :image => "TEXT"
+  }
+
+  ATTRS.keys.each do |key|
+    attr_accessor key
+  end
 
   def self.table_name
     "#{self.to_s.downcase}s"
@@ -39,13 +51,16 @@ class CardTable
 
   #opposite of abstraction is reification i.e. I'm getting the raw data of these variables
   def self.reify_from_row(row)
+    #the tap method allows preconfigured methods and values to
+    #be associated with the instance during instantiation while also automatically returning
+    #the object after it's creation is concluded.  
     self.new.tap do |card|
-      card.id = row[0]
-      card.card = row[1]
-      card.sets = row[2]
-      card.market_price = row[3]
-      card.price_fluctuate = row[4]
-      card.image = row[5]
+      ATTRS.keys.each.with_index do |key, index|
+        #sending the new instance the key name as a setter with the value located at the 'row' index
+        card.send("#{key}=", row[index])
+        #string interpolation is used as the method doesn't know the key name yet
+        #but an = sign is implemented into the string in order to asssociate it as a setter
+      end
     end
   end
 
