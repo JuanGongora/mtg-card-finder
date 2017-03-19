@@ -25,14 +25,7 @@ class CardTable
 
   def self.create_table
     sql = <<-SQL
-        CREATE TABLE IF NOT EXISTS #{self.table_name} (
-          id INTEGER PRIMARY KEY,
-          card TEXT,
-          sets TEXT,
-          market_price INTEGER,
-          price_fluctuate TEXT,
-          image TEXT
-          )
+        CREATE TABLE IF NOT EXISTS #{self.table_name} ( #{self.create_sql} )
     SQL
 
     DB[:conn].execute(sql)
@@ -45,7 +38,7 @@ class CardTable
 
     row = DB[:conn].execute(sql, id)
     self.reify_from_row(row.first)
-    #using first array method to return only the first nested array
+    #using .first array method to return only the first nested array
     #that is taken from self.reify_from_row(row) which is the resulting id of the query
   end
 
@@ -53,7 +46,7 @@ class CardTable
   def self.reify_from_row(row)
     #the tap method allows preconfigured methods and values to
     #be associated with the instance during instantiation while also automatically returning
-    #the object after it's creation is concluded.  
+    #the object after its creation is concluded.
     self.new.tap do |card|
       ATTRS.keys.each.with_index do |key, index|
         #sending the new instance the key name as a setter with the value located at the 'row' index
@@ -77,6 +70,17 @@ class CardTable
   end
 
   private #the below methods don't need to be accessed by the user
+
+  def self.create_sql
+    #will apply the column names ('key') and their schemas ('value') into sql strings without having to hard code them
+    #the collect method returns the revised array and then we concatenate it into a string separating the contents with a comma
+    ATTRS.collect {|key, value| "#{key} #{value}"}.join(", ")
+  end
+
+  def self.attributes_names_insert_sql
+    #same idea as self.create_sql only it's returning the 'key' for sql insertions
+    ATTRS.keys[1..-1].join(", ")
+  end
 
   def persisted?
     !!self.id  #the '!!' double bang converts object into a truthy value statement

@@ -5,6 +5,7 @@ Bundler.require
 require_relative "./mtg"
 require_relative "./parser"
 require_relative "./color"
+require_relative "./card_table"
 
 class CLI
 
