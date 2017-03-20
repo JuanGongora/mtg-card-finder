@@ -82,28 +82,39 @@ class CardTable
     ATTRS.keys[1..-1].join(", ")
   end
 
+  def self.question_marks_insert_sql
+    questions = ATTRS.keys.size-1 #returns the number of key-value pairs in the hash minus one for the 'id'
+    questions.times.collect {"?"}.join(", ") #converts them into '?' array that is then turned into comma separated string
+  end
+
+  def attribute_values_for_sql_check
+    ATTRS.keys[1..-1].collect {|attr_names| self.send(attr_names)}
+    #I go through the key names (minus 'id') and return an array containing their values for the recieving instance
+    #basically like getting an array of getter methods for that instance
+  end
+
   def persisted?
     !!self.id  #the '!!' double bang converts object into a truthy value statement
   end
 
-  #updates by the unique identifier of 'id'
   def update
+    #updates by the unique identifier of 'id'
     sql = <<-SQL
        UPDATE #{self.class.table_name} SET card=(?), sets=(?), market_price=(?), price_fluctuate=(?), image=(?) WHERE id=(?)
     SQL
 
-    DB[:conn].execute(sql, self.card, self.sets, self.market_price, self.price_fluctuate, self.image, self.id)
+    DB[:conn].execute(sql, *attribute_values_for_sql_check) #using splat operator to signify that there may be more than one argument in terms of attr_readers
   end
 
   def insert
     sql = <<-SQL
-      INSERT INTO #{self.class.table_name} (card, sets, market_price, price_fluctuate, image) VALUES (?,?,?,?,?)
+      INSERT INTO #{self.class.table_name} (#{self.class.attributes_names_insert_sql}) VALUES (#{self.class.question_marks_insert_sql})
     SQL
 
-    DB[:conn].execute(sql, self.card, self.sets, self.market_price, self.price_fluctuate, self.image)
+    DB[:conn].execute(sql, *attribute_values_for_sql_check) #using splat operator to signify that there may be more than one argument in terms of attr_readers
     #after inserting the card to the database, I want to get the primary key that is auto assigned to it
     #from sql and set it to the instance method 'id' of this very instance variable.
-    self.id = DB[:conn].execute("SELECT last_insert_rowid();").flatten.first #returns a new array that is a one-dimensional flattening of this array with the first value for it
+    self.id = DB[:conn].execute("SELECT last_insert_rowid() FROM #{self.class.table_name}")[0][0] #returns first array with the first value of the array (i.e. index 0)
   end
 
 end
@@ -122,6 +133,12 @@ first.market_price = 23
 first.price_fluctuate = "+26"
 
 first.image = "ugly looking fella"
+
+first.save
+
+first.sets = "legos"
+
+first.save
 
 first.save
 
