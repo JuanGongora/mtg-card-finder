@@ -31,15 +31,27 @@ class CardTable
     DB[:conn].execute(sql)
   end
 
+  def destroy
+    sql = <<-SQL
+      DELETE FROM #{self.class.table_name} WHERE id=(?)
+    SQL
+
+    DB[:conn].execute(sql, self.id)
+  end
+
   def self.find(id)
     sql = <<-SQL
         SELECT * FROM #{self.table_name} WHERE id=(?)
     SQL
 
     row = DB[:conn].execute(sql, id)
-    self.reify_from_row(row.first)
-    #using .first array method to return only the first nested array
-    #that is taken from self.reify_from_row(row) which is the resulting id of the query
+    if row.first #if a row is actually returned i.e. the id actually exists
+      self.reify_from_row(row.first)
+      #using .first array method to return only the first nested array
+      #that is taken from self.reify_from_row(row) which is the resulting id of the query
+    else
+      "this card doesn't exist"
+    end
   end
 
   #opposite of abstraction is reification i.e. I'm getting the raw data of these variables
@@ -93,6 +105,11 @@ class CardTable
     #basically like getting an array of getter methods for that instance
   end
 
+  def self.sql_columns_to_update
+    columns = ATTRS.keys[1..-1] #returns the number of keys in the hash minus one for the 'id'
+    columns.collect {|attr| "#{attr}=(?)"}.join(", ") #converts them into 'attribute=(?)' array that is then turned into comma separated string
+  end
+
   def persisted?
     !!self.id  #the '!!' double bang converts object into a truthy value statement
   end
@@ -100,10 +117,10 @@ class CardTable
   def update
     #updates by the unique identifier of 'id'
     sql = <<-SQL
-       UPDATE #{self.class.table_name} SET card=(?), sets=(?), market_price=(?), price_fluctuate=(?), image=(?) WHERE id=(?)
+       UPDATE #{self.class.table_name} SET #{self.class.sql_columns_to_update} WHERE id=(?)
     SQL
 
-    DB[:conn].execute(sql, *attribute_values_for_sql_check) #using splat operator to signify that there may be more than one argument in terms of attr_readers
+    DB[:conn].execute(sql, *attribute_values_for_sql_check, self.id) #using splat operator to signify that there may be more than one argument in terms of attr_readers
   end
 
   def insert
@@ -143,3 +160,5 @@ first.save
 first.save
 
 puts CardTable.find(1)
+
+puts CardTable.find(2)
