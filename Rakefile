@@ -1,11 +1,11 @@
-require_relative './lib/cli'
-
-def reload!
-  load_all './lib'
-  load_all './db'
-  load_all './fixtures'
-end
+require_relative 'config/environment'
 
 task :console do
+
+  def reload!
+    load_all 'lib'
+  end
+
   Pry.start
+
 end

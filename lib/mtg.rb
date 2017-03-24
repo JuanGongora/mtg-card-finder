@@ -1,8 +1,3 @@
-require 'bundler'
-Bundler.require
-
-require_relative "./color"
-
 class MTG
   attr_accessor :card, :sets, :market_price, :price_fluctuate#, :image
   @@all_cards = []

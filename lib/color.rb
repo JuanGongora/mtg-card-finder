@@ -1,8 +1,3 @@
-require 'bundler'
-Bundler.require
-
-require "tco"
-
 conf = Tco.config
 conf.names["purple"] = "#622e90"
 conf.names["dark-blue"] = "#2d3091"

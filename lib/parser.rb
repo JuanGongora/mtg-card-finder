@@ -1,5 +1,3 @@
-require_relative "./color"
-
 class Parser
   @@overall_card_rows = nil
   @@overall_format_options = []
