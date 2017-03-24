@@ -17,6 +17,10 @@ class CardTable
     :image => "TEXT"
   }
 
+  def self.attributes #reader that can be accessed by Persistable module to know the unique class's constant 
+    ATTRS
+  end
+
   ATTRS.keys.each do |key|
     attr_accessor key
   end

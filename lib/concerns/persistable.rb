@@ -36,7 +36,7 @@ module Persistable
       #be associated with the instance during instantiation while also automatically returning
       #the object after its creation is concluded.
       self.new.tap do |card|
-        ATTRS.keys.each.with_index do |key, index|
+        self.attributes.keys.each.with_index do |key, index|
           #sending the new instance the key name as a setter with the value located at the 'row' index
           card.send("#{key}=", row[index])
           #string interpolation is used as the method doesn't know the key name yet
@@ -48,21 +48,21 @@ module Persistable
     def create_sql
       #will apply the column names ('key') and their schemas ('value') into sql strings without having to hard code them
       #the collect method returns the revised array and then we concatenate it into a string separating the contents with a comma
-      ATTRS.collect {|key, value| "#{key} #{value}"}.join(", ")
+      self.attributes.collect {|key, value| "#{key} #{value}"}.join(", ")
     end
 
     def attributes_names_insert_sql
       #same idea as self.create_sql only it's returning the 'key' for sql insertions
-      ATTRS.keys[1..-1].join(", ")
+      self.attributes.keys[1..-1].join(", ")
     end
 
     def question_marks_insert_sql
-      questions = ATTRS.keys.size-1 #returns the number of key-value pairs in the hash minus one for the 'id'
+      questions = self.attributes.keys.size-1 #returns the number of key-value pairs in the hash minus one for the 'id'
       questions.times.collect {"?"}.join(", ") #converts them into '?' array that is then turned into comma separated string
     end
 
     def sql_columns_to_update
-      columns = ATTRS.keys[1..-1] #returns the number of keys in the hash minus one for the 'id'
+      columns = self.attributes.keys[1..-1] #returns the number of keys in the hash minus one for the 'id'
       columns.collect {|attr| "#{attr}=(?)"}.join(", ") #converts them into 'attribute=(?)' array that is then turned into comma separated string
     end
 
@@ -91,7 +91,7 @@ module Persistable
       end
 
       def attribute_values_for_sql_check
-        ATTRS.keys[1..-1].collect {|attr_names| self.send(attr_names)}
+        self.class.attributes.keys[1..-1].collect {|attr_names| self.send(attr_names)}
         #I go through the key names (minus 'id') and return an array containing their values for the recieving instance
         #basically like getting an array of getter methods for that instance
       end
