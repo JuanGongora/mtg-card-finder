@@ -1,6 +1,6 @@
 class CardTable
-  # include Persistable::InstanceMethods
-  # extend Persistable::ClassMethods
+  include Persistable::InstanceMethods
+  extend Persistable::ClassMethods
 
   #metaprogramming the hash to convert keys to attr_accessor's and also for inserting the values to the sql strings
   ATTRS = {
@@ -19,8 +19,4 @@ class CardTable
   self.attributes.keys.each do |key|
     attr_accessor key
   end
-
-  include Persistable::InstanceMethods
-  extend Persistable::ClassMethods
-
 end

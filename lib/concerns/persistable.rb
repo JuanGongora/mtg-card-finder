@@ -1,4 +1,4 @@
-#a dynamic module that can contain any data
+#a dynamic module that contains data that can be re-used, hence the name
 module Persistable
 
   module ClassMethods
