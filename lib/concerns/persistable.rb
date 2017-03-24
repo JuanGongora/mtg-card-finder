@@ -3,9 +3,35 @@ module Persistable
 
   module ClassMethods
 
+    def self.extended(base) #callback method where 'self' refers to this module and 'base' refers to the class that extended this module
+      base.attributes.keys.each do |key|
+        attr_accessor key
+      end
+    end
+
+    def attributes #reader that can be accessed by Persistable module to know the unique class's constant
+      self::ATTRS #scope accessing the extended class to get the constant var ATTRS
+    end
+
     def table_name
       "#{self.to_s.downcase}s"
     end
+
+   #this method will dynamically create additional attrs so that we can implement them into the extended class
+   def create(attributes_hash)
+     #the tap method allows preconfigured methods and values to
+     #be associated with the instance during instantiation while also automatically returning
+     #the object after its creation is concluded.
+     self.new.tap do |card|
+         attributes_hash.each do |key, value|
+         #sending the new instance the key name as a setter with the value
+         card.send("#{key}=", value)
+         #string interpolation is used as the method doesn't know the key name yet
+         #but an = sign is implemented into the string in order to asssociate it as a setter
+       end
+       card.save #saves the new instance into the database
+     end
+   end
 
     def create_table
       sql = <<-SQL
