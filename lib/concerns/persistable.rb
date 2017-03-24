@@ -3,21 +3,12 @@ module Persistable
 
   module ClassMethods
 
-    def self.extended(base) #callback method where 'self' refers to this module and 'base' refers to the class that extended this module
-      base.attributes.keys.each do |key|
-        attr_accessor key
-      end
-    end
-
-    def attributes #reader that can be accessed by Persistable module to know the unique class's constant
-      self::ATTRS #scope accessing the extended class to get the constant var ATTRS
-    end
-
     def table_name
       "#{self.to_s.downcase}s"
     end
 
-   #this method will dynamically create additional attrs so that we can implement them into the extended class
+   #this method will dynamically create a new instance with the assigned attrs and values
+   #by doing mass assignment of the hash's key/value pairs
    def create(attributes_hash)
      #the tap method allows preconfigured methods and values to
      #be associated with the instance during instantiation while also automatically returning
@@ -52,7 +43,7 @@ module Persistable
         #using .first array method to return only the first nested array
         #that is taken from self.reify_from_row(row) which is the resulting id of the query
       else
-        "this card doesn't exist"
+        nil
       end
     end
 
@@ -91,7 +82,6 @@ module Persistable
       columns = self.attributes.keys[1..-1] #returns the number of keys in the hash minus one for the 'id'
       columns.collect {|attr| "#{attr}=(?)"}.join(", ") #converts them into 'attribute=(?)' array that is then turned into comma separated string
     end
-
   end
 
   module InstanceMethods
@@ -145,7 +135,6 @@ module Persistable
         #from sql and set it to the instance method 'id' of this very instance variable.
         self.id = DB[:conn].execute("SELECT last_insert_rowid() FROM #{self.class.table_name}")[0][0] #returns first array with the first value of the array (i.e. index 0)
       end
-
   end
 
 end

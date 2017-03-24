@@ -7,7 +7,7 @@ DB = {:conn => SQLite3::Database.new("db/cards.db")}
 require_all 'lib'
 
 
-#testing
+#testing below
 CardTable.create_table
 
 first = CardTable.new
@@ -24,12 +24,19 @@ first.image = "ugly looking monkey"
 
 first.save
 
-first.sets = "margarine"
+second = CardTable.create({:card => "lefty", :sets => "Unglued", :market_price => 23.35, :price_fluctuate => "-39.98", :image => "poopy pants"})
 
-first.save
+puts "----------------------"
+p first
+puts "----------------------"
+p second
+puts "----------------------"
+
 
 first.save
 
 puts CardTable.find(1)
 
 puts CardTable.find(2)
+
+puts CardTable.find(3)

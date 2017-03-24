@@ -12,6 +12,14 @@ class CardTable
     :image => "TEXT"
   }
 
+  def self.attributes #reader that can be accessed by Persistable module to know the unique class's constant
+    ATTRS
+  end
+
+  self.attributes.keys.each do |key|
+    attr_accessor key
+  end
+
   include Persistable::InstanceMethods
   extend Persistable::ClassMethods
 
