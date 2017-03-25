@@ -15,6 +15,7 @@ class Parser
   # end
 
   def self.scrape_cards
+    CardTable.remove_table
     CardTable.create_table
     doc = Nokogiri::HTML(open("./fixtures/test.html"))
     self.card_counter
@@ -36,7 +37,7 @@ class Parser
 
   def self.card_counter
     @@overall_card_rows = nil
-    #shows how many rows there are in total for the page, may come in handy later
+    #shows how many rows there are in total for the page as a constructed array
     rows = Nokogiri::HTML(open("./fixtures/test.html")).css(@@overall_format_options[0])[0..-1]
     @@overall_card_rows = "#{rows.length}".to_i
     puts "loading the #{@@overall_format_options[1]} #{@@overall_card_rows} #{@@overall_format_options[2]} #{@@overall_format_options[3]} on the market for today..."; sleep(1);
@@ -46,8 +47,8 @@ class Parser
 
   def self.select_format
     @@overall_format_options.clear
-    # input = gets.strip.to_i
-    input = 1
+    input = gets.strip.to_i
+    # input = 1
     case input
       when 1
         @@overall_format_options = ["#top50Standard tr", "top", "Standard", "#{"gainers".fg COLORS[4]}"]

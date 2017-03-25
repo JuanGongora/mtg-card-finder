@@ -2,7 +2,7 @@ require_relative 'config/environment' #everything is being operated from within 
 
 task :console do #cutsom console initialization for testing
 
-  def reload! #let's me load all my files again if I make a change
+  def reload! #lets me load all my files again if I make a change
     load_all 'lib'
   end
 

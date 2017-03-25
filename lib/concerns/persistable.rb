@@ -32,6 +32,14 @@ module Persistable
       DB[:conn].execute(sql)
     end
 
+    def remove_table
+      sql = <<-SQL
+          DROP TABLE IF EXISTS #{self.table_name}
+      SQL
+
+      DB[:conn].execute(sql)
+    end
+
     def find(id)
       sql = <<-SQL
           SELECT * FROM #{self.table_name} WHERE id=(?)
