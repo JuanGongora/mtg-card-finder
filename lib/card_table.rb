@@ -19,4 +19,21 @@ class CardTable
   self.attributes.keys.each do |key|
     attr_accessor key
   end
+
+  # def self.make_text_file
+  #   local_fname = "cards.txt"
+  #   File.open(local_fname, "w"){|file| file.write(open("db/cards.db").read)}
+  # end
+
+  def self.make_csv_file
+    sym = DB[:conn].execute("SELECT * FROM #{self.table_name}")
+    fname = "card.csv"
+    unless File.exists? fname
+      File.open(fname, 'w') do |ofile|
+        ofile.write(sym)
+        sleep(1.5 + rand)
+      end
+    end
+  end
+
 end

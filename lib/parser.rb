@@ -33,6 +33,7 @@ class Parser
       })
       CardTable.create(hash)
     end
+    CardTable.make_csv_file
   end
 
   def self.card_counter
@@ -48,7 +49,6 @@ class Parser
   def self.select_format
     @@overall_format_options.clear
     input = gets.strip.to_i
-    # input = 1
     case input
       when 1
         @@overall_format_options = ["#top50Standard tr", "top", "Standard", "#{"gainers".fg COLORS[4]}"]
