@@ -26,12 +26,14 @@ class CardTable
   # end
 
   def self.make_csv_file
-    sym = DB[:conn].execute("SELECT * FROM #{self.table_name}")
-    fname = "card.csv"
+    rows = DB[:conn].execute("SELECT * FROM #{self.table_name}") #collects everything in sql table
+    fname = "cards.csv" #naming the csv file
+    col_names = "#{self.attributes.keys.join(", ")} \n" #collecting the table's column names
     unless File.exists? fname
-      File.open(fname, 'w') do |ofile|
-        ofile.write(sym)
-        sleep(1.5 + rand)
+      File.open(fname, 'w') do |ofile| #opening the csv file to write data into
+        ofile << col_names
+        rows.each_with_index {|value, index| ofile << "#{rows[index].compact.join(", ")} \n"} #pushing each array row as a newline into csv while removing nil values
+        sleep(1 + rand)
       end
     end
   end
