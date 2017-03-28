@@ -1,51 +1,50 @@
 id, card, sets, market_price, price_fluctuate, image 
-1, Wastes (3), Oath of the Gatewatch, 1.5, +1.50 
-2, Traverse the Ulvenwald, Shadows over Innistrad, 4.31, +.32 
-3, Thing in the Ice, Shadows over Innistrad, 6.05, +.31 
-4, Westvale Abbey, Shadows over Innistrad, 4.44, +.29 
-5, Release the Gremlins, Aether Revolt, 0.84, +.26 
-6, Relentless Dead, Shadows over Innistrad, 4.22, +.23 
-7, Glint-Sleeve Siphoner, Aether Revolt, 2.04, +.19 
-8, Lightning Axe, Shadows over Innistrad, 1.53, +.18 
-9, Sigarda's Aid, Eldritch Moon, 1.18, +.18 
-10, Gideon, Ally of Zendikar, Battle for Zendikar, 26.31, +.16 
-11, Oath of Nissa, Oath of the Gatewatch, 3.81, +.16 
-12, Paradox Engine, Aether Revolt, 9.88, +.15 
-13, Heart of Kiran, Aether Revolt, 22.75, +.14 
-14, Omnath, Locus of Rage, Battle for Zendikar, 1.63, +.12 
-15, Panharmonicon, Kaladesh, 3.78, +.11 
-16, Sphinx of the Final Word, Oath of the Gatewatch, 1.56, +.11 
-17, Thought-Knot Seer, Oath of the Gatewatch, 7.13, +.10 
-18, Goldnight Castigator, Shadows over Innistrad, 0.92, +.09 
-19, Heir of Falkenrath, Shadows over Innistrad, 0.52, +.09 
-20, Kozilek's Return, Oath of the Gatewatch, 7.43, +.09 
-21, Lambholt Pacifist, Shadows over Innistrad, 0.47, +.08 
-22, Renegade Firebrand, Kaladesh, 0.33, +.08 
-23, Oblivion Sower, Battle for Zendikar, 1.37, +.07 
-24, Bruna, the Fading Light, Eldritch Moon, 1.16, +.07 
-25, Gonti's Aether Heart, Aether Revolt, 1.24, +.06 
-26, Hanweir Militia Captain, Shadows over Innistrad, 0.74, +.06 
-27, Botanical Sanctum, Kaladesh, 4.17, +.05 
-28, Geralf's Masterpiece, Shadows over Innistrad, 0.8, +.05 
-29, Kiora, Master of the Depths, Battle for Zendikar, 2.98, +.05 
-30, The Gitrog Monster, Shadows over Innistrad, 1.14, +.05 
-31, Furyblade Vampire, Eldritch Moon, 0.28, +.04 
-32, Servo Schematic, Aether Revolt, 0.28, +.04 
-33, Olivia, Mobilized for War, Shadows over Innistrad, 2.2, +.04 
-34, Servant of the Conduit, Kaladesh, 0.65, +.04 
-35, Dynavolt Tower, Kaladesh, 1.08, +.03 
-36, Hanweir Garrison, Eldritch Moon, 1.44, +.03 
-37, Brain in a Jar, Shadows over Innistrad, 0.54, +.03 
-38, Fiery Temper, Shadows over Innistrad, 0.3, +.03 
-39, Minister of Inquiries, Kaladesh, 0.3, +.03 
-40, Ornithopter, Aether Revolt, 0.35, +.03 
-41, Stone Haven Outfitter, Oath of the Gatewatch, 0.45, +.03 
-42, Pia Nalaar, Kaladesh, 0.53, +.03 
-43, Sigarda, Heron's Grace, Shadows over Innistrad, 1.67, +.03 
-44, From Beyond, Battle for Zendikar, 0.67, +.02 
-45, Blighted Fen, Battle for Zendikar, 0.27, +.02 
-46, Desolation Twin, Battle for Zendikar, 0.4, +.02 
-47, Essence Flux, Shadows over Innistrad, 0.37, +.02 
-48, Paranoid Parish-Blade, Shadows over Innistrad, 0.2, +.02 
-49, Slip Through Space, Oath of the Gatewatch, 0.26, +.02 
-50, Decimator of the Provinces, Eldritch Moon, 1.63, +.02 
+1, Goblin King, 10th Edition, 4, -6.99 
+2, Karn Liberated, New Phyrexia, 71.36, -5.63 
+3, Leyline of Sanctity, M11, 17.99, -4.62 
+4, Kozilek_Butcher of Truth, Rise of the Eldrazi, 25.24, -2.75 
+5, Mox Opal, Scars of Mirrodin, 64.49, -2.75 
+6, Blood Moon, 8th Edition, 35.33, -2.39 
+7, Scalding Tarn, Zendikar, 60.32, -2.34 
+8, Joiner Adept, 10th Edition, 2, -2.00 
+9, Emrakul_the Aeons Torn, Rise of the Eldrazi, 49.51, -1.85 
+10, Brushland, 9th Edition, 14.11, -1.75 
+11, Goblin Grenade, M12, 1, -1.72 
+12, Verdant Catacombs, Zendikar, 57.2, -1.67 
+13, Admonition Angel, Worldwake, 5.51, -1.55 
+14, Blood Moon, 9th Edition, 35.38, -1.51 
+15, Cavern of Souls, Avacyn Restored, 43.25, -1.44 
+16, Avenger of Zendikar, Worldwake, 5.99, -1.40 
+17, Copperline Gorge, Scars of Mirrodin, 12.53, -1.32 
+18, Dark Depths, Coldsnap, 49.37, -1.25 
+19, Arid Mesa, Zendikar, 43.27, -1.21 
+20, Mishra's Bauble, Coldsnap, 40.16, -1.16 
+21, Mindslicer, 9th Edition, 3.45, -1.14 
+22, Grave Pact, 8th Edition, 13, -1.01 
+23, Gaea's Herald, 10th Edition, 1, -1.00 
+24, Lotus Bloom, Time Spiral, 9.99, -1.00 
+25, Mycosynth Lattice, Darksteel, 32.82, -1.00 
+26, Nature's Will, Champions of Kamigawa, 5.99, -1.00 
+27, Spark Elemental, 10th Edition, 1, -1.00 
+28, Thoughtseize, Lorwyn, 28.99, -1.00 
+29, Master Transmuter, Conflux, 17.61, -.93 
+30, Ranger of Eos, Shards of Alara, 6.16, -.93 
+31, Batterskull, New Phyrexia, 17.58, -.91 
+32, Karrthus_Tyrant of Jund, Alara Reborn, 14.25, -.90 
+33, Sculpting Steel, Mirrodin, 7.59, -.90 
+34, Gauntlet of Power, Time Spiral, 15.56, -.90 
+35, Idyllic Tutor, Morningtide, 20.63, -.86 
+36, Baneslayer Angel, M10, 8.92, -.85 
+37, Gilt-Leaf Palace, Lorwyn, 15.49, -.83 
+38, Urborg_Tomb of Yawgmoth, Planar Chaos, 13.66, -.83 
+39, Grafdigger's Cage, Dark Ascension, 7.79, -.77 
+40, Torpor Orb, New Phyrexia, 1.42, -.77 
+41, Birds of Paradise, M12, 4.99, -.76 
+42, Bloodghast, Zendikar, 18.2, -.75 
+43, Lord of the Undead, 8th Edition, 9.74, -.75 
+44, Mycoloth, Shards of Alara, 1.72, -.75 
+45, Teferi's Puzzle Box, 8th Edition, 5.24, -.75 
+46, AEther Shockwave, Saviors of Kamigawa, 0.25, -.74 
+47, Intet_the Dreamer, Planar Chaos, 2.04, -.74 
+48, Blightsteel Colossus, Mirrodin Besieged, 30.37, -.72 
+49, Blackcleave Cliffs, Scars of Mirrodin, 18.51, -.71 
