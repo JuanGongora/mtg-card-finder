@@ -13,7 +13,10 @@ class CLI
     self.check_input
     Parser.scrape_cards
     MTG.all
-    # puts "What set would you like to see?"
+    puts ""
+    puts "What set would you like to see?"
+    input = gets.strip.to_i
+    CardTable.buy_link(input)
   end
 
   # def self.check_input
