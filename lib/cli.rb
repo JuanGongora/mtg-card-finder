@@ -13,6 +13,7 @@ class CLI
     self.check_input
     Parser.scrape_cards
     MTG.all
+    # MTG.call
     puts ""
     puts "-------------------------------------------------"
     puts ""
@@ -23,6 +24,7 @@ class CLI
 
     input = gets.strip.to_i
     CardTable.buy_link(input)
+
   end
 
 #to do:

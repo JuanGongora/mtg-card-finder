@@ -16,7 +16,7 @@ class Parser
   # end
 
   def self.scrape_cards
-    CardTable.remove_table
+CardTable.remove_table
     CardTable.create_table
     doc = Nokogiri::HTML(open("./fixtures/test.html"))
     self.card_counter
@@ -70,8 +70,9 @@ class Parser
   end
 
   def self.update_query_info
-    current = self.update_date[0..10]
+    current = Nokogiri::HTML(open("./fixtures/test.html")).css(".span6 h3")[0].text.split.join(" ").gsub!("Updated:", "")[0..10]
     if current != @@time_review[0..10]
-      
+      CardTable.remove_table
+end
   end
 end
