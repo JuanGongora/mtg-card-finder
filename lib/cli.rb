@@ -14,10 +14,20 @@ class CLI
     Parser.scrape_cards
     MTG.all
     puts ""
-    puts "What set would you like to see?"
+    puts "Would you like to?"
+    puts "#{"[1]".fg COLORS[3]} search for a different format's market?"
+    puts "#{"[2]".fg COLORS[3]} save the current card search listing into a CSV file?"
+    puts "#{"[3]".fg COLORS[3]} purchase one of the queried cards in the open market?"
+
     input = gets.strip.to_i
     CardTable.buy_link(input)
   end
+
+#to do:
+#if the Parser.update_date is still the same, don't delete the sql table, if not delete to remake it
+#have four different sql tables to store the different info of the market trend, that way the content
+#is not re-scraped from the site which would in turn only exacerbate the internet bandwith
+
 
   # def self.check_input
   #   sleep(1)
