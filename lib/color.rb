@@ -1,3 +1,4 @@
+#creating color configurations for the gem tco
 conf = Tco.config
 conf.names["purple"] = "#622e90"
 conf.names["dark-blue"] = "#2d3091"
@@ -9,6 +10,7 @@ conf.names["red"] = "#ff476c"
 conf.names["light_purp"] = "#4d5a75"
 Tco.reconfigure conf
 
+#supplementing the color configurations into an array constant
 COLORS = ["purple", "dark-blue", "blue", "green", "yellow", "orange", "red", "light_purp"]
 
 mtg = <<-EOS

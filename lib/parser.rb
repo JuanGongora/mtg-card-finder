@@ -1,6 +1,7 @@
 class Parser
   @@overall_card_rows = nil
   @@overall_format_options = []
+  @@time_review = nil
 
   # def self.scrape
   # agent = Mechanize.new
@@ -65,6 +66,12 @@ class Parser
 
   def self.update_date
     time = Nokogiri::HTML(open("./fixtures/test.html"))
-    time.css(".span6 h3")[0].text.split.join(" ").gsub!("Updated:", "")
+    @@time_review = time.css(".span6 h3")[0].text.split.join(" ").gsub!("Updated:", "")
+  end
+
+  def self.update_query_info
+    current = self.update_date[0..10]
+    if current != @@time_review[0..10]
+      
   end
 end

@@ -20,7 +20,8 @@ module Persistable
          #string interpolation is used as the method doesn't know the key name yet
          #but an = sign is implemented into the string in order to asssociate it as a setter
        end
-       card.save #saves the new instance into the database
+       #saves the new instance into the database
+       card.save
      end
    end
 
@@ -46,7 +47,8 @@ module Persistable
       SQL
 
       row = DB[:conn].execute(sql, id)
-      if row.first #if a row is actually returned i.e. the id actually exists
+      #if a row is actually returned i.e. the id actually exists
+      if row.first
         self.reify_from_row(row.first)
         #using .first array method to return only the first nested array
         #that is taken from self.reify_from_row(row) which is the resulting id of the query
@@ -82,13 +84,17 @@ module Persistable
     end
 
     def question_marks_insert_sql
-      questions = self.attributes.keys.size-1 #returns the number of key-value pairs in the hash minus one for the 'id'
-      questions.times.collect {"?"}.join(", ") #converts them into '?' array that is then turned into comma separated string
+      #returns the number of key-value pairs in the hash minus one for the 'id'
+      questions = self.attributes.keys.size-1
+      #converts them into '?' array that is then turned into comma separated string
+      questions.times.collect {"?"}.join(", ")
     end
 
     def sql_columns_to_update
-      columns = self.attributes.keys[1..-1] #returns the number of keys in the hash minus one for the 'id'
-      columns.collect {|attr| "#{attr}=(?)"}.join(", ") #converts them into 'attribute=(?)' array that is then turned into comma separated string
+      #returns the number of keys in the hash minus one for the 'id'
+      columns = self.attributes.keys[1..-1]
+      #converts them into 'attribute=(?)' array that is then turned into comma separated string
+      columns.collect {|attr| "#{attr}=(?)"}.join(", ")
     end
   end
 
@@ -121,7 +127,8 @@ module Persistable
       end
 
       def persisted?
-        !!self.id  #the '!!' double bang converts object into a truthy value statement
+        #the '!!' double bang converts object into a truthy value statement
+        !!self.id
       end
 
       def update
@@ -130,7 +137,8 @@ module Persistable
            UPDATE #{self.class.table_name} SET #{self.class.sql_columns_to_update} WHERE id=(?)
         SQL
 
-        DB[:conn].execute(sql, *attribute_values_for_sql_check, self.id) #using splat operator to signify that there may be more than one argument in terms of attr_readers
+        #using splat operator to signify that there may be more than one argument in terms of attr_readers
+        DB[:conn].execute(sql, *attribute_values_for_sql_check, self.id)
       end
 
       def insert
@@ -138,11 +146,13 @@ module Persistable
           INSERT INTO #{self.class.table_name} (#{self.class.attributes_names_insert_sql}) VALUES (#{self.class.question_marks_insert_sql})
         SQL
 
-        DB[:conn].execute(sql, *attribute_values_for_sql_check) #using splat operator to signify that there may be more than one argument in terms of attr_readers
+        #using splat operator to signify that there may be more than one argument in terms of attr_readers
+        DB[:conn].execute(sql, *attribute_values_for_sql_check)
         #after inserting the card to the database, I want to get the primary key that is auto assigned to it
         #from sql and set it to the instance method 'id' of this very instance variable.
-        self.id = DB[:conn].execute("SELECT last_insert_rowid() FROM #{self.class.table_name}")[0][0] #returns first array with the first value of the array (i.e. index 0)
-      end
+        self.id = DB[:conn].execute("SELECT last_insert_rowid() FROM #{self.class.table_name}")[0][0]
+        #returns first array with the first value of the array (i.e. index 0)
+     end
   end
 
 end

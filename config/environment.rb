@@ -7,4 +7,4 @@ DB = {:conn => SQLite3::Database.new("db/cards.db")} #this gives me validation t
 require_all 'lib'
 
 #testing below
-CLI.start
+# CLI.start

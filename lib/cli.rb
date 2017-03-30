@@ -14,6 +14,8 @@ class CLI
     Parser.scrape_cards
     MTG.all
     puts ""
+    puts "-------------------------------------------------"
+    puts ""
     puts "Would you like to?"
     puts "#{"[1]".fg COLORS[3]} search for a different format's market?"
     puts "#{"[2]".fg COLORS[3]} save the current card search listing into a CSV file?"

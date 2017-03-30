@@ -12,34 +12,46 @@ class CardTable
     :image => "TEXT"
   }
 
-  def self.attributes #reader that can be accessed by Persistable module to know the unique class's constant
+  #reader that can be accessed by Persistable module to know the unique class's constant
+  def self.attributes
     ATTRS
   end
 
+  #abstracting the collection of keys into attributes
   self.attributes.keys.each do |key|
     attr_accessor key
   end
 
   def self.buy_link(id)
     name = self.find(id)
+    #collect the instant's values as a string
     word = name.card + " " + name.sets
+    #replace whitespace chars
     word.gsub!(/\s+/m, '%20')
+    #create url for purchasing the chosen id card
     buy = "http://www.ebay.com/sch/?_nkw=#{word}&_sacat=0"
     puts buy
   end
 
 
   def self.make_csv_file
-    rows = DB[:conn].execute("SELECT * FROM #{self.table_name}") #collects everything in sql table
+    #collects everything in sql table
+    rows = DB[:conn].execute("SELECT * FROM #{self.table_name}")
     date = "#{Time.now}"[0..9].gsub!("-", "_")
-    fname = "#{date}.csv" #naming the csv file with today's date
-    col_names = "#{self.attributes.keys.join(", ")} \n" #collecting the table's column names
+    #naming the csv file with today's date
+    fname = "#{date}.csv"
+    #collecting the table's column names
+    col_names = "#{self.attributes.keys.join(", ")} \n"
     unless File.exists? fname
-      File.open(fname, 'w') do |ofile| #opening the csv file to write data into
-        ofile << col_names #first row will be column names
+      #opening the csv file to write data into
+      File.open(fname, 'w') do |ofile|
+        #first row will be column names
+        ofile << col_names
         rows.each_with_index do |value, index|
-          value.each { |find| find.gsub!(", ", "_") if find.is_a?(String) } #iterates through the row's values to replace commas so as to avoid line breaking errors
-          ofile << "#{rows[index].compact.join(", ")} \n" #pushing each array row as a newline into csv while removing nil values
+          #iterates through all the rows values to replace commas so as to avoid line breaking errors
+          value.each { |find| find.gsub!(", ", "_") if find.is_a?(String) }
+          #pushing each array within rows as a newline into csv while removing nil values
+          ofile << "#{rows[index].compact.join(", ")} \n"
         end
         sleep(1 + rand)
       end
