@@ -1,4 +1,4 @@
-class CardTable
+class StandardFall
   include Persistable::InstanceMethods
   extend Persistable::ClassMethods
 
