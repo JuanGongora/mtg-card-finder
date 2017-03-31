@@ -41,6 +41,14 @@ module Persistable
       DB[:conn].execute(sql)
     end
 
+    def table_size
+      sql = <<-SQL
+          SELECT COUNT(*) FROM #{self.table_name}
+      SQL
+
+      DB[:conn].execute(sql)
+    end
+
     def make_csv_file
       #collects everything in sql table
       rows = DB[:conn].execute("SELECT * FROM #{self.table_name}")
@@ -71,7 +79,8 @@ module Persistable
         #collect the instant's values as a string
         word = name.card + " " + name.sets
       rescue
-        #instead of getting an undefined method error in .card & .sets for nil:NilClass just re-run method until user sets it to true
+        #instead of getting an undefined method error in .card & .sets for nil:NilClass
+        #just re-run method until user sets it to a true value
          Parser.purchase
       else
         #replace whitespace chars
@@ -97,7 +106,7 @@ module Persistable
         #using .first array method to return only the first nested array
         #that is taken from self.reify_from_row(row) which is the resulting id of the query
       else
-        puts "this card does not exist"
+        puts "This card does not exist"
       end
     end
 

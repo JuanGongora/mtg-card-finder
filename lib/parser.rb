@@ -67,6 +67,10 @@ class Parser
     end
   end
 
+  def self.table_length
+    @@overall_format_options[6].table_size.flatten.join.to_i
+  end
+
   def self.purchase
     #since a stored method in an array can't have a locally passed argument
     #I compromised by just having the class name passed instead

@@ -1,6 +1,7 @@
 class MTG
   attr_accessor :card, :sets, :market_price, :price_fluctuate#, :image
   @@all_cards = []
+  @@digit_counter = 0
   ATTRIBUTES = [
       "Card:",
       "Set:",
@@ -27,7 +28,7 @@ class MTG
       #the instance variable of MTG from key/value pairs of Scraper.scrape_cards(set_url)
       puts ""
       puts "-------------------------------------------------"
-      puts "|- #{number + 1} -|".fg COLORS[4]
+      puts "|- #{(@@digit_counter == Parser.table_length) ? @@digit_counter = 0 : @@digit_counter += 1} -|".fg COLORS[4]
       puts ""
       card.instance_variables.each_with_index do |value, index|
         #returns the value of the instance method applied to the instance
