@@ -69,6 +69,13 @@ class Parser
     end
   end
 
+  def self.purchase
+    #since a stored method in an array can't have a locally passed argument
+    #I compromised by just having the class name passed instead
+    input = gets.strip.to_i
+    @@overall_format_options[6].buy_link(input)
+  end
+
   def self.update_date
     time = Nokogiri::HTML(open("./fixtures/test.html"))
     @@time_review = time.css(".span6 h3")[0].text.split.join(" ").gsub!("Updated:", "")
