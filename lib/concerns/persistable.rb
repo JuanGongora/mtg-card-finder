@@ -67,16 +67,22 @@ module Persistable
 
     def buy_link(id)
       name = self.find(id)
-      #collect the instant's values as a string
-      word = name.card + " " + name.sets
-      #replace whitespace chars
-      word.gsub!(/\s+/m, '%20')
-      #create url for purchasing the chosen id card
-      buy = "http://www.ebay.com/sch/?_nkw=#{word}&_sacat=0".fg COLORS[3]
-      puts "Please highlight and copy the #{"url".fg COLORS[3]} below and paste it to your preferred browser:"
-      puts ""
-      puts buy
-      puts ""
+      begin
+        #collect the instant's values as a string
+        word = name.card + " " + name.sets
+      rescue
+        #instead of getting an undefined method error in .card & .sets for nil:NilClass just re-run method until user sets it to true
+         Parser.purchase
+      else
+        #replace whitespace chars
+        word.gsub!(/\s+/m, '%20')
+        #create url for purchasing the chosen id card
+        buy = "http://www.ebay.com/sch/?_nkw=#{word}&_sacat=0".fg COLORS[3]
+        puts "Please highlight and copy the #{"url".fg COLORS[3]} below and paste it to your preferred browser:"
+        puts ""
+        puts buy
+        puts ""
+      end
     end
 
     def find(id)
@@ -91,7 +97,7 @@ module Persistable
         #using .first array method to return only the first nested array
         #that is taken from self.reify_from_row(row) which is the resulting id of the query
       else
-        nil
+        puts "this card does not exist"
       end
     end
 
