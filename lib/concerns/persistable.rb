@@ -7,23 +7,23 @@ module Persistable
       "#{self.to_s.downcase}s"
     end
 
-   #this method will dynamically create a new instance with the assigned attrs and values
-   #by doing mass assignment of the hash's key/value pairs
-   def create(attributes_hash)
-     #the tap method allows preconfigured methods and values to
-     #be associated with the instance during instantiation while also automatically returning
-     #the object after its creation is concluded.
-     self.new.tap do |card|
-         attributes_hash.each do |key, value|
-         #sending the new instance the key name as a setter with the value
-         card.send("#{key}=", value)
-         #string interpolation is used as the method doesn't know the key name yet
-         #but an = sign is implemented into the string in order to asssociate it as a setter
-       end
-       #saves the new instance into the database
-       card.save
-     end
-   end
+    #this method will dynamically create a new instance with the assigned attrs and values
+    #by doing mass assignment of the hash's key/value pairs
+    def create(attributes_hash)
+      #the tap method allows preconfigured methods and values to
+      #be associated with the instance during instantiation while also automatically returning
+      #the object after its creation is concluded.
+      self.new.tap do |card|
+        attributes_hash.each do |key, value|
+          #sending the new instance the key name as a setter with the value
+          card.send("#{key}=", value)
+          #string interpolation is used as the method doesn't know the key name yet
+          #but an = sign is implemented into the string in order to asssociate it as a setter
+        end
+        #saves the new instance into the database
+        card.save
+      end
+    end
 
     def create_table
       sql = <<-SQL
@@ -72,8 +72,11 @@ module Persistable
       #replace whitespace chars
       word.gsub!(/\s+/m, '%20')
       #create url for purchasing the chosen id card
-      buy = "http://www.ebay.com/sch/?_nkw=#{word}&_sacat=0"
+      buy = "http://www.ebay.com/sch/?_nkw=#{word}&_sacat=0".fg COLORS[3]
+      puts "Please highlight and copy the #{"url".fg COLORS[3]} below and paste it to your preferred browser:"
+      puts ""
       puts buy
+      puts ""
     end
 
     def find(id)
@@ -135,59 +138,59 @@ module Persistable
 
   module InstanceMethods
 
-      def destroy
-        sql = <<-SQL
+    def destroy
+      sql = <<-SQL
           DELETE FROM #{self.class.table_name} WHERE id=(?)
-        SQL
+      SQL
 
-        DB[:conn].execute(sql, self.id)
-      end
+      DB[:conn].execute(sql, self.id)
+    end
 
-      #the website below gives an excellent explanation to how this method works
-      # http://www.blackbytes.info/2017/03/ruby-equality/?tl_inbound=1&tl_target_all=1&tl_form_type=1&tl_period_type=1
-      def ==(other_card)
-        self.id == other_card.id
-      end
+    #the website below gives an excellent explanation to how this method works
+    # http://www.blackbytes.info/2017/03/ruby-equality/?tl_inbound=1&tl_target_all=1&tl_form_type=1&tl_period_type=1
+    def ==(other_card)
+      self.id == other_card.id
+    end
 
-      def save
-        #if the card has already been saved, then call update method
-        persisted? ? update : insert
-        #if not call insert method instead
-      end
+    def save
+      #if the card has already been saved, then call update method
+      persisted? ? update : insert
+      #if not call insert method instead
+    end
 
-      def attribute_values_for_sql_check
-        self.class.attributes.keys[1..-1].collect {|attr_names| self.send(attr_names)}
-        #I go through the key names (minus 'id') and return an array containing their values for the recieving instance
-        #basically like getting an array of getter methods for that instance
-      end
+    def attribute_values_for_sql_check
+      self.class.attributes.keys[1..-1].collect {|attr_names| self.send(attr_names)}
+      #I go through the key names (minus 'id') and return an array containing their values for the recieving instance
+      #basically like getting an array of getter methods for that instance
+    end
 
-      def persisted?
-        #the '!!' double bang converts object into a truthy value statement
-        !!self.id
-      end
+    def persisted?
+      #the '!!' double bang converts object into a truthy value statement
+      !!self.id
+    end
 
-      def update
-        #updates by the unique identifier of 'id'
-        sql = <<-SQL
+    def update
+      #updates by the unique identifier of 'id'
+      sql = <<-SQL
            UPDATE #{self.class.table_name} SET #{self.class.sql_columns_to_update} WHERE id=(?)
-        SQL
+      SQL
 
-        #using splat operator to signify that there may be more than one argument in terms of attr_readers
-        DB[:conn].execute(sql, *attribute_values_for_sql_check, self.id)
-      end
+      #using splat operator to signify that there may be more than one argument in terms of attr_readers
+      DB[:conn].execute(sql, *attribute_values_for_sql_check, self.id)
+    end
 
-      def insert
-        sql = <<-SQL
+    def insert
+      sql = <<-SQL
           INSERT INTO #{self.class.table_name} (#{self.class.attributes_names_insert_sql}) VALUES (#{self.class.question_marks_insert_sql})
-        SQL
+      SQL
 
-        #using splat operator to signify that there may be more than one argument in terms of attr_readers
-        DB[:conn].execute(sql, *attribute_values_for_sql_check)
-        #after inserting the card to the database, I want to get the primary key that is auto assigned to it
-        #from sql and set it to the instance method 'id' of this very instance variable.
-        self.id = DB[:conn].execute("SELECT last_insert_rowid() FROM #{self.class.table_name}")[0][0]
-        #returns first array with the first value of the array (i.e. index 0)
-     end
+      #using splat operator to signify that there may be more than one argument in terms of attr_readers
+      DB[:conn].execute(sql, *attribute_values_for_sql_check)
+      #after inserting the card to the database, I want to get the primary key that is auto assigned to it
+      #from sql and set it to the instance method 'id' of this very instance variable.
+      self.id = DB[:conn].execute("SELECT last_insert_rowid() FROM #{self.class.table_name}")[0][0]
+      #returns first array with the first value of the array (i.e. index 0)
+    end
   end
 
 end

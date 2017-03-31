@@ -37,8 +37,6 @@ class Parser
       #since a stored method in an array can't have a locally passed argument I compromised by just having the class name passed instead
       @@overall_format_options[6].create(hash)
     end
-    #Klass.make_csv_file
-    @@overall_format_options[7].call
   end
 
   def self.card_counter
@@ -65,7 +63,7 @@ class Parser
       when 4
         @@overall_format_options = ["#bottom50Modern tr", "bottom", "Modern", "#{"crashers".fg COLORS[6]}", ModernFall.method(:remove_table), ModernFall.method(:create_table), ModernFall, ModernFall.method(:make_csv_file)]
       else
-        CLI.check_input
+        CLI.set_input
     end
   end
 
@@ -74,6 +72,13 @@ class Parser
     #I compromised by just having the class name passed instead
     input = gets.strip.to_i
     @@overall_format_options[6].buy_link(input)
+  end
+
+  def self.csv
+    #Klass.make_csv_file
+    @@overall_format_options[7].call
+    puts "The #{"CSV".fg COLORS[3]} file has been saved to your hard disk"
+    puts ""
   end
 
   def self.update_date

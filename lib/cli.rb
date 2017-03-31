@@ -5,12 +5,7 @@ class CLI
     puts "-------------------------------------------------"
     puts "#{"|Last Update|".fg COLORS[6]}#{Parser.update_date}"
     puts "-------------------------------------------------"
-
-    self.set_text
     self.set_choosing
-    self.options_text
-    Parser.purchase
-
   end
 
 #to do:
@@ -35,18 +30,37 @@ class CLI
   end
 
   def self.set_choosing
-    self.check_input
+    self.set_text
+    self.set_input
     Parser.scrape_cards
     MTG.all
     puts ""
     puts "-------------------------------------------------"
     puts ""
+    self.options_text
+    self.options_input
   end
 
-  def self.check_input
+  def self.set_input
     sleep(1)
     puts "Please type out the #{"number".fg COLORS[3]} of the format you would like to see from above..."
     Parser.select_format
+  end
+
+  def self.options_input
+    input = gets.strip.to_i
+    if input == 1
+      puts "Please select your price trend Format:"
+      self.set_choosing
+    elsif input == 2
+      Parser.csv
+    elsif input == 3
+      puts "Please type out the #{"number".fg COLORS[4]} from one of the above searched cards:"
+      Parser.purchase
+    else
+      puts "That is not a valid option"
+      self.options_input
+    end
   end
 
 end
