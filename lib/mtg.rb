@@ -1,5 +1,5 @@
 class MTG
-  attr_accessor :card, :sets, :market_price, :price_fluctuate#, :image
+  attr_accessor :card, :sets, :market_price, :price_fluctuate, :format#, :image
   @@all_cards = []
   @@digit_counter = 0
   ATTRIBUTES = [
@@ -7,7 +7,7 @@ class MTG
       "Set:",
       "Market Value:",
       "Rise/Fall amount:"
-      # "Image URL:"
+  # "Image URL:"
   ]
 
   #need to make instance methods from attr_accessor be associated with
@@ -26,19 +26,23 @@ class MTG
     @@all_cards.each_with_index do |card, number|
       #iterate through each instance method that was defined for
       #the instance variable of MTG from key/value pairs of Scraper.scrape_cards(set_url)
-      puts ""
-      puts "-------------------------------------------------"
-      puts "|- #{(@@digit_counter == Parser.table_length) ? @@digit_counter = 0 : @@digit_counter += 1} -|".fg COLORS[4]
-      puts ""
-      card.instance_variables.each_with_index do |value, index|
-        #returns the value of the instance method applied to the instance
-        #with an index value of the first/last, key/value pairs ordered in Scraper.scrape_cards(set_url)
-        #associates a named definition of the values by titling it from constant ATTRIBUTES
-        puts "#{ATTRIBUTES[index].fg COLORS[2]} #{card.instance_variable_get(value)}"
+      if "#{card.format}" == Parser.format_name
+        puts ""
+        puts "-------------------------------------------------"
+        puts "|- #{(@@digit_counter == Parser.table_length) ? @@digit_counter = 1 : @@digit_counter += 1} -|".fg COLORS[4]
+        puts ""
+        card.instance_variables.each_with_index do |value, index|
+          #returns the value of the instance method applied to the instance
+          #with an index value of the first/last, key/value pairs ordered in Scraper.scrape_cards(set_url)
+          #associates a named definition of the values by titling it from constant ATTRIBUTES
+          if index < 4
+            puts "#{ATTRIBUTES[index].fg COLORS[2]} #{card.instance_variable_get(value)}"
+          end
+        end
+        puts ""
+        puts "-------------------------------------------------"
+        print "                                                 ".bg COLORS[7]
       end
-      puts ""
-      puts "-------------------------------------------------"
-      print "                                                 ".bg COLORS[7]
     end
   end
 

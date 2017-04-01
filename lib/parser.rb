@@ -28,7 +28,8 @@ class Parser
           card: row.css(".card a")[0].text,
           sets: row.css(".set a")[0].text,
           market_price: row.css(".value")[0].text.split[0].gsub!("$", "").to_f,
-          price_fluctuate: row.css("td:last-child").text
+          price_fluctuate: row.css("td:last-child").text,
+          format: "#{@@overall_format_options[6]}"
           #image: Nokogiri::HTML(open("./fixtures/cards.html")).css(".card-img img").attribute("src").value
 
           # image: Nokogiri::HTML(open("http://www.mtgprice.com#{row.css(".card a").attribute("href").value}")).css(".card-img img").attribute("src").value
@@ -65,6 +66,10 @@ class Parser
       else
         CLI.set_input
     end
+  end
+
+  def self.format_name
+    "#{@@overall_format_options[6]}"
   end
 
   def self.table_length

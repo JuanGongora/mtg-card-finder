@@ -9,7 +9,8 @@ class StandardRise
     :sets => "TEXT",
     :market_price => "INTEGER",
     :price_fluctuate => "TEXT",
-    :image => "TEXT"
+    :image => "TEXT",
+    :format => "TEXT"
   }
 
   #reader that can be accessed by Persistable module to know the unique class's constant
