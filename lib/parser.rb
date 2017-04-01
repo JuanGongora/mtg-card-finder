@@ -28,8 +28,7 @@ class Parser
           card: row.css(".card a")[0].text,
           sets: row.css(".set a")[0].text,
           market_price: row.css(".value")[0].text.split[0].gsub!("$", "").to_f,
-          price_fluctuate: row.css("td:last-child").text,
-          format: "#{@@overall_format_options[6]}"
+          price_fluctuate: row.css("td:last-child").text
           #image: Nokogiri::HTML(open("./fixtures/cards.html")).css(".card-img img").attribute("src").value
 
           # image: Nokogiri::HTML(open("http://www.mtgprice.com#{row.css(".card a").attribute("href").value}")).css(".card-img img").attribute("src").value
@@ -48,6 +47,10 @@ class Parser
     puts "loading the #{@@overall_format_options[1]} #{@@overall_card_rows} #{@@overall_format_options[2]} #{@@overall_format_options[3]} on the market for today..."; sleep(1);
     print "Please be patient"; print "."; sleep(1); print "."; sleep(1); print "."; sleep(1); print "."; sleep(1);
     puts ""
+    puts ""
+    puts "-------------------------------------------------"
+    puts ""
+    puts "                                                 ".bg COLORS[7]
   end
 
   def self.select_format

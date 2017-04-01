@@ -1,5 +1,5 @@
 class MTG
-  attr_accessor :card, :sets, :market_price, :price_fluctuate, :format#, :image
+  attr_accessor :card, :sets, :market_price, :price_fluctuate#, :image
   @@all_cards = []
   @@digit_counter = 0
   @@iterator = []
