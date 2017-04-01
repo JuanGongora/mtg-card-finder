@@ -94,6 +94,16 @@ module Persistable
       end
     end
 
+    def iterating(id)
+      sql = <<-SQL
+          SELECT * FROM #{self.table_name} WHERE id=(?)
+      SQL
+
+      row = DB[:conn].execute(sql, id)
+      row.flatten!
+      p row
+    end
+
     def find(id)
       sql = <<-SQL
           SELECT * FROM #{self.table_name} WHERE id=(?)

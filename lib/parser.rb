@@ -72,6 +72,10 @@ class Parser
     "#{@@overall_format_options[6]}"
   end
 
+  def self.looping(id)
+    @@overall_format_options[6].iterating(id)
+  end
+
   def self.table_length
     @@overall_format_options[6].table_size.flatten.join.to_i
   end
