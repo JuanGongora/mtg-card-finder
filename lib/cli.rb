@@ -33,7 +33,7 @@ class CLI
     self.set_text
     self.set_input
     Parser.scrape_cards
-    MTG.all
+    MTG.why
     puts ""
     puts "-------------------------------------------------"
     puts ""

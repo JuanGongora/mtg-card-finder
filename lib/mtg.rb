@@ -2,6 +2,7 @@ class MTG
   attr_accessor :card, :sets, :market_price, :price_fluctuate, :format#, :image
   @@all_cards = []
   @@digit_counter = 0
+  @@iterator = []
   ATTRIBUTES = [
       "Card:",
       "Set:",
@@ -42,8 +43,63 @@ class MTG
         puts ""
         puts "-------------------------------------------------"
         print "                                                 ".bg COLORS[7]
+      else
+        nil
       end
     end
   end
+
+  def self.finder(id)
+    sql = <<-SQL
+        SELECT * FROM modernfalls WHERE id=(?)
+    SQL
+
+    row = DB[:conn].execute(sql, id)
+    puts row
+    # if a row is actually returned i.e. the id actually exists
+    #   if row.first
+    #     self.reify_from_row(row.first)
+    #     #using .first array method to return only the first nested array
+    #     #that is taken from self.reify_from_row(row) which is the resulting id of the query
+    #   else
+    #     puts "This card does not exist"
+    #   end
+  end
+
+  # def self.reify_from_row(row)
+  #   #the tap method allows preconfigured methods and values to
+  #   #be associated with the instance during instantiation while also automatically returning
+  #   #the object after its creation is concluded.
+  #   self.new.tap do |card|
+  #     self.attributes.keys.each.with_index do |key, index|
+  #       #sending the new instance the key name as a setter with the value located at the 'row' index
+  #       card.send("#{key}=", row[index])
+  #       #string interpolation is used as the method doesn't know the key name yet
+  #       #but an = sign is implemented into the string in order to asssociate it as a setter
+  #     end
+  #   end
+  # end
+
+
+  def self.iterating(array_length)
+    #cleans out the var before it's re-used again
+    @@iterator.clear
+    #the class variable @@iterator is converted into a numerical array depicting the amount of sets/cards
+    @@iterator = (0..array_length).to_a
+  end
+
+  def self.why
+    MTG.iterating(Parser.table_length)
+    #I parse through the index numbers of the css selectors "[0].text" and "[0].attribute" to increase *
+    #their index in proportion to @@iterator's count
+      #increment by 1 everytime it parses so as to have the right index value in the css selectors (described above)*
+      @@iterator.each_with_index do |option, index|
+        index = @@digit_counter += 1
+        #if my incremented value from "count" is less than the total amount of sets, continue operation
+        unless index > Parser.table_length
+          MTG.finder(index)
+        end
+      end
+    end
 
 end
