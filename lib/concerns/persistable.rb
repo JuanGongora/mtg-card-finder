@@ -87,7 +87,9 @@ module Persistable
         word.gsub!(/\s+/m, '%20')
         #create url for purchasing the chosen id card
         buy = "http://www.ebay.com/sch/?_nkw=#{word}&_sacat=0".fg COLORS[3]
+        puts ""
         puts "Please highlight and copy the #{"url".fg COLORS[3]} below and paste it to your preferred browser:"
+        puts "-------------------------------------------------------------------------------"
         puts ""
         puts buy
         puts ""
@@ -101,7 +103,7 @@ module Persistable
 
       row = DB[:conn].execute(sql, id)
       row.flatten!
-      
+
       puts ""
       puts "|- #{row[0]} -|".fg COLORS[4]
       puts ""

@@ -17,7 +17,7 @@ class Parser
 
   def self.scrape_cards
     #Klass.remove_table
-    @@overall_format_options[4].call
+    # @@overall_format_options[4].call
     #Klass.create_table
     @@overall_format_options[5].call
     doc = Nokogiri::HTML(open("./fixtures/test.html"))
@@ -93,7 +93,9 @@ class Parser
   def self.csv
     #Klass.make_csv_file
     @@overall_format_options[7].call
+    puts ""
     puts "The #{"CSV".fg COLORS[3]} file has been saved to your hard disk"
+    puts "---------------------------------------------"
     puts ""
   end
 
