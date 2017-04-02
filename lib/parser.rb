@@ -19,7 +19,6 @@ class Parser
     #Klass.remove_table
     # @@overall_format_options[4].call
     #Klass.create_table
-    @@overall_format_options[5].call
     doc = Nokogiri::HTML(open("./fixtures/test.html"))
     self.card_counter
     doc.css(@@overall_format_options[0]).each do |row|
@@ -54,18 +53,22 @@ class Parser
   end
 
   def self.select_format
-    @@overall_format_options.clear
+    @@overall_format_options = nil
     input = gets.strip.to_i
     case input
       when 1
         #the methods at the end of these arrays are stored references that can be called externally with the .call method #=>  http://stackoverflow.com/questions/13948910/ruby-methods-as-array-elements-how-do-they-work
         @@overall_format_options = ["#top50Standard tr", "top", "Standard", "#{"gainers".fg COLORS[4]}", StandardRise.method(:remove_table), StandardRise.method(:create_table), StandardRise, StandardRise.method(:make_csv_file)]
+        @@overall_format_options[5].call
       when 2
         @@overall_format_options = ["#top50Modern tr", "top", "Modern", "#{"gainers".fg COLORS[4]}", ModernRise.method(:remove_table), ModernRise.method(:create_table), ModernRise, ModernRise.method(:make_csv_file)]
+        @@overall_format_options[5].call
       when 3
         @@overall_format_options = ["#bottom50Standard tr", "bottom", "Standard", "#{"crashers".fg COLORS[6]}", StandardFall.method(:remove_table), StandardFall.method(:create_table), StandardFall, StandardFall.method(:make_csv_file)]
+        @@overall_format_options[5].call
       when 4
         @@overall_format_options = ["#bottom50Modern tr", "bottom", "Modern", "#{"crashers".fg COLORS[6]}", ModernFall.method(:remove_table), ModernFall.method(:create_table), ModernFall, ModernFall.method(:make_csv_file)]
+        @@overall_format_options[5].call
       else
         CLI.set_input
     end
@@ -80,7 +83,7 @@ class Parser
   end
 
   def self.table_length
-    @@overall_format_options[6].table_size.flatten.join.to_i
+    @@overall_card_rows
   end
 
   def self.purchase

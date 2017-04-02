@@ -41,9 +41,9 @@ module Persistable
       DB[:conn].execute(sql)
     end
 
-    def table_size
+    def table_exists?
       sql = <<-SQL
-          SELECT COUNT(*) FROM #{self.table_name}
+          SELECT name FROM sqlite_master WHERE type=table AND name=#{self.table_name}
       SQL
 
       DB[:conn].execute(sql)
