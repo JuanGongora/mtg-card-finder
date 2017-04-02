@@ -58,7 +58,6 @@ class MTG
 
   def self.interim_all
     MTG.convert(Parser.table_length)
-    puts Parser.table_length
       @@iterator.each_with_index do |option, index|
         index = @@digit_counter += 1
         unless index > Parser.table_length

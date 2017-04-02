@@ -42,11 +42,13 @@ module Persistable
     end
 
     def table_exists?
+      name = "#{self.table_name}"
       sql = <<-SQL
-          SELECT name FROM sqlite_master WHERE type=table AND name=#{self.table_name}
+          SELECT name FROM sqlite_master WHERE type ='table' AND name =(?)
       SQL
 
-      DB[:conn].execute(sql)
+      name = DB[:conn].execute(sql, name)
+      return name.nil?
     end
 
     def make_csv_file

@@ -19,22 +19,27 @@ class Parser
     #Klass.remove_table
     # @@overall_format_options[4].call
     #Klass.create_table
-    doc = Nokogiri::HTML(open("./fixtures/test.html"))
-    self.card_counter
-    doc.css(@@overall_format_options[0]).each do |row|
-      #parsing is now initialized into MTG class, with key/value pairs for its scraped attributes
-      row = MTG.new(hash = {
-          card: row.css(".card a")[0].text,
-          sets: row.css(".set a")[0].text,
-          market_price: row.css(".value")[0].text.split[0].gsub!("$", "").to_f,
-          price_fluctuate: row.css("td:last-child").text
-          #image: Nokogiri::HTML(open("./fixtures/cards.html")).css(".card-img img").attribute("src").value
+    if @@overall_format_options[6].table_exists? == false
+      @@overall_format_options[5].call
+      doc = Nokogiri::HTML(open("./fixtures/test.html"))
+      self.card_counter
+      doc.css(@@overall_format_options[0]).each do |row|
+        #parsing is now initialized into MTG class, with key/value pairs for its scraped attributes
+        row = MTG.new(hash = {
+            card: row.css(".card a")[0].text,
+            sets: row.css(".set a")[0].text,
+            market_price: row.css(".value")[0].text.split[0].gsub!("$", "").to_f,
+            price_fluctuate: row.css("td:last-child").text
+            #image: Nokogiri::HTML(open("./fixtures/cards.html")).css(".card-img img").attribute("src").value
 
-          # image: Nokogiri::HTML(open("http://www.mtgprice.com#{row.css(".card a").attribute("href").value}")).css(".card-img img").attribute("src").value
-          # ^^ had to go another level deep to access a better quality image from its full product listing
-      })
-      #since a stored method in an array can't have a locally passed argument I compromised by just having the class name passed instead
-      @@overall_format_options[6].create(hash)
+            # image: Nokogiri::HTML(open("http://www.mtgprice.com#{row.css(".card a").attribute("href").value}")).css(".card-img img").attribute("src").value
+            # ^^ had to go another level deep to access a better quality image from its full product listing
+        })
+        #since a stored method in an array can't have a locally passed argument I compromised by just having the class name passed instead
+        @@overall_format_options[6].create(hash)
+      end
+    else
+      puts "loading..."
     end
   end
 
@@ -59,16 +64,16 @@ class Parser
       when 1
         #the methods at the end of these arrays are stored references that can be called externally with the .call method #=>  http://stackoverflow.com/questions/13948910/ruby-methods-as-array-elements-how-do-they-work
         @@overall_format_options = ["#top50Standard tr", "top", "Standard", "#{"gainers".fg COLORS[4]}", StandardRise.method(:remove_table), StandardRise.method(:create_table), StandardRise, StandardRise.method(:make_csv_file)]
-        @@overall_format_options[5].call
+        # @@overall_format_options[5].call
       when 2
         @@overall_format_options = ["#top50Modern tr", "top", "Modern", "#{"gainers".fg COLORS[4]}", ModernRise.method(:remove_table), ModernRise.method(:create_table), ModernRise, ModernRise.method(:make_csv_file)]
-        @@overall_format_options[5].call
+        # @@overall_format_options[5].call
       when 3
         @@overall_format_options = ["#bottom50Standard tr", "bottom", "Standard", "#{"crashers".fg COLORS[6]}", StandardFall.method(:remove_table), StandardFall.method(:create_table), StandardFall, StandardFall.method(:make_csv_file)]
-        @@overall_format_options[5].call
+        # @@overall_format_options[5].call
       when 4
         @@overall_format_options = ["#bottom50Modern tr", "bottom", "Modern", "#{"crashers".fg COLORS[6]}", ModernFall.method(:remove_table), ModernFall.method(:create_table), ModernFall, ModernFall.method(:make_csv_file)]
-        @@overall_format_options[5].call
+        # @@overall_format_options[5].call
       else
         CLI.set_input
     end
