@@ -16,6 +16,7 @@ class Parser
   # end
 
   def self.scrape_cards
+    MTG.destroy
     #Klass.remove_table
     # @@overall_format_options[4].call
     #Klass.create_table
@@ -81,10 +82,6 @@ class Parser
 
   def self.format_name
     "#{@@overall_format_options[6]}"
-  end
-
-  def self.looping(id)
-    @@overall_format_options[6].iterating(id)
   end
 
   def self.table_length

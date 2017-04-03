@@ -98,25 +98,6 @@ module Persistable
       end
     end
 
-    def iterating(id)
-      sql = <<-SQL
-              SELECT * FROM #{self.table_name} WHERE id=(?)
-      SQL
-
-      row = DB[:conn].execute(sql, id)
-      row.flatten!
-
-      puts ""
-      puts "|- #{row[0]} -|".fg COLORS[4]
-      puts ""
-      puts "#{"Card:".fg COLORS[2]} #{row[1]}"
-      puts "#{"Set:".fg COLORS[2]} #{row[2]}"
-      puts "#{"Market Value:".fg COLORS[2]} #{row[3]}"
-      puts "#{"Rise/Fall amount:".fg COLORS[2]} #{row[4]}"
-      puts ""
-      puts "                                                 ".bg COLORS[7]
-    end
-
     def find(id)
       sql = <<-SQL
           SELECT * FROM #{self.table_name} WHERE id=(?)
