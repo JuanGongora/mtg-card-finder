@@ -35,9 +35,9 @@ class MTG
     cards = MTG.new(attributes).tap {|card| card.save_standard_down}
   end
 
-  def self.all
+  def self.all(format)
     #iterate through each instance that was appended into class variable during initialization
-    @@modern_up.each_with_index do |card, number|
+    format.each_with_index do |card, number|
       puts ""
       puts "|- #{number + 1} -|".fg COLORS[4]
       puts ""
@@ -52,6 +52,19 @@ class MTG
       end
       puts ""
       print "                                                 ".bg COLORS[7]
+    end
+  end
+
+  def self.format_choice(option)
+    case option
+      when option == 1
+        self.all(@@standard_up)
+      when option == 2
+        self.all(@@modern_up)
+      when option == 3
+        self.all(@@standard_down)
+      when option == 4
+        self.all(@@modern_down)
     end
   end
 

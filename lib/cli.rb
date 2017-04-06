@@ -33,7 +33,10 @@ class CLI
     self.set_text
     self.set_input
     Parser.scrape_cards
-    MTG.all
+    puts "type here"
+    option = gets.strip.to_i
+    MTG.format_choice(option)
+    # MTG.all
     puts ""
     puts "-------------------------------------------------"
     puts ""
