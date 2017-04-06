@@ -1,7 +1,10 @@
 class MTG
   attr_accessor :card, :sets, :market_price, :price_fluctuate#, :image
-  @@all_cards = []
   @@modern_up = []
+  @@modern_down = []
+  @@standard_up = []
+  @@standard_down = []
+
   ATTRIBUTES = [
       "Card:",
       "Set:",
@@ -10,28 +13,35 @@ class MTG
   # "Image URL:"
   ]
 
-  #need to make instance methods from attr_accessor be associated with
-  #the values I scrape from the website, all instances will be recorded
-  #into class variable @@all_cards with the recorded paired method/values.
+  #new instance will be created with already assigned values to MTG attrs
   def initialize(attributes)
     attributes.each {|key, value| self.send("#{key}=", value)}
   end
 
   def self.create_modern_up(attributes)
-    cards = MTG.new(attributes)
-    cards.save_modern_up
-    cards
+    #allows cards instance to auto return thanks to tap implementation
+    cards = MTG.new(attributes).tap {|card| card.save_modern_up}
+  end
+
+  def self.create_modern_down(attributes)
+    cards = MTG.new(attributes).tap {|card| card.save_modern_down}
+  end
+
+  def self.create_standard_up(attributes)
+    cards = MTG.new(attributes).tap {|card| card.save_standard_up}
+  end
+
+  def self.create_standard_down(attributes)
+    cards = MTG.new(attributes).tap {|card| card.save_standard_down}
   end
 
   def self.all
-    #iterate through each instance of MTG made from Parser.scrape_cards
-    #that was appended into @@all_cards during initialization
+    #iterate through each instance that was appended into class variable during initialization
     @@modern_up.each_with_index do |card, number|
-      #iterate through each instance method that was defined for
-      #the instance variable of MTG from key/value pairs of Parser.scrape_cards
       puts ""
       puts "|- #{number + 1} -|".fg COLORS[4]
       puts ""
+      #iterate through each instance method that was defined for the stored instance variable
       card.instance_variables.each_with_index do |value, index|
         #returns the value of the instance method applied to the instance
         #with an index value of the first/last, key/value pairs ordered in Parser.scrape_cards
@@ -51,6 +61,18 @@ class MTG
 
   def save_modern_up
     @@modern_up << self
+  end
+
+  def save_modern_down
+    @@modern_down << self
+  end
+
+  def save_standard_up
+    @@standard_up << self
+  end
+
+  def save_standard_down
+    @@standard_down << self
   end
 
 end
