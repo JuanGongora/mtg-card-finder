@@ -55,9 +55,9 @@ class MTG
     end
   end
 
-  def self.destroy
-    @@all_cards.clear
-  end
+  # def self.destroy
+  #   @@all_cards.clear
+  # end
 
   def save_modern_up
     @@modern_up << self

@@ -16,7 +16,7 @@ class Parser
   # end
 
   def self.scrape_cards
-    MTG.destroy
+    # MTG.destroy
     #Klass.remove_table
     # @@overall_format_options[4].call
     #Klass.create_table
@@ -26,7 +26,7 @@ class Parser
       self.card_counter
       doc.css(@@overall_format_options[0]).each do |row|
         #parsing is now initialized into MTG class, with key/value pairs for its scraped attributes
-        row = MTG.create_modern_up(hash = {
+        row = self.parser_format(hash = {
             card: row.css(".card a")[0].text,
             sets: row.css(".set a")[0].text,
             market_price: row.css(".value")[0].text.split[0].gsub!("$", "").to_f,
@@ -65,18 +65,26 @@ class Parser
       when 1
         #the methods at the end of these arrays are stored references that can be called externally with the .call method #=>  http://stackoverflow.com/questions/13948910/ruby-methods-as-array-elements-how-do-they-work
         @@overall_format_options = ["#top50Standard tr", "top", "Standard", "#{"gainers".fg COLORS[4]}", StandardRise.method(:remove_table), StandardRise.method(:create_table), StandardRise, StandardRise.method(:make_csv_file)]
-        # @@overall_format_options[5].call
       when 2
         @@overall_format_options = ["#top50Modern tr", "top", "Modern", "#{"gainers".fg COLORS[4]}", ModernRise.method(:remove_table), ModernRise.method(:create_table), ModernRise, ModernRise.method(:make_csv_file)]
-        # @@overall_format_options[5].call
       when 3
         @@overall_format_options = ["#bottom50Standard tr", "bottom", "Standard", "#{"crashers".fg COLORS[6]}", StandardFall.method(:remove_table), StandardFall.method(:create_table), StandardFall, StandardFall.method(:make_csv_file)]
-        # @@overall_format_options[5].call
       when 4
         @@overall_format_options = ["#bottom50Modern tr", "bottom", "Modern", "#{"crashers".fg COLORS[6]}", ModernFall.method(:remove_table), ModernFall.method(:create_table), ModernFall, ModernFall.method(:make_csv_file)]
-        # @@overall_format_options[5].call
       else
         CLI.set_input
+    end
+  end
+
+  def self.parser_format(attributes)
+    if "#{@@overall_format_options[6]}" == "StandardRise"
+      MTG.create_standard_up(attributes)
+    elsif "#{@@overall_format_options[6]}" == "ModernRise"
+      MTG.create_modern_up(attributes)
+    elsif "#{@@overall_format_options[6]}" == "StandardFall"
+      MTG.create_standard_down(attributes)
+    else "#{@@overall_format_options[6]}" == "ModernFall"
+      MTG.create_modern_down(attributes)
     end
   end
 
