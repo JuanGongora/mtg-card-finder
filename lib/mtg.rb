@@ -1,6 +1,7 @@
 class MTG
   attr_accessor :card, :sets, :market_price, :price_fluctuate#, :image
   @@all_cards = []
+  @@modern_up = []
   ATTRIBUTES = [
       "Card:",
       "Set:",
@@ -14,13 +15,18 @@ class MTG
   #into class variable @@all_cards with the recorded paired method/values.
   def initialize(attributes)
     attributes.each {|key, value| self.send("#{key}=", value)}
-    @@all_cards << self
+  end
+
+  def self.create_modern_up(attributes)
+    cards = MTG.new(attributes)
+    cards.save_modern_up
+    cards
   end
 
   def self.all
     #iterate through each instance of MTG made from Parser.scrape_cards
     #that was appended into @@all_cards during initialization
-    @@all_cards.each_with_index do |card, number|
+    @@modern_up.each_with_index do |card, number|
       #iterate through each instance method that was defined for
       #the instance variable of MTG from key/value pairs of Parser.scrape_cards
       puts ""
@@ -41,6 +47,10 @@ class MTG
 
   def self.destroy
     @@all_cards.clear
+  end
+
+  def save_modern_up
+    @@modern_up << self
   end
 
 end

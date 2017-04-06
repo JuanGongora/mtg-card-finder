@@ -26,7 +26,7 @@ class Parser
       self.card_counter
       doc.css(@@overall_format_options[0]).each do |row|
         #parsing is now initialized into MTG class, with key/value pairs for its scraped attributes
-        row = MTG.new(hash = {
+        row = MTG.create_modern_up(hash = {
             card: row.css(".card a")[0].text,
             sets: row.css(".set a")[0].text,
             market_price: row.css(".value")[0].text.split[0].gsub!("$", "").to_f,
