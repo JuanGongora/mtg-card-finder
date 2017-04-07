@@ -87,4 +87,20 @@ class MTG
     self.all(@@standard_down)
   end
 
+  def self.modern_up
+    @@modern_up
+  end
+
+  def self.modern_down
+    @@modern_down
+  end
+
+  def self.standard_up
+    @@standard_up
+  end
+
+  def self.standard_down
+    @@standard_down
+  end
+
 end

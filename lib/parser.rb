@@ -17,7 +17,11 @@ class Parser
 
   def self.scrape_cards
     #checks if an empty table is a true statement
-    if @@overall_format_options[6].table_exists? == true
+    # @@overall_format_options[6].table_exists? == false || @@overall_format_options[6].table_exists? == nil
+    if @@overall_format_options[9].call.empty? == false
+      self.display_cards
+      # @@overall_format_options[6].table_exists? == true
+    else @@overall_format_options[9].call.empty? == true
       @@overall_format_options[5].call
       doc = Nokogiri::HTML(open("./fixtures/test.html"))
       self.card_counter
@@ -36,9 +40,6 @@ class Parser
         #since a stored method in an array can't have a locally passed argument I compromised by just having the class name passed instead
         @@overall_format_options[6].create(hash)
       end
-    else
-      puts "loading cards..."
-      self.display_cards
     end
   end
 
@@ -62,13 +63,13 @@ class Parser
     case input
       when 1
         #the methods at the end of these arrays are stored references that can be called externally with the .call method #=>  http://stackoverflow.com/questions/13948910/ruby-methods-as-array-elements-how-do-they-work
-        @@overall_format_options = ["#top50Standard tr", "top", "Standard", "#{"gainers".fg COLORS[4]}", StandardRise.method(:remove_table), StandardRise.method(:create_table), StandardRise, StandardRise.method(:make_csv_file), MTG.method(:search_standard_up)]
+        @@overall_format_options = ["#top50Standard tr", "top", "Standard", "#{"gainers".fg COLORS[4]}", StandardRise.method(:remove_table), StandardRise.method(:create_table), StandardRise, StandardRise.method(:make_csv_file), MTG.method(:search_standard_up), MTG.method(:standard_up)]
       when 2
-        @@overall_format_options = ["#top50Modern tr", "top", "Modern", "#{"gainers".fg COLORS[4]}", ModernRise.method(:remove_table), ModernRise.method(:create_table), ModernRise, ModernRise.method(:make_csv_file), MTG.method(:search_modern_up)]
+        @@overall_format_options = ["#top50Modern tr", "top", "Modern", "#{"gainers".fg COLORS[4]}", ModernRise.method(:remove_table), ModernRise.method(:create_table), ModernRise, ModernRise.method(:make_csv_file), MTG.method(:search_modern_up), MTG.method(:modern_up)]
       when 3
-        @@overall_format_options = ["#bottom50Standard tr", "bottom", "Standard", "#{"crashers".fg COLORS[6]}", StandardFall.method(:remove_table), StandardFall.method(:create_table), StandardFall, StandardFall.method(:make_csv_file), MTG.method(:search_standard_down)]
+        @@overall_format_options = ["#bottom50Standard tr", "bottom", "Standard", "#{"crashers".fg COLORS[6]}", StandardFall.method(:remove_table), StandardFall.method(:create_table), StandardFall, StandardFall.method(:make_csv_file), MTG.method(:search_standard_down), MTG.method(:standard_down)]
       when 4
-        @@overall_format_options = ["#bottom50Modern tr", "bottom", "Modern", "#{"crashers".fg COLORS[6]}", ModernFall.method(:remove_table), ModernFall.method(:create_table), ModernFall, ModernFall.method(:make_csv_file), MTG.method(:search_modern_down)]
+        @@overall_format_options = ["#bottom50Modern tr", "bottom", "Modern", "#{"crashers".fg COLORS[6]}", ModernFall.method(:remove_table), ModernFall.method(:create_table), ModernFall, ModernFall.method(:make_csv_file), MTG.method(:search_modern_down), MTG.method(:modern_down)]
       else
         CLI.set_input
     end

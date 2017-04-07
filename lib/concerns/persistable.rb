@@ -48,7 +48,10 @@ module Persistable
       SQL
 
       name = DB[:conn].execute(sql, name)
-      name.nil?
+      display = name.nil?
+      if display == false
+        true
+      end
     end
 
     def make_csv_file
