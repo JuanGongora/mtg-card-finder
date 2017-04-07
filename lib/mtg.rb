@@ -18,6 +18,22 @@ class MTG
     attributes.each {|key, value| self.send("#{key}=", value)}
   end
 
+  def save_modern_up
+    @@modern_up << self
+  end
+
+  def save_modern_down
+    @@modern_down << self
+  end
+
+  def save_standard_up
+    @@standard_up << self
+  end
+
+  def save_standard_down
+    @@standard_down << self
+  end
+
   def self.create_modern_up(attributes)
     #allows cards instance to auto return thanks to tap implementation
     cards = MTG.new(attributes).tap {|card| card.save_modern_up}
@@ -74,21 +90,5 @@ class MTG
   # def self.destroy
   #   @@all_cards.clear
   # end
-
-  def save_modern_up
-    @@modern_up << self
-  end
-
-  def save_modern_down
-    @@modern_down << self
-  end
-
-  def save_standard_up
-    @@standard_up << self
-  end
-
-  def save_standard_down
-    @@standard_down << self
-  end
 
 end
