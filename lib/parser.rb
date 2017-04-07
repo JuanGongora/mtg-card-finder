@@ -16,11 +16,8 @@ class Parser
   # end
 
   def self.scrape_cards
-    # MTG.destroy
-    #Klass.remove_table
-    # @@overall_format_options[4].call
-    #Klass.create_table
-    if @@overall_format_options[6].table_exists? == false
+    #checks if an empty table is a true statement
+    if @@overall_format_options[6].table_exists? == true
       @@overall_format_options[5].call
       doc = Nokogiri::HTML(open("./fixtures/test.html"))
       self.card_counter
@@ -40,7 +37,8 @@ class Parser
         @@overall_format_options[6].create(hash)
       end
     else
-      puts "loading..."
+      puts "loading cards..."
+      self.display_cards
     end
   end
 
@@ -78,13 +76,13 @@ class Parser
 
   #used within self.scrape_cards, it assists with the assigning of instances to the preferred class var in MTG
   def self.parser_format(attributes)
-    if "#{@@overall_format_options[6]}" == "StandardRise"
+    if self.format_name == "StandardRise"
       MTG.create_standard_up(attributes)
-    elsif "#{@@overall_format_options[6]}" == "ModernRise"
+    elsif self.format_name == "ModernRise"
       MTG.create_modern_up(attributes)
-    elsif "#{@@overall_format_options[6]}" == "StandardFall"
+    elsif self.format_name == "StandardFall"
       MTG.create_standard_down(attributes)
-    else "#{@@overall_format_options[6]}" == "ModernFall"
+    else self.format_name == "ModernFall"
       MTG.create_modern_down(attributes)
     end
   end

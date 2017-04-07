@@ -87,8 +87,4 @@ class MTG
     self.all(@@standard_down)
   end
 
-  # def self.destroy
-  #   @@all_cards.clear
-  # end
-
 end
