@@ -16,15 +16,13 @@ class Parser
   # end
 
   def self.scrape_cards
-    #checks if an empty table is a true statement
-    # @@overall_format_options[6].table_exists? == false || @@overall_format_options[6].table_exists? == nil
+    self.card_counter
+    #checks if the class var array for the MTG class is empty or not
     if @@overall_format_options[9].call.empty? == false
-      self.display_cards
-      # @@overall_format_options[6].table_exists? == true
+      MTG.store_temp_array(@@overall_format_options[9].call)
     else @@overall_format_options[9].call.empty? == true
       @@overall_format_options[5].call
       doc = Nokogiri::HTML(open("./fixtures/test.html"))
-      self.card_counter
       doc.css(@@overall_format_options[0]).each do |row|
         #parsing is now initialized into MTG class, with key/value pairs for its scraped attributes
         row = self.parser_format(hash = {

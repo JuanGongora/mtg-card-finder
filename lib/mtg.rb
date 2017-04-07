@@ -4,6 +4,7 @@ class MTG
   @@modern_down = []
   @@standard_up = []
   @@standard_down = []
+  @@temp_array = []
 
   ATTRIBUTES = [
       "Card:",
@@ -57,18 +58,28 @@ class MTG
       puts ""
       puts "|- #{number + 1} -|".fg COLORS[4]
       puts ""
-      #iterate through each instance method that was defined for the stored instance variable
-      card.instance_variables.each_with_index do |value, index|
-        #returns the value of the instance method applied to the instance
-        #with an index value of the first/last, key/value pairs ordered in Parser.scrape_cards
-        #associates a named definition of the values by titling it from constant ATTRIBUTES
-        if index < 4
-          puts "#{ATTRIBUTES[index].fg COLORS[2]} #{card.instance_variable_get(value)}"
+      unless number == Parser.table_length
+        #iterate through each instance method that was defined for the stored instance variable
+        card.instance_variables.each_with_index do |value, index|
+          #returns the value of the instance method applied to the instance
+          #with an index value of the first/last, key/value pairs ordered in Parser.scrape_cards
+          #associates a named definition of the values by titling it from constant ATTRIBUTES
+          if index < 4
+            puts "#{ATTRIBUTES[index].fg COLORS[2]} #{card.instance_variable_get(value)}"
+          end
         end
       end
       puts ""
       print "                                                 ".bg COLORS[7]
     end
+  end
+
+  #hack that resolves glitch that would display duplicate
+  #recursions in the selected cards to show by user request in CLI
+  def self.store_temp_array(array)
+    @@temp_array = array
+    self.all(@@temp_array)
+    @@temp_array.clear
   end
 
   def self.search_modern_up

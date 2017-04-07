@@ -9,8 +9,7 @@ class ModernFall
     :sets => "TEXT",
     :market_price => "INTEGER",
     :price_fluctuate => "TEXT",
-    :image => "TEXT",
-    :format => "TEXT"
+    :image => "TEXT"
   }
 
   #reader that can be accessed by Persistable module to know the unique class's constant
