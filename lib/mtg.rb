@@ -58,7 +58,8 @@ class MTG
       puts ""
       puts "|- #{number + 1} -|".fg COLORS[4]
       puts ""
-      unless number == Parser.table_length
+        #line below helps resolve glitch that allows 'ghost/invalid' cards to be selected from Parser.purchase
+        if number < Parser.table_length
         #iterate through each instance method that was defined for the stored instance variable
         card.instance_variables.each_with_index do |value, index|
           #returns the value of the instance method applied to the instance
@@ -75,7 +76,7 @@ class MTG
   end
 
   #hack that resolves glitch that would display duplicate
-  #recursions in the selected cards to show by user request in CLI
+  #recursions in the selected cards to show by user request in CLI.set_input
   def self.store_temp_array(array)
     @@temp_array = array
     self.all(@@temp_array)

@@ -18,9 +18,12 @@ class Parser
   def self.scrape_cards
     self.card_counter
     #checks if the class var array for the MTG class is empty or not
-    if @@overall_format_options[9].call.empty? == false
+    if @@overall_format_options[9].call.empty? == false && @@overall_format_options[6].table_exists? == true
+      #checks if an empty table is a true statement
+ # @@overall_format_options[6].table_exists? == false || @@overall_format_options[6].table_exists? == nil
       MTG.store_temp_array(@@overall_format_options[9].call)
-    else @@overall_format_options[9].call.empty? == true
+    else @@overall_format_options[9].call.empty? == true && @@overall_format_options[6].table_exists? == false || @@overall_format_options[6].table_exists? == nil
+        # @@overall_format_options[6].table_exists? == true
       @@overall_format_options[5].call
       doc = Nokogiri::HTML(open("./fixtures/test.html"))
       doc.css(@@overall_format_options[0]).each do |row|
