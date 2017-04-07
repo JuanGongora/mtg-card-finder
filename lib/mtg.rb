@@ -55,17 +55,20 @@ class MTG
     end
   end
 
-  def self.format_choice(option)
-    case option
-      when option == 1
-        self.all(@@standard_up)
-      when option == 2
-        self.all(@@modern_up)
-      when option == 3
-        self.all(@@standard_down)
-      when option == 4
-        self.all(@@modern_down)
-    end
+  def self.search_modern_up
+    self.all(@@modern_up)
+  end
+
+  def self.search_modern_down
+    self.all(@@modern_down)
+  end
+
+  def self.search_standard_up
+    self.all(@@standard_up)
+  end
+
+  def self.search_standard_down
+    self.all(@@standard_down)
   end
 
   # def self.destroy

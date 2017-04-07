@@ -33,10 +33,7 @@ class CLI
     self.set_text
     self.set_input
     Parser.scrape_cards
-    puts "type here"
-    option = gets.strip.to_i
-    MTG.format_choice(option)
-    # MTG.all
+    self.format_this
     puts ""
     puts "-------------------------------------------------"
     puts ""
@@ -63,6 +60,22 @@ class CLI
     else
       puts "That is not a valid option"
       self.options_input
+    end
+  end
+
+  def self.format_this
+    input = gets.strip.to_i
+    if input == 1
+      MTG.search_standard_up
+    elsif input == 2
+      MTG.search_modern_up
+    elsif input == 3
+      MTG.search_standard_down
+    elsif input == 4
+      MTG.search_modern_down
+    else
+      puts "That is not a valid option"
+      self.format_this
     end
   end
 

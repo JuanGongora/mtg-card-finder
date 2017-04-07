@@ -64,22 +64,19 @@ class Parser
     case input
       when 1
         #the methods at the end of these arrays are stored references that can be called externally with the .call method #=>  http://stackoverflow.com/questions/13948910/ruby-methods-as-array-elements-how-do-they-work
-        # MTG.format_choice(1)
         @@overall_format_options = ["#top50Standard tr", "top", "Standard", "#{"gainers".fg COLORS[4]}", StandardRise.method(:remove_table), StandardRise.method(:create_table), StandardRise, StandardRise.method(:make_csv_file)]
       when 2
-        # MTG.format_choice(2)
         @@overall_format_options = ["#top50Modern tr", "top", "Modern", "#{"gainers".fg COLORS[4]}", ModernRise.method(:remove_table), ModernRise.method(:create_table), ModernRise, ModernRise.method(:make_csv_file)]
       when 3
-        # MTG.format_choice(3)
         @@overall_format_options = ["#bottom50Standard tr", "bottom", "Standard", "#{"crashers".fg COLORS[6]}", StandardFall.method(:remove_table), StandardFall.method(:create_table), StandardFall, StandardFall.method(:make_csv_file)]
       when 4
-        # MTG.format_choice(4)
         @@overall_format_options = ["#bottom50Modern tr", "bottom", "Modern", "#{"crashers".fg COLORS[6]}", ModernFall.method(:remove_table), ModernFall.method(:create_table), ModernFall, ModernFall.method(:make_csv_file)]
       else
         CLI.set_input
     end
   end
 
+  #used within self.scrape_cards, it assists with the assigning of instances to the preferred class var in MTG
   def self.parser_format(attributes)
     if "#{@@overall_format_options[6]}" == "StandardRise"
       MTG.create_standard_up(attributes)
@@ -127,4 +124,5 @@ class Parser
       @@overall_format_options[4].call
     end
   end
+
 end
