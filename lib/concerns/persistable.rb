@@ -54,6 +54,28 @@ module Persistable
       end
     end
 
+    def table_empty?
+      sql = <<-SQL
+          SELECT * FROM #{self.table_name}
+      SQL
+
+      table = DB[:conn].execute(sql)
+      check = table.empty?
+      if check == true
+        true
+      end
+    end
+
+    def table_rows
+      sql = <<-SQL
+      SELECT COUNT(*) FROM #{self.table_name}
+      SQL
+
+      table = DB[:conn].execute(sql)
+      rows = table.flatten.join.to_i
+      rows
+    end
+
     def make_csv_file
       #collects everything in sql table
       rows = DB[:conn].execute("SELECT * FROM #{self.table_name}")

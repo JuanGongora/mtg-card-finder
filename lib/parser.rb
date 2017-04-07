@@ -18,29 +18,29 @@ class Parser
   def self.scrape_cards
     self.card_counter
     #checks if the class var array for the MTG class is empty or not
-    if @@overall_format_options[9].call.empty? == false && @@overall_format_options[6].table_exists? == true
-      #checks if an empty table is a true statement
- # @@overall_format_options[6].table_exists? == false || @@overall_format_options[6].table_exists? == nil
+    if @@overall_format_options[9].call.empty? == false
       MTG.store_temp_array(@@overall_format_options[9].call)
-    else @@overall_format_options[9].call.empty? == true && @@overall_format_options[6].table_exists? == false || @@overall_format_options[6].table_exists? == nil
-        # @@overall_format_options[6].table_exists? == true
-      @@overall_format_options[5].call
-      doc = Nokogiri::HTML(open("./fixtures/test.html"))
-      doc.css(@@overall_format_options[0]).each do |row|
-        #parsing is now initialized into MTG class, with key/value pairs for its scraped attributes
-        row = self.parser_format(hash = {
-            card: row.css(".card a")[0].text,
-            sets: row.css(".set a")[0].text,
-            market_price: row.css(".value")[0].text.split[0].gsub!("$", "").to_f,
-            price_fluctuate: row.css("td:last-child").text
-            #image: Nokogiri::HTML(open("./fixtures/cards.html")).css(".card-img img").attribute("src").value
+    else @@overall_format_options[9].call.empty? == true
+    #checks if a table already exists in order to avoid duplicate glitch in db
+    @@overall_format_options[5].call if @@overall_format_options[6].table_exists? == false || @@overall_format_options[6].table_exists? == nil
+    #browser parsing begins in local variable 'doc'
+    doc = Nokogiri::HTML(open("./fixtures/test.html"))
+    doc.css(@@overall_format_options[0]).each do |row|
+      #parsing is now initialized into MTG class, with key/value pairs for its scraped attributes
+      row = self.parser_format(hash = {
+          card: row.css(".card a")[0].text,
+          sets: row.css(".set a")[0].text,
+          market_price: row.css(".value")[0].text.split[0].gsub!("$", "").to_f,
+          price_fluctuate: row.css("td:last-child").text
+          #image: Nokogiri::HTML(open("./fixtures/cards.html")).css(".card-img img").attribute("src").value
 
-            # image: Nokogiri::HTML(open("http://www.mtgprice.com#{row.css(".card a").attribute("href").value}")).css(".card-img img").attribute("src").value
-            # ^^ had to go another level deep to access a better quality image from its full product listing
-        })
-        #since a stored method in an array can't have a locally passed argument I compromised by just having the class name passed instead
-        @@overall_format_options[6].create(hash)
-      end
+          # image: Nokogiri::HTML(open("http://www.mtgprice.com#{row.css(".card a").attribute("href").value}")).css(".card-img img").attribute("src").value
+          # ^^ had to go another level deep to access a better quality image from its full product listing
+      })
+      #since a stored method in an array can't have a locally passed argument I compromised by just having the class name passed instead
+      #I also make sure that no duplicate information may be transferred into the table by comparing row count
+      @@overall_format_options[6].create(hash) if @@overall_format_options[6].table_rows < self.table_length
+    end
     end
   end
 
@@ -102,8 +102,6 @@ class Parser
   end
 
   def self.purchase
-    #since a stored method in an array can't have a locally passed argument
-    #I compromised by just having the class name passed instead
     input = gets.strip.to_i
     @@overall_format_options[6].buy_link(input)
   end
