@@ -41,19 +41,6 @@ module Persistable
       DB[:conn].execute(sql)
     end
 
-    def table_exists?
-      name = "#{self.table_name}"
-      sql = <<-SQL
-          SELECT name FROM sqlite_master WHERE type ='table' AND name =(?)
-      SQL
-
-      name = DB[:conn].execute(sql, name)
-      display = name.nil?
-      if display == false
-        true
-      end
-    end
-
     def table_empty?
       sql = <<-SQL
           SELECT * FROM #{self.table_name}
