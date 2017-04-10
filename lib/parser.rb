@@ -1,7 +1,7 @@
 class Parser
   @@overall_card_rows = nil
   @@overall_format_options = []
-  @@time_review = nil
+  @@time_review = []
 
   # def self.scrape
   # agent = Mechanize.new
@@ -36,7 +36,7 @@ class Parser
             # image: Nokogiri::HTML(open("http://www.mtgprice.com#{row.css(".card a").attribute("href").value}")).css(".card-img img").attribute("src").value
             # ^^ had to go another level deep to access a better quality image from its full product listing
         })
-        #since a stored method in an array can't have a locally passed argument I compromised by just having the class name passed instead
+        #since a stored method in an array can't have a locally passed argument I compromised by just having the class name passed from the class var array to the method
         #I also make sure that no duplicate information may be transferred into the table by comparing row count
         @@overall_format_options[6].create(hash) if @@overall_format_options[6].table_rows < self.table_length
       end
@@ -116,14 +116,12 @@ class Parser
 
   def self.update_date
     time = Nokogiri::HTML(open("./fixtures/test.html"))
-    @@time_review = time.css(".span6 h3")[0].text.split.join(" ").gsub!("Updated:", "")
+    time.css(".span6 h3")[0].text.split.join(" ").gsub!("Updated:", "")
   end
 
-  def self.update_query_info
-    current = Nokogiri::HTML(open("./fixtures/test.html")).css(".span6 h3")[0].text.split.join(" ").gsub!("Updated:", "")[0..10]
-    if current != @@time_review[0..10]
-      @@overall_format_options[4].call
-    end
+  def self.reset_query_info
+    @@time_review = [StandardRise.method(:remove_table), ModernRise.method(:remove_table), StandardFall.method(:remove_table), ModernFall.method(:remove_table)]
+    @@time_review.each_with_index {|method, index| @@time_review[index].call}
   end
 
 end

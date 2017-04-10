@@ -1,6 +1,7 @@
 class CLI
 
   def self.start
+    Parser.reset_query_info
     puts "Powered by MTG$ (mtgprice.com)"; sleep(0.5);
     puts "-------------------------------------------------"
     puts "Please select your price trend Format:"
