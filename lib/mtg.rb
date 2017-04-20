@@ -1,5 +1,5 @@
 class MTG
-  attr_accessor :card, :sets, :market_price, :price_fluctuate#, :image
+  attr_accessor :card, :sets, :market_price, :price_fluctuate, :image
   @@modern_up = []
   @@modern_down = []
   @@standard_up = []
@@ -10,8 +10,8 @@ class MTG
       "Card:",
       "Set:",
       "Market Value:",
-      "Rise/Fall amount:"
-  # "Image URL:"
+      "Rise/Fall amount:",
+      "Image URL:"
   ]
 
   #new instance will be created with already assigned values to MTG attrs
