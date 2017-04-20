@@ -11,9 +11,6 @@ class CLI
     self.set_choosing
   end
 
-#to do:
-#if the Parser.update_date is still the same, don't delete the sql table, if not delete to remake it
-
   def self.set_text
     puts "#{"[1]".fg COLORS[3]} Standard: #{"rising".fg COLORS[4]} cards today"
     puts "#{"[2]".fg COLORS[3]} Modern: #{"rising".fg COLORS[4]} cards today"

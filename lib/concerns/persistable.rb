@@ -102,7 +102,7 @@ module Persistable
         #create url for purchasing the chosen id card
         buy = "http://www.ebay.com/sch/?_nkw=#{word}&_sacat=0".fg COLORS[3]
         puts ""
-        puts "Please highlight and copy the #{"url".fg COLORS[3]} below and paste it to your preferred browser:"
+        puts "Please highlight, right click and copy the #{"url".fg COLORS[3]} below and paste it to your preferred browser:"
         puts "-------------------------------------------------------------------------------"
         puts ""
         puts buy
@@ -168,20 +168,6 @@ module Persistable
   end
 
   module InstanceMethods
-
-    def destroy
-      sql = <<-SQL
-          DELETE FROM #{self.class.table_name} WHERE id=(?)
-      SQL
-
-      DB[:conn].execute(sql, self.id)
-    end
-
-    #the website below gives an excellent explanation to how this method works
-    # http://www.blackbytes.info/2017/03/ruby-equality/?tl_inbound=1&tl_target_all=1&tl_form_type=1&tl_period_type=1
-    def ==(other_card)
-      self.id == other_card.id
-    end
 
     def save
       #if the card has already been saved, then call update method
