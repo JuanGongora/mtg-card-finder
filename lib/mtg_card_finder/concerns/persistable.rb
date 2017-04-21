@@ -1,5 +1,5 @@
 #a dynamic module that contains data that can be re-used, hence the name
-module MTGCardFinder::Persistable
+module Persistable
 
   module ClassMethods
 
@@ -95,7 +95,7 @@ module MTGCardFinder::Persistable
       rescue
         #instead of getting an undefined method error in .card & .sets for nil:NilClass
         #just re-run method until user sets it to a true value
-         MTGCardFinder::Parser.purchase
+        Parser.purchase
       else
         #replace whitespace chars
         word.gsub!(/\s+/m, '%20')
@@ -103,7 +103,7 @@ module MTGCardFinder::Persistable
         buy = "http://www.ebay.com/sch/?_nkw=#{word}&_sacat=0".fg COLORS[3]
         puts ""
         puts "Please highlight, right click and copy the #{"url".fg COLORS[3]} below and paste it to your preferred browser:"
-        puts "-------------------------------------------------------------------------------"
+        puts "--------------------------------------------------------------------------------------------"
         puts ""
         puts buy
         puts ""

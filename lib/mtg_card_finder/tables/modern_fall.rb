@@ -1,3 +1,4 @@
+require_relative '../concerns/persistable'
 class ModernFall
   include Persistable::InstanceMethods
   extend Persistable::ClassMethods

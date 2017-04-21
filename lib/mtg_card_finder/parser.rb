@@ -1,4 +1,4 @@
-class MTGCardFinder::Parser
+class Parser
   @@overall_card_rows = nil
   @@overall_format_options = []
   @@time_review = []
@@ -8,7 +8,7 @@ class MTGCardFinder::Parser
     #checks if the class variable array for the MTG class is empty or not
     if @@overall_format_options[9].call.empty? == false
       #if user has already parsed the same content before, then scrape the locally stored variables instead of the website
-      MTGCardFinder::MTG.store_temp_array(@@overall_format_options[9].call)
+      MTG.store_temp_array(@@overall_format_options[9].call)
     else @@overall_format_options[9].call.empty? == true
       #creates a new sql table for gathering the 'to be' scraped content
       @@overall_format_options[5].call
@@ -78,28 +78,28 @@ class MTGCardFinder::Parser
     case input
       when 1
         #the methods at the end of these arrays are stored references that can be called externally with the .call method #=>  http://stackoverflow.com/questions/13948910/ruby-methods-as-array-elements-how-do-they-work
-        @@overall_format_options = ["#top50Standard tr", "top", "Standard", "#{"gainers".fg COLORS[4]}", MTGCardFinder::StandardRise.method(:remove_table), MTGCardFinder::StandardRise.method(:create_table), MTGCardFinder::StandardRise, MTGCardFinder::StandardRise.method(:make_csv_file), MTGCardFinder::MTG.method(:search_standard_up), MTGCardFinder::MTG.method(:standard_up)]
+        @@overall_format_options = ["#top50Standard tr", "top", "Standard", "#{"gainers".fg COLORS[4]}", StandardRise.method(:remove_table), StandardRise.method(:create_table), StandardRise, StandardRise.method(:make_csv_file), MTG.method(:search_standard_up), MTG.method(:standard_up)]
       when 2
-        @@overall_format_options = ["#top50Modern tr", "top", "Modern", "#{"gainers".fg COLORS[4]}", MTGCardFinder::ModernRise.method(:remove_table), MTGCardFinder::ModernRise.method(:create_table), MTGCardFinder::ModernRise, MTGCardFinder::ModernRise.method(:make_csv_file), MTGCardFinder::MTG.method(:search_modern_up), MTGCardFinder::MTG.method(:modern_up)]
+        @@overall_format_options = ["#top50Modern tr", "top", "Modern", "#{"gainers".fg COLORS[4]}", ModernRise.method(:remove_table), ModernRise.method(:create_table), ModernRise, ModernRise.method(:make_csv_file), MTG.method(:search_modern_up), MTG.method(:modern_up)]
       when 3
-        @@overall_format_options = ["#bottom50Standard tr", "bottom", "Standard", "#{"crashers".fg COLORS[6]}", MTGCardFinder::StandardFall.method(:remove_table), MTGCardFinder::StandardFall.method(:create_table), MTGCardFinder::StandardFall, MTGCardFinder::StandardFall.method(:make_csv_file), MTGCardFinder::MTG.method(:search_standard_down), MTGCardFinder::MTG.method(:standard_down)]
+        @@overall_format_options = ["#bottom50Standard tr", "bottom", "Standard", "#{"crashers".fg COLORS[6]}", StandardFall.method(:remove_table), StandardFall.method(:create_table), StandardFall, StandardFall.method(:make_csv_file), MTG.method(:search_standard_down), MTG.method(:standard_down)]
       when 4
-        @@overall_format_options = ["#bottom50Modern tr", "bottom", "Modern", "#{"crashers".fg COLORS[6]}", MTGCardFinder::ModernFall.method(:remove_table), MTGCardFinder::ModernFall.method(:create_table), MTGCardFinder::ModernFall, MTGCardFinder::ModernFall.method(:make_csv_file), MTGCardFinder::MTG.method(:search_modern_down), MTGCardFinder::MTG.method(:modern_down)]
+        @@overall_format_options = ["#bottom50Modern tr", "bottom", "Modern", "#{"crashers".fg COLORS[6]}", ModernFall.method(:remove_table), ModernFall.method(:create_table), ModernFall, ModernFall.method(:make_csv_file), MTG.method(:search_modern_down), MTG.method(:modern_down)]
       else
-        MTGCardFinder::CLI.set_input
+        CLI.set_input
     end
   end
 
   #used within self.scrape_cards, it assists with the assigning of instances to the preferred class variable in MTG
   def self.parser_format(attributes)
     if self.format_name == "StandardRise"
-      MTGCardFinder::MTG.create_standard_up(attributes)
+      MTG.create_standard_up(attributes)
     elsif self.format_name == "ModernRise"
-      MTGCardFinder::MTG.create_modern_up(attributes)
+      MTG.create_modern_up(attributes)
     elsif self.format_name == "StandardFall"
-      MTGCardFinder::MTG.create_standard_down(attributes)
+      MTG.create_standard_down(attributes)
     else self.format_name == "ModernFall"
-      MTGCardFinder::MTG.create_modern_down(attributes)
+      MTG.create_modern_down(attributes)
     end
   end
 
@@ -134,10 +134,10 @@ class MTGCardFinder::Parser
     time.css(".span6 h3")[0].text.split.join(" ").gsub!("Updated:", "")
   end
 
-  #used to clear the tables so that the next re-run will have new, updated content from the website
-  # def self.reset_query_info
-  #   @@time_review = [MTGCardFinder::StandardRise.method(:remove_table), MTGCardFinder::ModernRise.method(:remove_table), MTGCardFinder::StandardFall.method(:remove_table), MTGCardFinder::ModernFall.method(:remove_table)]
-  #   @@time_review.each_with_index {|method, index| @@time_review[index].call}
-  # end
+  # used to clear the tables so that the next re-run will have new, updated content from the website
+  def self.reset_query_info
+    @@time_review = [StandardRise.method(:remove_table), ModernRise.method(:remove_table), StandardFall.method(:remove_table), ModernFall.method(:remove_table)]
+    @@time_review.each_with_index {|method, index| @@time_review[index].call}
+  end
 
 end

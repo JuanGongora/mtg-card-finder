@@ -1,4 +1,5 @@
-class MTGCardFinder::StandardFall
+require_relative '../concerns/persistable'
+class StandardFall
   include Persistable::InstanceMethods
   extend Persistable::ClassMethods
 
