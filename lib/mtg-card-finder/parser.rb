@@ -1,14 +1,16 @@
-class Parser
+class MTGCardFinder::Parser
   @@overall_card_rows = nil
   @@overall_format_options = []
   @@time_review = []
 
   def self.scrape_cards
     self.card_counter
-    #checks if the class var array for the MTG class is empty or not
+    #checks if the class variable array for the MTG class is empty or not
     if @@overall_format_options[9].call.empty? == false
+      #if user has already parsed the same content before, then scrape the locally stored variables instead of the website
       MTG.store_temp_array(@@overall_format_options[9].call)
     else @@overall_format_options[9].call.empty? == true
+      #creates a new sql table for gathering the 'to be' scraped content
       @@overall_format_options[5].call
       #exception handling block implemented for possible errors (i.e. website is down)
       retries = 3
@@ -46,7 +48,7 @@ class Parser
               image: Nokogiri::HTML(open("http://www.mtgprice.com#{row.css(".card a").attribute("href").value}")).css(".card-img img").attribute("src").value
               # ^^ had to go another level deep to access a better quality image from its full product listing
           })
-          #since a stored method in an array can't have a locally passed argument I compromised by just having the class name passed from the class var array to the method
+          #since a stored method in an array can't have a locally passed argument I compromised by just having the class name passed from the class variable array to the method
           #I also make sure that no duplicate information may be transferred into the table by comparing the card row/number count
           @@overall_format_options[6].create(hash) if @@overall_format_options[6].table_rows < self.table_length
         end
@@ -88,7 +90,7 @@ class Parser
     end
   end
 
-  #used within self.scrape_cards, it assists with the assigning of instances to the preferred class var in MTG
+  #used within self.scrape_cards, it assists with the assigning of instances to the preferred class variable in MTG
   def self.parser_format(attributes)
     if self.format_name == "StandardRise"
       MTG.create_standard_up(attributes)
@@ -132,7 +134,7 @@ class Parser
     time.css(".span6 h3")[0].text.split.join(" ").gsub!("Updated:", "")
   end
 
-  #used to clear the tables so that the next re-run will have new, updated content from website
+  #used to clear the tables so that the next re-run will have new, updated content from the website
   def self.reset_query_info
     @@time_review = [StandardRise.method(:remove_table), ModernRise.method(:remove_table), StandardFall.method(:remove_table), ModernFall.method(:remove_table)]
     @@time_review.each_with_index {|method, index| @@time_review[index].call}

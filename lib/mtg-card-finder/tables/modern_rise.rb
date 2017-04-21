@@ -1,4 +1,4 @@
-class ModernRise
+class MTGCardFinder::ModernRise
   include Persistable::InstanceMethods
   extend Persistable::ClassMethods
 

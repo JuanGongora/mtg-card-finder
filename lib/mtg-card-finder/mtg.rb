@@ -1,4 +1,4 @@
-class MTG
+class MTGCardFinder::MTG
   attr_accessor :card, :sets, :market_price, :price_fluctuate, :image
   @@modern_up = []
   @@modern_down = []

@@ -1,4 +1,4 @@
-class StandardRise
+class MTGCardFinder::ModernFall
   include Persistable::InstanceMethods
   extend Persistable::ClassMethods
 

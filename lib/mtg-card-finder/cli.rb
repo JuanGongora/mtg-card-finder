@@ -1,4 +1,4 @@
-class CLI
+class MTGCardFinder::CLI
 
   def self.start
     Parser.reset_query_info
