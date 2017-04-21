@@ -1,12 +1,12 @@
 class MTGCardFinder::CLI
 
   def self.start
-    Parser.reset_query_info
+    # MTGCardFinder::Parser.reset_query_info
     puts "Powered by MTG$ (mtgprice.com)"; sleep(0.5);
     puts "-------------------------------------------------"
     puts "Please select your price trend Format:"
     puts "-------------------------------------------------"
-    puts "#{"|Last Update|".fg COLORS[6]}#{Parser.update_date}"
+    puts "#{"|Last Update|".fg COLORS[6]}#{MTGCardFinder::Parser.update_date}"
     puts "-------------------------------------------------"
     self.set_choosing
   end
@@ -31,8 +31,8 @@ class MTGCardFinder::CLI
   def self.set_choosing
     self.set_text
     self.set_input
-    Parser.scrape_cards
-    Parser.display_cards
+    MTGCardFinder::Parser.scrape_cards
+    MTGCardFinder::Parser.display_cards
     puts ""
     puts "-------------------------------------------------"
     puts ""
@@ -43,7 +43,7 @@ class MTGCardFinder::CLI
   def self.set_input
     sleep(1)
     puts "Please type out the #{"number".fg COLORS[3]} of the format you would like to see from above..."
-    Parser.select_format
+    MTGCardFinder::Parser.select_format
   end
 
   def self.options_input
@@ -52,13 +52,13 @@ class MTGCardFinder::CLI
       puts "Please select your price trend Format:"
       self.set_choosing
     elsif input == 2
-      Parser.csv
+      MTGCardFinder::Parser.csv
       sleep(2)
       self.options_text
       self.options_input
     elsif input == 3
       puts "Please type out the #{"number".fg COLORS[4]} from one of the above searched cards:"
-      Parser.purchase
+      MTGCardFinder::Parser.purchase
       sleep(2.5)
       self.options_text
       self.options_input

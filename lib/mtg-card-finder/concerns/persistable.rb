@@ -95,7 +95,7 @@ module Persistable
       rescue
         #instead of getting an undefined method error in .card & .sets for nil:NilClass
         #just re-run method until user sets it to a true value
-         Parser.purchase
+         MTGCardFinder::Parser.purchase
       else
         #replace whitespace chars
         word.gsub!(/\s+/m, '%20')

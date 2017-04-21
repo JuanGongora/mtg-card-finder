@@ -37,19 +37,19 @@ class MTGCardFinder::MTG
 
   def self.create_modern_up(attributes)
     #allows cards instance to auto return thanks to tap implementation
-    cards = MTG.new(attributes).tap {|card| card.save_modern_up}
+    cards = MTGCardFinder::MTG.new(attributes).tap {|card| card.save_modern_up}
   end
 
   def self.create_modern_down(attributes)
-    cards = MTG.new(attributes).tap {|card| card.save_modern_down}
+    cards = MTGCardFinder::MTG.new(attributes).tap {|card| card.save_modern_down}
   end
 
   def self.create_standard_up(attributes)
-    cards = MTG.new(attributes).tap {|card| card.save_standard_up}
+    cards = MTGCardFinder::MTG.new(attributes).tap {|card| card.save_standard_up}
   end
 
   def self.create_standard_down(attributes)
-    cards = MTG.new(attributes).tap {|card| card.save_standard_down}
+    cards = MTGCardFinder::MTG.new(attributes).tap {|card| card.save_standard_down}
   end
 
   def self.all(format)
