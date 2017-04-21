@@ -1,8 +1,19 @@
+PATH
+  remote: .
+  specs:
+    mtg-card-finder (0.0.1)
+      mechanize (~> 2.7.5)
+      nokogiri (~> 1.7.1)
+      require_all (~> 1.4)
+      rubysl-open-uri (~> 2.0)
+      sqlite3 (~> 1.3.13)
+      tco (~> 0.1.8)
+
 GEM
   remote: https://rubygems.org/
   specs:
     coderay (1.1.1)
-    domain_name (0.5.20170223)
+    domain_name (0.5.20170404)
       unf (>= 0.0.5, < 1.0.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
@@ -37,22 +48,17 @@ GEM
     tco (0.1.8)
     unf (0.1.4)
       unf_ext
-    unf_ext (0.0.7.2)
+    unf_ext (0.0.7.4)
     webrobots (0.1.2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (~> 1.13)
-  mechanize (~> 2.7.5)
-  nokogiri (~> 1.7.1)
+  bundler (~> 1.14)
+  mtg-card-finder!
   pry (~> 0.10.4)
   rake (~> 12.0)
-  require_all (~> 1.4)
-  rubysl-open-uri (~> 2.0)
-  sqlite3 (~> 1.3.13)
-  tco (~> 0.1.8)
 
 BUNDLED WITH
    1.14.6

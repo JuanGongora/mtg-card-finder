@@ -1,4 +1,4 @@
-class MTGCardFinder::ModernFall
+class ModernFall
   include Persistable::InstanceMethods
   extend Persistable::ClassMethods
 

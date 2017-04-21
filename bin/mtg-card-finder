@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require_relative '../lib/mtg-card-finder'
+require_relative '../lib/mtg_card_finder'
 
 MTGCardFinder::CLI.start

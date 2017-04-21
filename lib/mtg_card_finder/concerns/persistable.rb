@@ -1,5 +1,5 @@
 #a dynamic module that contains data that can be re-used, hence the name
-module Persistable
+module MTGCardFinder::Persistable
 
   module ClassMethods
 

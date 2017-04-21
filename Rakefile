@@ -1,4 +1,7 @@
+require "bundler/gem_tasks"
 require_relative 'config/environment' #everything is being operated from within here
+
+task :default => :spec
 
 task :console do #cutsom console initialization for testing
 
