@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    mtg-card-finder (0.1.0)
+    mtg-card-finder (0.1.1)
       mechanize (~> 2.7.5)
       nokogiri (~> 1.7.1)
       require_all (~> 1.4)
