@@ -19,19 +19,25 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install mtg-card-finder
+```ruby
+$ gem install mtg-card-finder
+```
 
 ## Usage
 Type the below on your terminal to begin the app:
 
+```ruby
 $ mtg-card-finder
+```
 
 When the application begins, choose between four different pricing options:
 
+```
 [1] Standard: rising cards today                                                                                          
 [2] Modern: rising cards today                                                                                             
 [3] Standard: crashing cards today                                                                                          
 [4] Modern: crashing cards today
+```
 
 After you have made your choice the app will load a list of the top 40-50 for the day.
 
@@ -40,10 +46,12 @@ and the amount that it has 'raised' or 'fallen' for the day.
 
 You will then be asked for four more additional options:
 
+```
 [1] search for a different format's market?                                                        
 [2] save the current card search listing into a CSV file?                                        
 [3] purchase one of the queried cards in the open market?                                             
 [4] exit the program?
+```
 
 Option 1 will let you search for another of the initially provided formats at the start of the application.
 Option 2 will locally save the queried listing into a .csv file.
