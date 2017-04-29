@@ -53,10 +53,10 @@ You will then be asked for four more additional options:
 [4] exit the program?
 ```
 
-Option 1 will let you search for another of the initially provided formats at the start of the application.
-Option 2 will locally save the queried listing into a .csv file.
-Option 3 will provide you with a url link that directs you to eBay's lowest priced bids for the chosen card.
-Option 4 exits the application.
+Option `1` will let you search for another of the initially provided formats at the start of the application.
+Option `2` will locally save the queried listing to your current directory.
+Option `3` will provide you with a url link that directs you to eBay's lowest priced bids for the chosen card.
+Option `4` exits the application.
 
 ## Development
 
