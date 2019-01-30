@@ -18,12 +18,12 @@ Gem::Specification.new do |spec|
   spec.executables   << "mtg-card-finder"
   spec.require_paths = ["lib", "db"]
 
-  spec.add_development_dependency "bundler", "~> 1.14"
+  spec.add_development_dependency "bundler", "~> 2.0.1"
   spec.add_development_dependency "rake", "~> 12.0"
   spec.add_development_dependency "pry", "~> 0.10.4"
   spec.add_dependency "rubysl-fileutils", "~> 2.0.3"
   spec.add_dependency "rubysl-open-uri", "~> 2.0"
-  spec.add_dependency "nokogiri", "~> 1.8.5"
+  spec.add_dependency "nokogiri", "~> 1.10.1"
   spec.add_dependency "tco", "~> 0.1.8"
   spec.add_dependency "sqlite3", "~> 1.3.13"
   spec.add_dependency "mechanize", "~> 2.7.5"
